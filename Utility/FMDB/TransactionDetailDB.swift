@@ -1,10 +1,3 @@
-//
-//  TransactionDetailDB.swift
-//  Homework
-//
-//  Created by 廖力頡 on 2022/2/18.
-//
-
 import Foundation
 
 class TransactionDetailDB: SQLModel {

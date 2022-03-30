@@ -1,10 +1,3 @@
-//
-//  DBManager.swift
-//  Homework
-//
-//  Created by AlexanderPan on 2021/5/7.
-//
-
 import Foundation
 import FMDB
 import RxSwift

@@ -1,10 +1,3 @@
-//
-//  FunctionViewController.swift
-//  Utility
-//
-//  Created by 廖力頡 on 2022/3/27.
-//
-
 import UIKit
 
 class FunctionViewController: UIViewController {

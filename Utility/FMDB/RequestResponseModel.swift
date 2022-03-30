@@ -1,10 +1,3 @@
-//
-//  RequestResponseModel.swift
-//  Utility
-//
-//  Created by 廖力頡 on 2022/3/28.
-//
-
 import Foundation
 
 struct TransactionPost: Codable {
