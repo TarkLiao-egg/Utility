@@ -27,6 +27,8 @@
 		52CDD34327F1F833009A25FB /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CDD34127F1F833009A25FB /* CoreDataModel.xcdatamodeld */; };
 		52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CDD34527F1FBC3009A25FB /* Extensions.swift */; };
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
+		CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B628000C3700FA81C8 /* AlertController.swift */; };
+		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		52CDD34227F1F833009A25FB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		52CDD34527F1FBC3009A25FB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
+		CECF95B628000C3700FA81C8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +93,7 @@
 		52C989DE27F067860048F4CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CECF95B528000C0B00FA81C8 /* Alert */,
 				52CDD34427F1FBB2009A25FB /* Tool */,
 				52C989F327F068C90048F4CD /* FunctionView */,
 				52CDD33627F1F6D3009A25FB /* Inject */,
@@ -176,6 +181,15 @@
 				EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CECF95B528000C0B00FA81C8 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				CECF95B628000C3700FA81C8 /* AlertController.swift */,
+				CECF95B828000C4100FA81C8 /* AlertUtil.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +315,7 @@
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */,
 				52CDD33827F1F6EE009A25FB /* Inject.swift in Sources */,
+				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
@@ -308,6 +323,7 @@
 				52CDD33527F1F4C0009A25FB /* FMDBController.swift in Sources */,
 				52CDD34027F1F7F9009A25FB /* CoreDataManager.swift in Sources */,
 				52CDD32B27F1E529009A25FB /* SQLModel.swift in Sources */,
+				CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */,
 				52CDD34327F1F833009A25FB /* CoreDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6A9VGNQPQ3;
+				DEVELOPMENT_TEAM = TVV8999XA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -472,7 +488,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tark.Utility;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tark.Utility2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
