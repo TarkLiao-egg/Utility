@@ -114,6 +114,7 @@ class FunctionCodeView: UIView {
             gradientBorderLayer.mask = borderShape
             gradientView.layer.addSublayer(gradientBorderLayer)
         } else {
+            gradientView.layer.cornerRadius = cornerRadius
             gradientView.layer.borderWidth = borderWidth
             gradientView.layer.borderColor = borderColor?.cgColor
         }

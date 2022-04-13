@@ -150,8 +150,11 @@ class SQLModel: NSObject, SQLModelProtocol {
         let key = primaryKey()
         let data = values()
         let db = FMDBManager.sharedInstance.db
-        if let rid = data[key] {
+        if var rid = data[key] {
             if db.open() {
+                if rid is String {
+                    rid = "'\(rid)'"
+                }
                 let sql = "DELETE FROM \(table) WHERE \(primaryKey())=\(rid)"
                 return db.executeUpdate(sql, withArgumentsIn: [])
             }
