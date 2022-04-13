@@ -64,7 +64,7 @@ class FunctionCodeView: UIView {
         // 將gradientView 移到最後一層，不能用@IBOutlet, 似乎不是同一個
         if !isMoveLast {
             self.sendSubviewToBack(gradientView)
-            self.sendSubviewToBack(self.subviews[self.subviews.count - 1])
+//            self.sendSubviewToBack(self.subviews[self.subviews.count - 1])
             isMoveLast = !isMoveLast
         }
     }
