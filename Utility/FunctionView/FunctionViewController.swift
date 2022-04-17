@@ -13,6 +13,7 @@ class FunctionViewController: UIViewController {
         super.viewDidLoad()
         setupUseCodeView()
         setupUseStoryView()
+        MemoryManager.mapOrFlatMapOrCompactMap()
     }
     
     @IBAction func location1ButtonPressed() {
