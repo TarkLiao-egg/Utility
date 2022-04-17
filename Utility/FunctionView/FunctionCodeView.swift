@@ -250,6 +250,8 @@ class InnerShadowLayer: CAShapeLayer {
     }
     
     override func draw(in ctx: CGContext) {
+//    https://www.hangge.com/blog/cache/detail_1437.html
+//    https://www.jianshu.com/p/50c46c72e3dd
         // 设置 Context 属性
         // 允许抗锯齿
         ctx.setAllowsAntialiasing(true);
