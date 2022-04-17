@@ -14,16 +14,14 @@ class FunctionCodeView: UIView {
     // MARK: Border
     var borderWidth: CGFloat = 0
     var borderColor: UIColor?
-    var borderStartColor: UIColor?
-    var borderEndColor: UIColor?
+    var borderColors = [UIColor]()
     
     var viewBackgroundColor: UIColor?
     
     // Gradient
     var gradientStartPoint: CGPoint?
     var gradientEndPoint: CGPoint?
-    var gradientStartColor: UIColor? = nil
-    var gradientEndColor: UIColor? = nil
+    var gradientColors = [UIColor]()
     
     // MARK: Shadow
     var shadowWidth: CGFloat = 0
@@ -33,11 +31,13 @@ class FunctionCodeView: UIView {
     
     var isCircle: Bool = false
     
+    var cornersMaskLayer = CAShapeLayer()
+    var cornerPath = UIBezierPath()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
         // Code create
-        print("frame: CGRect")
     }
     
     required init?(coder: NSCoder) {
@@ -64,7 +64,6 @@ class FunctionCodeView: UIView {
         // 將gradientView 移到最後一層，不能用@IBOutlet, 似乎不是同一個
         if !isMoveLast {
             self.sendSubviewToBack(gradientView)
-//            self.sendSubviewToBack(self.subviews[self.subviews.count - 1])
             isMoveLast = !isMoveLast
         }
     }
@@ -85,32 +84,32 @@ class FunctionCodeView: UIView {
         // specificCornerLayer
         let cornerRadius = isCircle ? bounds.height / 2 : cornerRadius
         let corners = isCircle ? [.topLeft, .topRight, .bottomLeft, .bottomRight] : corners
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        cornerPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         // view Color
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = bounds
-        maskLayer.path = path.cgPath
-        if let gradientStartColor = gradientStartColor, let gradientEndColor = gradientEndColor, let gradientStartPoint = gradientStartPoint, let gradientEndPoint = gradientEndPoint {
+        cornersMaskLayer = CAShapeLayer()
+        cornersMaskLayer.frame = bounds
+        cornersMaskLayer.path = cornerPath.cgPath
+        if let gradientStartPoint = gradientStartPoint, let gradientEndPoint = gradientEndPoint, gradientColors.count > 0 {
             gradientViewLayer.startPoint = gradientStartPoint
             gradientViewLayer.endPoint = gradientEndPoint
-            gradientViewLayer.colors = [gradientStartColor.cgColor, gradientEndColor.cgColor]
+            gradientViewLayer.colors = gradientColors.compactMap({$0.cgColor})
         } else {
             gradientView.backgroundColor = viewBackgroundColor
         }
         gradientViewLayer.frame = bounds
-        gradientView.layer.mask = maskLayer
+        gradientView.layer.mask = cornersMaskLayer
         gradientView.layer.addSublayer(gradientViewLayer)
         
         // border
-        if let borderStartColor = borderStartColor, let borderEndColor = borderEndColor {
+        if borderColors.count > 0 {
             let borderShape = CAShapeLayer()
             borderShape.lineWidth = borderWidth
-            borderShape.path = path.cgPath
+            borderShape.path = cornerPath.cgPath
             borderShape.strokeColor = UIColor.black.cgColor
             borderShape.fillColor = UIColor.clear.cgColor
             gradientBorderLayer = CAGradientLayer()
             gradientBorderLayer.frame =  bounds
-            gradientBorderLayer.colors = [borderStartColor.cgColor, borderEndColor.cgColor]
+            gradientBorderLayer.colors = borderColors.compactMap({$0.cgColor})
             gradientBorderLayer.mask = borderShape
             gradientView.layer.addSublayer(gradientBorderLayer)
         } else {
@@ -125,6 +124,13 @@ extension FunctionCodeView {
     func reDraw() {
         clearLayer()
         reDrawLayer()
+    }
+    
+    func getCornersMaskLayer() -> CAShapeLayer {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.frame = cornersMaskLayer.frame
+        shapeLayer.path = cornersMaskLayer.path
+        return shapeLayer
     }
 }
 //#if canImport(SwiftUI) && DEBUG
