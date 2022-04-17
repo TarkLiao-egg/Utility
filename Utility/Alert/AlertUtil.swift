@@ -23,8 +23,12 @@ class AlertUtil {
     }
     
     static func setAlert(_ model: AlertModel) {
-        if let windowScene = UIApplication.shared.connectedScenes.filter({ $0.activationState == .foregroundActive }).first as? UIWindowScene {
-            shared.presentWindow = UIWindow(windowScene: windowScene)
+        if #available(iOS 13.0, *) {
+            if let windowScene = UIApplication.shared.connectedScenes.filter({ $0.activationState == .foregroundActive }).first as? UIWindowScene {
+                shared.presentWindow = UIWindow(windowScene: windowScene)
+            }
+        } else {
+            shared.presentWindow = UIWindow()
         }
 
         shared.presentWindow?.frame = UIScreen.main.bounds

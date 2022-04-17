@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F89B280BE17900CFAF1F /* InsideShadowController.swift */; };
 		52C989E027F067860048F4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C989DF27F067860048F4CD /* AppDelegate.swift */; };
 		52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C989E127F067860048F4CD /* SceneDelegate.swift */; };
 		52C989E727F067860048F4CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C989E527F067860048F4CD /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		5012B534A7F328082D8809F1 /* Pods-Utility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.debug.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.debug.xcconfig"; sourceTree = "<group>"; };
+		5230F89B280BE17900CFAF1F /* InsideShadowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideShadowController.swift; sourceTree = "<group>"; };
 		52C989DC27F067860048F4CD /* Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Utility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C989DF27F067860048F4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C989E127F067860048F4CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5230F89A280BE03000CFAF1F /* Shadow */ = {
+			isa = PBXGroup;
+			children = (
+				5230F89B280BE17900CFAF1F /* InsideShadowController.swift */,
+			);
+			path = Shadow;
+			sourceTree = "<group>";
+		};
 		52C989D327F067860048F4CD = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		52C989DE27F067860048F4CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5230F89A280BE03000CFAF1F /* Shadow */,
 				CECF95B528000C0B00FA81C8 /* Alert */,
 				52CDD34427F1FBB2009A25FB /* Tool */,
 				52C989F327F068C90048F4CD /* FunctionView */,
@@ -307,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
 				52C989E027F067860048F4CD /* AppDelegate.swift in Sources */,
 				52C989F527F068F20048F4CD /* FunctionCodeView.swift in Sources */,

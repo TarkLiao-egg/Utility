@@ -40,7 +40,7 @@ class AlertController: UIViewController {
 
 extension AlertController {
     func setupButton() {
-        let blur = UIBlurEffect(style: UIBlurEffect.Style.systemChromeMaterialDark)
+        let blur = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let effecview = UIVisualEffectView(effect: blur)
         effecview.alpha = 0.4
         backgroundView.addSubview(effecview)
