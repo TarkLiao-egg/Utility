@@ -83,11 +83,12 @@ class FunctionCodeView: UIView {
     
     private func reDrawLayer() {
         // shadow
-        layer.shadowRadius = shadowWidth
-        layer.shadowColor = shadowColor?.cgColor
-        layer.shadowOffset = shadowOffset
-        layer.shadowOpacity = shadowOpacity
-        
+        if let shadowColor = shadowColor {
+            layer.shadowRadius = shadowWidth
+            layer.shadowColor = shadowColor.cgColor
+            layer.shadowOffset = shadowOffset
+            layer.shadowOpacity = shadowOpacity
+        }
         
         // specificCornerLayer
         let cornerRadius = isCircle ? bounds.height / 2 : cornerRadius
@@ -229,6 +230,11 @@ class InnerShadowLayer: CAShapeLayer {
     var customCornerRadius: CGFloat = 0
     var customBorderWidth: CGFloat?
     var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
+    
+    override init(layer: Any) {
+        super.init(layer: layer)
+        initialize()
+    }
     
     override init() {
         super.init()
