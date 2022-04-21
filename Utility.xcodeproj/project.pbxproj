@@ -33,6 +33,7 @@
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
 		CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B628000C3700FA81C8 /* AlertController.swift */; };
 		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
+		CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696CA280D6FC5008793EB /* ScrollEditController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
 		CECF95B628000C3700FA81C8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
+		CED696CA280D6FC5008793EB /* ScrollEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEditController.swift; sourceTree = "<group>"; };
 		EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 		52C989DE27F067860048F4CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CED696C9280D6FB2008793EB /* ScrollEdit */,
 				5230F8A0280C0DD500CFAF1F /* Manager */,
 				5230F89A280BE03000CFAF1F /* Shadow */,
 				CECF95B528000C0B00FA81C8 /* Alert */,
@@ -218,6 +221,14 @@
 				CECF95B828000C4100FA81C8 /* AlertUtil.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		CED696C9280D6FB2008793EB /* ScrollEdit */ = {
+			isa = PBXGroup;
+			children = (
+				CED696CA280D6FC5008793EB /* ScrollEditController.swift */,
+			);
+			path = ScrollEdit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +358,7 @@
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */,
 				52CDD33827F1F6EE009A25FB /* Inject.swift in Sources */,
+				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,

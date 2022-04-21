@@ -7,6 +7,7 @@ target 'Utility' do
 
   # Pods for Utility
   pod 'FMDB', '~> 2.7.5'
+  pod 'SnapKit', '~> 5.0.0'
   pod 'RxSwift', '~> 4'
   pod 'Moya/RxSwift', '~> 13.0'
   pod 'RxCocoa', '~> 4', :inhibit_warnings => true

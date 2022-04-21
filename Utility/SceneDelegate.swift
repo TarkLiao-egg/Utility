@@ -1,5 +1,4 @@
 import UIKit
-
 @available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -10,7 +9,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge, .carPlay], completionHandler: { (granted, error) in
+        })
+        UNUserNotificationCenter.current().delegate = self
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+
+//        window?.rootViewController = MainTabController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -40,7 +46,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
+@available(iOS 13.0, *)
+extension SceneDelegate: UNUserNotificationCenterDelegate {
+    // Foreground.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let _ = notification.request.content.userInfo
+        completionHandler([.alert, .badge, .sound])
+    }
+}
