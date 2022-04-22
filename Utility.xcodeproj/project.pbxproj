@@ -34,6 +34,7 @@
 		CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B628000C3700FA81C8 /* AlertController.swift */; };
 		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
 		CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696CA280D6FC5008793EB /* ScrollEditController.swift */; };
+		CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696E228112F87008793EB /* InterruptibleAnimateController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		CECF95B628000C3700FA81C8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		CED696CA280D6FC5008793EB /* ScrollEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEditController.swift; sourceTree = "<group>"; };
+		CED696E228112F87008793EB /* InterruptibleAnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterruptibleAnimateController.swift; sourceTree = "<group>"; };
 		EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 		52C989DE27F067860048F4CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CED696E128112F74008793EB /* InterruptibleAnimate */,
 				CED696C9280D6FB2008793EB /* ScrollEdit */,
 				5230F8A0280C0DD500CFAF1F /* Manager */,
 				5230F89A280BE03000CFAF1F /* Shadow */,
@@ -229,6 +232,14 @@
 				CED696CA280D6FC5008793EB /* ScrollEditController.swift */,
 			);
 			path = ScrollEdit;
+			sourceTree = "<group>";
+		};
+		CED696E128112F74008793EB /* InterruptibleAnimate */ = {
+			isa = PBXGroup;
+			children = (
+				CED696E228112F87008793EB /* InterruptibleAnimateController.swift */,
+			);
+			path = InterruptibleAnimate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +368,7 @@
 				5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */,
+				CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */,
 				52CDD33827F1F6EE009A25FB /* Inject.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
