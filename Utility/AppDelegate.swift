@@ -11,6 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         UNUserNotificationCenter.current().delegate = self
         UIApplication.shared.applicationIconBadgeNumber = 0
+        window?.rootViewController = SetTableViewController()
         return true
     }
 

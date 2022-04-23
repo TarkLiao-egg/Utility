@@ -170,3 +170,20 @@ extension UIFont {
         }
     }
 }
+
+extension UITableView {
+    func reloadDataSmoothly() {
+        UIView.setAnimationsEnabled(false)
+        CATransaction.begin()
+        
+        CATransaction.setCompletionBlock { () -> Void in
+            UIView.setAnimationsEnabled(true)
+        }
+        
+        reloadData()
+        beginUpdates()
+        endUpdates()
+        
+        CATransaction.commit()
+    }
+}

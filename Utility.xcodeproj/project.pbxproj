@@ -30,6 +30,10 @@
 		52CDD34027F1F7F9009A25FB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CDD33F27F1F7F9009A25FB /* CoreDataManager.swift */; };
 		52CDD34327F1F833009A25FB /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52CDD34127F1F833009A25FB /* CoreDataModel.xcdatamodeld */; };
 		52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CDD34527F1FBC3009A25FB /* Extensions.swift */; };
+		52D3F90E28143A6E001AE32E /* SetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F90D28143A6E001AE32E /* SetTableViewController.swift */; };
+		52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F90F2814553D001AE32E /* TableViewCell.swift */; };
+		52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91228145709001AE32E /* SetCollectionViewController.swift */; };
+		52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91428145718001AE32E /* CollectionViewCell.swift */; };
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
 		CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B628000C3700FA81C8 /* AlertController.swift */; };
 		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
@@ -64,6 +68,10 @@
 		52CDD33F27F1F7F9009A25FB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		52CDD34227F1F833009A25FB /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		52CDD34527F1FBC3009A25FB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		52D3F90D28143A6E001AE32E /* SetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTableViewController.swift; sourceTree = "<group>"; };
+		52D3F90F2814553D001AE32E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		52D3F91228145709001AE32E /* SetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCollectionViewController.swift; sourceTree = "<group>"; };
+		52D3F91428145718001AE32E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
 		CECF95B628000C3700FA81C8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
@@ -123,6 +131,10 @@
 		52C989DE27F067860048F4CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				52C989DF27F067860048F4CD /* AppDelegate.swift */,
+				52C989E127F067860048F4CD /* SceneDelegate.swift */,
+				52D3F90C28143A58001AE32E /* UITableView */,
+				52D3F911281456EC001AE32E /* UICollectionView */,
 				CED696E128112F74008793EB /* InterruptibleAnimate */,
 				CED696C9280D6FB2008793EB /* ScrollEdit */,
 				5230F8A0280C0DD500CFAF1F /* Manager */,
@@ -134,8 +146,6 @@
 				52CDD32927F1E4DE009A25FB /* FMDB */,
 				52CDD33B27F1F76C009A25FB /* API */,
 				52CDD33E27F1F7DF009A25FB /* CoreData */,
-				52C989DF27F067860048F4CD /* AppDelegate.swift */,
-				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				52C989E527F067860048F4CD /* Main.storyboard */,
 				52C989E827F067890048F4CD /* Assets.xcassets */,
 				52C989EA27F067890048F4CD /* LaunchScreen.storyboard */,
@@ -198,6 +208,24 @@
 				52CDD34527F1FBC3009A25FB /* Extensions.swift */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		52D3F90C28143A58001AE32E /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				52D3F90D28143A6E001AE32E /* SetTableViewController.swift */,
+				52D3F90F2814553D001AE32E /* TableViewCell.swift */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		52D3F911281456EC001AE32E /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				52D3F91228145709001AE32E /* SetCollectionViewController.swift */,
+				52D3F91428145718001AE32E /* CollectionViewCell.swift */,
+			);
+			path = UICollectionView;
 			sourceTree = "<group>";
 		};
 		61DB433CEDD903C35A583310 /* Pods */ = {
@@ -367,15 +395,19 @@
 				52CDD33127F1ED04009A25FB /* TransactionDetailDB.swift in Sources */,
 				5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
+				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
 				52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */,
 				CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */,
 				52CDD33827F1F6EE009A25FB /* Inject.swift in Sources */,
+				52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */,
+				52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
+				52D3F90E28143A6E001AE32E /* SetTableViewController.swift in Sources */,
 				52CDD33527F1F4C0009A25FB /* FMDBController.swift in Sources */,
 				52CDD34027F1F7F9009A25FB /* CoreDataManager.swift in Sources */,
 				52CDD32B27F1E529009A25FB /* SQLModel.swift in Sources */,
@@ -530,12 +562,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TVV8999XA6;
+				DEVELOPMENT_TEAM = L3A9W4KZ67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -565,7 +596,6 @@
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
