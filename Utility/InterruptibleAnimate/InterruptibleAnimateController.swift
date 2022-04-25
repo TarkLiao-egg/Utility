@@ -2,7 +2,6 @@ import UIKit
 import SnapKit
 class InterruptibleAnimateController: UIViewController {
     var interactiveView: UIView!
-    @IBOutlet weak var panView: UIView!
     var animator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut)
     var isOpen: Bool = false
     
@@ -10,7 +9,6 @@ class InterruptibleAnimateController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupButton()
-        
     }
 
 }
@@ -57,7 +55,7 @@ extension InterruptibleAnimateController {
             animator.pauseAnimation()
         case .changed:
             let translation = recognizer.translation(in: view)
-            var progress = -translation.y / panView.frame.height
+            var progress = -translation.y / (view.frame.height / 3)
             progress = isOpen ? -progress : progress
             animator.fractionComplete = progress
         case .ended:
@@ -88,7 +86,7 @@ extension InterruptibleAnimateController {
         interactiveView.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.5)
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(panView.snp.top)
+            make.bottom.equalToSuperview()
             make.height.equalTo(interactiveView.snp.width)
         }
     }
@@ -106,7 +104,7 @@ extension InterruptibleAnimateController {
         interactiveView.snp.remakeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.5)
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(panView.snp.top)
+            make.bottom.equalToSuperview()
             make.height.equalTo(interactiveView.snp.width)
         }
     }

@@ -31,13 +31,18 @@
                             <constraint firstItem="fxq-tB-LiS" firstAttribute="bottom" secondItem="aAA-WC-Sxc" secondAttribute="bottom" id="rGx-mT-mcm"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="panView" destination="fxq-tB-LiS" id="aj7-bN-fd7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxJ-Wj-ZWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-270" y="-350"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="9yf-qN-d3G">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="oKw-c6-d2o" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKq-gM-iWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="-507"/>
         </scene>
         <!--Function View Controller-->
         <scene sceneID="tne-QT-ifu">

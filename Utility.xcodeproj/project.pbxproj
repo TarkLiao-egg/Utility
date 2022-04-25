@@ -39,6 +39,9 @@
 		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
 		CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696CA280D6FC5008793EB /* ScrollEditController.swift */; };
 		CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696E228112F87008793EB /* InterruptibleAnimateController.swift */; };
+		CEDC1C46281635780038BE7F /* AnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1C45281635780038BE7F /* AnimateController.swift */; };
+		CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1C4828166FFE0038BE7F /* PageViewController.swift */; };
+		CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1C4B28169A4B0038BE7F /* Rotate3DController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		CED696CA280D6FC5008793EB /* ScrollEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEditController.swift; sourceTree = "<group>"; };
 		CED696E228112F87008793EB /* InterruptibleAnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterruptibleAnimateController.swift; sourceTree = "<group>"; };
+		CEDC1C45281635780038BE7F /* AnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateController.swift; sourceTree = "<group>"; };
+		CEDC1C4828166FFE0038BE7F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		CEDC1C4B28169A4B0038BE7F /* Rotate3DController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotate3DController.swift; sourceTree = "<group>"; };
 		EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +139,9 @@
 			children = (
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
+				CEDC1C4728166FEB0038BE7F /* BookTurePage */,
+				CEDC1C4A28169A2A0038BE7F /* 3D */,
+				CEDC1C44281635640038BE7F /* Animate */,
 				52D3F90C28143A58001AE32E /* UITableView */,
 				52D3F911281456EC001AE32E /* UICollectionView */,
 				CED696E128112F74008793EB /* InterruptibleAnimate */,
@@ -270,6 +279,30 @@
 			path = InterruptibleAnimate;
 			sourceTree = "<group>";
 		};
+		CEDC1C44281635640038BE7F /* Animate */ = {
+			isa = PBXGroup;
+			children = (
+				CEDC1C45281635780038BE7F /* AnimateController.swift */,
+			);
+			path = Animate;
+			sourceTree = "<group>";
+		};
+		CEDC1C4728166FEB0038BE7F /* BookTurePage */ = {
+			isa = PBXGroup;
+			children = (
+				CEDC1C4828166FFE0038BE7F /* PageViewController.swift */,
+			);
+			path = BookTurePage;
+			sourceTree = "<group>";
+		};
+		CEDC1C4A28169A2A0038BE7F /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				CEDC1C4B28169A4B0038BE7F /* Rotate3DController.swift */,
+			);
+			path = 3D;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -386,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */,
+				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
@@ -406,8 +440,10 @@
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
+				CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */,
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
 				52D3F90E28143A6E001AE32E /* SetTableViewController.swift in Sources */,
+				CEDC1C46281635780038BE7F /* AnimateController.swift in Sources */,
 				52CDD33527F1F4C0009A25FB /* FMDBController.swift in Sources */,
 				52CDD34027F1F7F9009A25FB /* CoreDataManager.swift in Sources */,
 				52CDD32B27F1E529009A25FB /* SQLModel.swift in Sources */,
@@ -562,7 +598,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3A9W4KZ67;
+				DEVELOPMENT_TEAM = TVV8999XA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
