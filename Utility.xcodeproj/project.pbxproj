@@ -35,6 +35,9 @@
 		52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91228145709001AE32E /* SetCollectionViewController.swift */; };
 		52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91428145718001AE32E /* CollectionViewCell.swift */; };
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
+		CE21AD842817BCF80083169F /* LayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD832817BCF80083169F /* LayerController.swift */; };
+		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
+		CE21AE092818F8150083169F /* ReuseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE082818F8150083169F /* ReuseUI.swift */; };
 		CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B628000C3700FA81C8 /* AlertController.swift */; };
 		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
 		CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696CA280D6FC5008793EB /* ScrollEditController.swift */; };
@@ -76,6 +79,9 @@
 		52D3F91228145709001AE32E /* SetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCollectionViewController.swift; sourceTree = "<group>"; };
 		52D3F91428145718001AE32E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
+		CE21AD832817BCF80083169F /* LayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerController.swift; sourceTree = "<group>"; };
+		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
+		CE21AE082818F8150083169F /* ReuseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseUI.swift; sourceTree = "<group>"; };
 		CECF95B628000C3700FA81C8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		CED696CA280D6FC5008793EB /* ScrollEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEditController.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 			children = (
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
+				CE21AD822817BCE70083169F /* Layer */,
 				CEDC1C4728166FEB0038BE7F /* BookTurePage */,
 				CEDC1C4A28169A2A0038BE7F /* 3D */,
 				CEDC1C44281635640038BE7F /* Animate */,
@@ -215,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				52CDD34527F1FBC3009A25FB /* Extensions.swift */,
+				CE21AE082818F8150083169F /* ReuseUI.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -252,6 +260,14 @@
 				EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE21AD822817BCE70083169F /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				CE21AD832817BCF80083169F /* LayerController.swift */,
+			);
+			path = Layer;
 			sourceTree = "<group>";
 		};
 		CECF95B528000C0B00FA81C8 /* Alert */ = {
@@ -299,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDC1C4B28169A4B0038BE7F /* Rotate3DController.swift */,
+				CE21AD852817CDB10083169F /* DiceController.swift */,
 			);
 			path = 3D;
 			sourceTree = "<group>";
@@ -422,7 +439,9 @@
 				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
+				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
+				CE21AD862817CDB10083169F /* DiceController.swift in Sources */,
 				52C989E027F067860048F4CD /* AppDelegate.swift in Sources */,
 				52C989F527F068F20048F4CD /* FunctionCodeView.swift in Sources */,
 				52CDD33A27F1F710009A25FB /* Resolver.swift in Sources */,
@@ -435,6 +454,7 @@
 				52CDD33827F1F6EE009A25FB /* Inject.swift in Sources */,
 				52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */,
 				52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */,
+				CE21AD842817BCF80083169F /* LayerController.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
@@ -611,7 +631,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tark.Utility2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tark.Utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

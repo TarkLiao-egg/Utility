@@ -105,27 +105,6 @@ class FunctionCodeView: UIView {
         } else {
             gradientView.backgroundColor = viewBackgroundColor
         }
-        gradientViewLayer.frame = bounds
-        gradientView.layer.mask = cornersMaskLayer
-        gradientView.layer.addSublayer(gradientViewLayer)
-        
-        // border
-        if borderColors.count > 0 {
-            let borderShape = CAShapeLayer()
-            borderShape.lineWidth = borderWidth
-            borderShape.path = cornerPath.cgPath
-            borderShape.strokeColor = UIColor.black.cgColor
-            borderShape.fillColor = UIColor.clear.cgColor
-            gradientBorderLayer = CAGradientLayer()
-            gradientBorderLayer.frame =  bounds
-            gradientBorderLayer.colors = borderColors.compactMap({$0.cgColor})
-            gradientBorderLayer.mask = borderShape
-            gradientView.layer.addSublayer(gradientBorderLayer)
-        } else {
-            gradientView.layer.cornerRadius = cornerRadius
-            gradientView.layer.borderWidth = borderWidth
-            gradientView.layer.borderColor = borderColor?.cgColor
-        }
         
         // innerShadow
         if let innerShadowColor = innerShadowColor {
@@ -141,6 +120,26 @@ class FunctionCodeView: UIView {
             innerShadowLayer.innerShadowRadius  = innerShadowRadius
             gradientView.layer.addSublayer(innerShadowLayer)
         }
+        
+        // border
+        if borderColors.count > 0 {
+            let borderShape = CAShapeLayer()
+            borderShape.lineWidth = borderWidth
+            borderShape.path = cornerPath.cgPath
+            borderShape.strokeColor = UIColor.black.cgColor
+            borderShape.fillColor = UIColor.clear.cgColor
+            gradientBorderLayer = CAGradientLayer()
+            gradientBorderLayer.frame =  bounds
+            gradientBorderLayer.colors = borderColors.compactMap({$0.cgColor})
+            gradientBorderLayer.mask = borderShape
+            gradientView.layer.addSublayer(gradientBorderLayer)
+        } else {
+            gradientView.layer.borderWidth = borderWidth
+            gradientView.layer.borderColor = borderColor?.cgColor
+        }
+        gradientViewLayer.frame = bounds
+        gradientView.layer.mask = cornersMaskLayer
+        gradientView.layer.addSublayer(gradientViewLayer)
     }
 }
 
@@ -282,9 +281,7 @@ class InnerShadowLayer: CAShapeLayer {
         }
         
         // 创建 inner shadow 的镂空路径
-//        let someInnerPath: CGPath = cornersPath == nil ? UIBezierPath(roundedRect: rect, cornerRadius: radius).cgPath : cornersPath!
         let someInnerPath: CGPath = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius)).cgPath
-//        let someInnerPath: CGPath = UIBezierPath(roundedRect: rect, cornerRadius: radius).cgPath
         ctx.addPath(someInnerPath)
         ctx.clip()
         

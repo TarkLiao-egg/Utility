@@ -2,6 +2,9 @@ import UIKit
 import SnapKit
 
 class AnimateController: UIViewController {
+    //https://ios.devdon.com/archives/358
+    //https://www.appcoda.com.tw/custom-view-controller-transitions-tutorial/
+    
     var btn: UIButton!
     
     var testAnimateView: UIView!
