@@ -156,23 +156,32 @@ extension FunctionCodeView {
         return shapeLayer
     }
     
-    func setBackground(_ color: UIColor) {
+    func setBackground(_ color: UIColor, isDraw: Bool = false) {
         viewBackgroundColor = color
+        if isDraw {
+            reDraw()
+        }
     }
     
-    func setCornerRadius(_ cornerRadius: CGFloat, corners: UIRectCorner = [.bottomLeft, .bottomRight, .topLeft, .topRight], isCircle: Bool = false) {
+    func setCornerRadius(_ cornerRadius: CGFloat, corners: UIRectCorner = [.bottomLeft, .bottomRight, .topLeft, .topRight], isCircle: Bool = false, isDraw: Bool = false) {
         self.cornerRadius = cornerRadius
         self.corners = corners
         self.isCircle = isCircle
+        if isDraw {
+            reDraw()
+        }
     }
     
-    func setGradient(_ colors: UIColor..., startPoint: CGPoint, endPoint: CGPoint) {
+    func setGradient(_ colors: UIColor..., startPoint: CGPoint, endPoint: CGPoint, isDraw: Bool = false) {
         gradientColors = colors
         gradientStartPoint = startPoint
         gradientEndPoint = endPoint
+        if isDraw {
+            reDraw()
+        }
     }
     
-    func setGradient(_ colors: UIColor..., axis: NSLayoutConstraint.Axis) {
+    func setGradient(_ colors: UIColor..., axis: NSLayoutConstraint.Axis, isDraw: Bool = false) {
         gradientColors = colors
         if axis == .horizontal {
             gradientStartPoint = CGPoint(x: 0, y: 0.5)
@@ -181,9 +190,12 @@ extension FunctionCodeView {
             gradientStartPoint = CGPoint(x: 0.5, y: 0)
             gradientEndPoint = CGPoint(x: 0.5, y: 1)
         }
+        if isDraw {
+            reDraw()
+        }
     }
     
-    func setBorder(_ cornerRadius: CGFloat, borderColors: UIColor..., borderWidth: CGFloat) {
+    func setBorder(_ cornerRadius: CGFloat, borderColors: UIColor..., borderWidth: CGFloat, isDraw: Bool = false) {
         self.cornerRadius = cornerRadius
         if borderColors.count == 1 {
             borderColor = borderColors[0]
@@ -191,20 +203,29 @@ extension FunctionCodeView {
             self.borderColors = borderColors
         }
         self.borderWidth = borderWidth
+        if isDraw {
+            reDraw()
+        }
     }
     
-    func setShadow(shadowOpacity: Float = 0.8, shadowColor: UIColor = .black, shadowOffset: CGSize = .zero, shadowWidth: CGFloat = 5) {
+    func setShadow(shadowOpacity: Float = 0.8, shadowColor: UIColor = .black, shadowOffset: CGSize = .zero, shadowWidth: CGFloat = 5, isDraw: Bool = false) {
         self.shadowOpacity = shadowOpacity
         self.shadowColor = shadowColor
         self.shadowOffset = shadowOffset
         self.shadowWidth = shadowWidth
+        if isDraw {
+            reDraw()
+        }
     }
     
-    func setInnerShadow(shadowOpacity: Float = 0.8, shadowColor: UIColor = .black, shadowOffset: CGSize = CGSize(width: 4, height: 4), shadowWidth: CGFloat = 15) {
+    func setInnerShadow(shadowOpacity: Float = 0.8, shadowColor: UIColor = .black, shadowOffset: CGSize = CGSize(width: 4, height: 4), shadowWidth: CGFloat = 15, isDraw: Bool = false) {
         innerShadowOpacity = shadowOpacity
         innerShadowColor = shadowColor.cgColor
         innerShadowOffset = shadowOffset
         innerShadowRadius = shadowWidth
+        if isDraw {
+            reDraw()
+        }
     }
 }
 
