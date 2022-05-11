@@ -38,6 +38,8 @@
 		CE21AD842817BCF80083169F /* LayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD832817BCF80083169F /* LayerController.swift */; };
 		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
 		CE21AE092818F8150083169F /* ReuseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE082818F8150083169F /* ReuseUI.swift */; };
+		CE21AE7A28212E680083169F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE7928212E670083169F /* Coordinator.swift */; };
+		CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */; };
 		CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B628000C3700FA81C8 /* AlertController.swift */; };
 		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
 		CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696CA280D6FC5008793EB /* ScrollEditController.swift */; };
@@ -82,6 +84,8 @@
 		CE21AD832817BCF80083169F /* LayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerController.swift; sourceTree = "<group>"; };
 		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
 		CE21AE082818F8150083169F /* ReuseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseUI.swift; sourceTree = "<group>"; };
+		CE21AE7928212E670083169F /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorCombine.swift; sourceTree = "<group>"; };
 		CECF95B628000C3700FA81C8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		CED696CA280D6FC5008793EB /* ScrollEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEditController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		52C989DE27F067860048F4CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CE21AE7828212E4C0083169F /* Coordinator */,
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CE21AD822817BCE70083169F /* Layer */,
@@ -268,6 +273,15 @@
 				CE21AD832817BCF80083169F /* LayerController.swift */,
 			);
 			path = Layer;
+			sourceTree = "<group>";
+		};
+		CE21AE7828212E4C0083169F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CE21AE7928212E670083169F /* Coordinator.swift */,
+				CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		CECF95B528000C0B00FA81C8 /* Alert */ = {
@@ -443,6 +457,7 @@
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
 				CE21AD862817CDB10083169F /* DiceController.swift in Sources */,
 				52C989E027F067860048F4CD /* AppDelegate.swift in Sources */,
+				CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */,
 				52C989F527F068F20048F4CD /* FunctionCodeView.swift in Sources */,
 				52CDD33A27F1F710009A25FB /* Resolver.swift in Sources */,
 				52CDD33127F1ED04009A25FB /* TransactionDetailDB.swift in Sources */,
@@ -462,6 +477,7 @@
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
 				CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */,
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
+				CE21AE7A28212E680083169F /* Coordinator.swift in Sources */,
 				52D3F90E28143A6E001AE32E /* SetTableViewController.swift in Sources */,
 				CEDC1C46281635780038BE7F /* AnimateController.swift in Sources */,
 				52CDD33527F1F4C0009A25FB /* FMDBController.swift in Sources */,

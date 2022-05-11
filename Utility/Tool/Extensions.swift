@@ -1,6 +1,5 @@
 import Foundation
 import UIKit
-import RxSwift
 
 extension Sequence where Element: Hashable {
     func uniqued() -> [Element] {
@@ -43,12 +42,59 @@ extension String {
     }
 }
 
+extension Int {
+    func getDate() -> Date {
+        return Date(timeIntervalSince1970: TimeInterval(self))
+    }
+}
+
 extension Date {
     func getDateString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: self)
+    }
+    
+    func getFormatString(format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+    
+    func getDateShowString() -> String {
+        //    Decmber 20, 2022
+        let month: String
+        switch self.getDateInfo(option: .month) {
+        case 1:
+            month = "January"
+        case 2:
+            month = "February"
+        case 3:
+            month = "March"
+        case 4:
+            month = "April"
+        case 5:
+            month = "May"
+        case 6:
+            month = "June"
+        case 7:
+            month = "July"
+        case 8:
+            month = "August"
+        case 9:
+            month = "September"
+        case 10:
+            month = "October"
+        case 11:
+            month = "November"
+        case 12:
+            month = "December"
+        default:
+            month = ""
+        }
+        return "\(month) \(self.getDateInfo(option: .day)), \(self.getDateInfo(option: .year))"
     }
     
     func getTimeStamp() -> Int {
@@ -67,9 +113,42 @@ extension Date {
             return Calendar.current.dateComponents([option], from: self).hour ?? -1
         case .minute:
             return Calendar.current.dateComponents([option], from: self).minute ?? -1
+        case .second:
+            return Calendar.current.dateComponents([option], from: self).second ?? 0
+        case .weekday:
+            let day = Calendar.current.dateComponents([option], from: self).weekday ?? 0
+            if day == 1 {
+                return 7
+            } else {
+                return day - 1
+            }
         default:
             return -1
         }
+    }
+    
+    func getDateComponents() -> DateComponents {
+        var components = DateComponents()
+        components.calendar = Calendar.current
+        components.year = self.getDateInfo(option: .year)
+        components.month = self.getDateInfo(option: .month)
+        components.day = self.getDateInfo(option: .day)
+        components.hour = self.getDateInfo(option: .hour)
+        components.minute = self.getDateInfo(option: .minute)
+        components.second = self.getDateInfo(option: .second)
+        return components
+    }
+    
+    func setDateComponents(year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil) -> DateComponents {
+        var components = DateComponents()
+        components.calendar = Calendar.current
+        components.year = year == nil ? self.getDateInfo(option: .year) : year
+        components.month = month == nil ? self.getDateInfo(option: .month) : month
+        components.day = day == nil ? self.getDateInfo(option: .day) : day
+        components.hour = hour == nil ? self.getDateInfo(option: .hour) : hour
+        components.minute = minute == nil ? self.getDateInfo(option: .minute) : minute
+        components.second = second == nil ? self.getDateInfo(option: .second) : second
+        return components
     }
 }
 
@@ -111,44 +190,77 @@ extension UITextField {
         return text.replacingOccurrences(of: " ", with: "") == ""
     }
     
-    func addDoneButtonOnKeyboard(disposeBag: DisposeBag? = nil, doneAction: (() -> Void)? = nil, clearAction: (() -> Void)? = nil) {
+    func addDoneButtonOnKeyboard(_ target: UIViewController? = nil, doneSelector: Selector? = nil, clearSelector: Selector? = nil) {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
 
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
-        if let disposeBag = disposeBag, let doneAction = doneAction {
-            done.rx.tap.subscribe(onNext: {
-                doneAction()
-                self.resignFirstResponder()
-            })
-            .disposed(by: disposeBag)
+        if let doneSelector = doneSelector {
+            done.action = doneSelector
+            done.target = target
         } else {
             done.action = #selector(doneButtonAction)
         }
-        
-        done.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
-        done.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
+
+        done.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
+        done.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
         var items = [flexSpace, done]
-        if let disposeBag = disposeBag {
+        if let clearSelector = clearSelector {
             let del: UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
-            del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
-            del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
-            del.rx.tap.subscribe(onNext: {
-                clearAction?()
-                self.text = nil
-                self.resignFirstResponder()
-            })
-            .disposed(by: disposeBag)
+            del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
+            del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
+            del.action = clearSelector
+            del.target = target
             items.insert(del, at: 0)
         }
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         self.inputAccessoryView = doneToolbar
     }
+    
+    @objc func doneButtonAction() {
+        self.resignFirstResponder()
+    }
+}
 
-    @objc
-    func doneButtonAction() {
+extension UITextView {
+    
+    var isBlank: Bool {
+        guard let text = self.text else { return true }
+        return text.replacingOccurrences(of: " ", with: "") == ""
+    }
+    
+    func addDoneButtonOnKeyboard(_ target: UIViewController? = nil, doneSelector: Selector? = nil, clearSelector: Selector? = nil) {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
+        if let doneSelector = doneSelector {
+            done.action = doneSelector
+            done.target = target
+        } else {
+            done.action = #selector(doneButtonAction)
+        }
+
+        done.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
+        done.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
+        var items = [flexSpace, done]
+        if let clearSelector = clearSelector {
+            let del: UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
+            del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
+            del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
+            del.action = clearSelector
+            del.target = target
+            items.insert(del, at: 0)
+        }
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        self.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction() {
         self.resignFirstResponder()
     }
 }
@@ -168,22 +280,5 @@ extension UIFont {
         case .bold:
             return UIFont(name: "PingFangTC-Semibold", size: size) ?? UIFont.systemFont(ofSize: size, weight: .semibold)
         }
-    }
-}
-
-extension UITableView {
-    func reloadDataSmoothly() {
-        UIView.setAnimationsEnabled(false)
-        CATransaction.begin()
-        
-        CATransaction.setCompletionBlock { () -> Void in
-            UIView.setAnimationsEnabled(true)
-        }
-        
-        reloadData()
-        beginUpdates()
-        endUpdates()
-        
-        CATransaction.commit()
     }
 }

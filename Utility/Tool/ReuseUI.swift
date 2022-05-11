@@ -1,10 +1,3 @@
-//
-//  ReuseUI.swift
-//  GoodDay
-//
-//  Created by Tark on 4/13/22.
-//
-
 import Foundation
 import UIKit
 import SnapKit
@@ -54,5 +47,20 @@ class ReuseUI {
         paddingView.translatesAutoresizingMaskIntoConstraints = false
         paddingView.heightAnchor.constraint(equalToConstant: height).isActive = true
         return paddingView
+    }
+    
+    static func getClearView() -> UIView {
+        let clearView = UIView()
+        clearView.backgroundColor = .clear
+        return clearView
+    }
+    
+    static func getLineView() -> UIView {
+        let lineView = UIView()
+        lineView.backgroundColor = UIColor.hex(0x666666)
+        lineView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+        }
+        return lineView
     }
 }
