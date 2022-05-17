@@ -40,6 +40,9 @@
 		CE21AE092818F8150083169F /* ReuseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE082818F8150083169F /* ReuseUI.swift */; };
 		CE21AE7A28212E680083169F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE7928212E670083169F /* Coordinator.swift */; };
 		CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */; };
+		CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BAF282CF34700E15D70 /* CombineController.swift */; };
+		CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BB6282E0F0B00E15D70 /* SystemAlertController.swift */; };
+		CEBE4C30282E698400E15D70 /* PermissionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4C2F282E698400E15D70 /* PermissionUtil.swift */; };
 		CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B628000C3700FA81C8 /* AlertController.swift */; };
 		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
 		CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696CA280D6FC5008793EB /* ScrollEditController.swift */; };
@@ -86,6 +89,9 @@
 		CE21AE082818F8150083169F /* ReuseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseUI.swift; sourceTree = "<group>"; };
 		CE21AE7928212E670083169F /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorCombine.swift; sourceTree = "<group>"; };
+		CEBE4BAF282CF34700E15D70 /* CombineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineController.swift; sourceTree = "<group>"; };
+		CEBE4BB6282E0F0B00E15D70 /* SystemAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlertController.swift; sourceTree = "<group>"; };
+		CEBE4C2F282E698400E15D70 /* PermissionUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionUtil.swift; sourceTree = "<group>"; };
 		CECF95B628000C3700FA81C8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		CED696CA280D6FC5008793EB /* ScrollEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEditController.swift; sourceTree = "<group>"; };
@@ -147,9 +153,14 @@
 		52C989DE27F067860048F4CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				52CDD34427F1FBB2009A25FB /* Tool */,
+				CECF95B528000C0B00FA81C8 /* Alert */,
+				52C989F327F068C90048F4CD /* FunctionView */,
+				52CDD32927F1E4DE009A25FB /* FMDB */,
 				CE21AE7828212E4C0083169F /* Coordinator */,
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
+				CEBE4BAE282CF32C00E15D70 /* Combine */,
 				CE21AD822817BCE70083169F /* Layer */,
 				CEDC1C4728166FEB0038BE7F /* BookTurePage */,
 				CEDC1C4A28169A2A0038BE7F /* 3D */,
@@ -160,11 +171,7 @@
 				CED696C9280D6FB2008793EB /* ScrollEdit */,
 				5230F8A0280C0DD500CFAF1F /* Manager */,
 				5230F89A280BE03000CFAF1F /* Shadow */,
-				CECF95B528000C0B00FA81C8 /* Alert */,
-				52CDD34427F1FBB2009A25FB /* Tool */,
-				52C989F327F068C90048F4CD /* FunctionView */,
 				52CDD33627F1F6D3009A25FB /* Inject */,
-				52CDD32927F1E4DE009A25FB /* FMDB */,
 				52CDD33B27F1F76C009A25FB /* API */,
 				52CDD33E27F1F7DF009A25FB /* CoreData */,
 				52C989E527F067860048F4CD /* Main.storyboard */,
@@ -226,6 +233,7 @@
 		52CDD34427F1FBB2009A25FB /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				CEBE4C2F282E698400E15D70 /* PermissionUtil.swift */,
 				52CDD34527F1FBC3009A25FB /* Extensions.swift */,
 				CE21AE082818F8150083169F /* ReuseUI.swift */,
 			);
@@ -284,11 +292,20 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		CEBE4BAE282CF32C00E15D70 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				CEBE4BAF282CF34700E15D70 /* CombineController.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
 		CECF95B528000C0B00FA81C8 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
 				CECF95B628000C3700FA81C8 /* AlertController.swift */,
 				CECF95B828000C4100FA81C8 /* AlertUtil.swift */,
+				CEBE4BB6282E0F0B00E15D70 /* SystemAlertController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -451,6 +468,7 @@
 			files = (
 				5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */,
 				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
+				CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
@@ -463,6 +481,7 @@
 				52CDD33127F1ED04009A25FB /* TransactionDetailDB.swift in Sources */,
 				5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
+				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
 				52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */,
 				CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */,
@@ -472,6 +491,7 @@
 				CE21AD842817BCF80083169F /* LayerController.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
+				CEBE4C30282E698400E15D70 /* PermissionUtil.swift in Sources */,
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
