@@ -25,7 +25,7 @@ class AlertUtil {
         }
         
         guard let _ = shared.presentWindow else {
-             recursive
+            // recursive
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 setAlert(model)
             }
