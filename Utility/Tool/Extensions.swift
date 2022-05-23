@@ -24,6 +24,12 @@ extension Array {
     }
 }
 
+extension UIImageView {
+    static func name(_ name: String) -> UIImageView {
+        return UIImageView(image: UIImage(named: name))
+    }
+}
+
 extension UIColor {
     static func hex(_ hex: Int, opacity: Double = 1.0) -> UIColor {
         let red = Double((hex & 0xff0000) >> 16) / 255.0
@@ -284,6 +290,7 @@ extension UIFont {
 }
 
 import Combine
+import CoreMedia
 @available(iOS 13.0, *)
 final class UIControlSubscription<SubscriberType: Subscriber, Control: UIControl>: Subscription where SubscriberType.Input == Control {
     private var subscriber: SubscriberType?
@@ -333,7 +340,7 @@ protocol CombineCompatible { }
 extension UIControl: CombineCompatible { }
 @available(iOS 13.0, *)
 extension CombineCompatible where Self: UIControl {
-    func getPublisher(for events: UIControl.Event) -> UIControlPublisher<UIControl> {
+    func getPublisher(for events: UIControl.Event) -> UIControlPublisher<Self> {
         return UIControlPublisher(control: self, events: events)
     }
 }

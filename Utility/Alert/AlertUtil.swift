@@ -1,10 +1,3 @@
-//
-//  AlertUtil.swift
-
-//
-//  Created by Tark on 3/24/22.
-//
-
 import Foundation
 import UIKit
 
@@ -30,7 +23,14 @@ class AlertUtil {
         } else {
             shared.presentWindow = UIWindow()
         }
-
+        
+        guard let _ = shared.presentWindow else {
+             recursive
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                setAlert(model)
+            }
+            return
+        }
         shared.presentWindow?.frame = UIScreen.main.bounds
         shared.presentWindow?.backgroundColor = .clear
         shared.presentWindow?.windowLevel = UIWindow.Level.statusBar + 1

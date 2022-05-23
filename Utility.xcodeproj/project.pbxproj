@@ -35,6 +35,7 @@
 		52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91228145709001AE32E /* SetCollectionViewController.swift */; };
 		52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91428145718001AE32E /* CollectionViewCell.swift */; };
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
+		CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */; };
 		CE21AD842817BCF80083169F /* LayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD832817BCF80083169F /* LayerController.swift */; };
 		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
 		CE21AE092818F8150083169F /* ReuseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE082818F8150083169F /* ReuseUI.swift */; };
@@ -84,6 +85,7 @@
 		52D3F91228145709001AE32E /* SetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCollectionViewController.swift; sourceTree = "<group>"; };
 		52D3F91428145718001AE32E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
+		CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		CE21AD832817BCF80083169F /* LayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerController.swift; sourceTree = "<group>"; };
 		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
 		CE21AE082818F8150083169F /* ReuseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseUI.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				CEBE4C2F282E698400E15D70 /* PermissionUtil.swift */,
 				52CDD34527F1FBC3009A25FB /* Extensions.swift */,
 				CE21AE082818F8150083169F /* ReuseUI.swift */,
+				CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
 				CE21AD862817CDB10083169F /* DiceController.swift in Sources */,
 				52C989E027F067860048F4CD /* AppDelegate.swift in Sources */,
+				CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */,
 				CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */,
 				52C989F527F068F20048F4CD /* FunctionCodeView.swift in Sources */,
 				52CDD33A27F1F710009A25FB /* Resolver.swift in Sources */,
@@ -683,7 +687,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6A9VGNQPQ3;
+				DEVELOPMENT_TEAM = TVV8999XA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
