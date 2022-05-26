@@ -122,22 +122,18 @@ class FunctionCodeView: UIView {
         }
         
         // border
-        if borderColors.count > 0 {
-            let borderShape = CAShapeLayer()
-            borderShape.lineWidth = borderWidth
-            borderShape.path = cornerPath.cgPath
-            borderShape.strokeColor = UIColor.black.cgColor
-            borderShape.fillColor = UIColor.clear.cgColor
-            gradientBorderLayer = CAGradientLayer()
-            gradientBorderLayer.frame =  bounds
-            gradientBorderLayer.colors = borderColors.compactMap({$0.cgColor})
-            gradientBorderLayer.mask = borderShape
-            gradientView.layer.addSublayer(gradientBorderLayer)
-        } else {
-            gradientView.layer.borderWidth = borderWidth
-            gradientView.layer.borderColor = borderColor?.cgColor
-        }
+        let borderShape = CAShapeLayer()
+        borderShape.lineWidth = borderWidth
+        borderShape.path = cornerPath.cgPath
+        borderShape.strokeColor = UIColor.black.cgColor
+        borderShape.fillColor = UIColor.clear.cgColor
+        gradientBorderLayer = CAGradientLayer()
+        gradientBorderLayer.frame =  bounds
+        gradientBorderLayer.colors = borderColors.compactMap({$0.cgColor})
+        gradientBorderLayer.mask = borderShape
+        gradientView.layer.addSublayer(gradientBorderLayer)
         gradientViewLayer.frame = bounds
+        
         gradientView.layer.mask = cornersMaskLayer
         gradientView.layer.addSublayer(gradientViewLayer)
     }
@@ -198,7 +194,7 @@ extension FunctionCodeView {
     func setBorder(_ cornerRadius: CGFloat, borderColors: UIColor..., borderWidth: CGFloat, isDraw: Bool = false) {
         self.cornerRadius = cornerRadius
         if borderColors.count == 1 {
-            borderColor = borderColors[0]
+            self.borderColors = [borderColors[0], borderColors[0]]
         } else if borderColors.count > 1 {
             self.borderColors = borderColors
         }

@@ -26,7 +26,17 @@ extension Array {
 
 extension UIImageView {
     static func name(_ name: String) -> UIImageView {
-        return UIImageView(image: UIImage(named: name))
+        var image = UIImage(named: name)
+        image = image?.withRenderingMode(.alwaysOriginal)
+        return UIImageView(image: image)
+    }
+    
+    static func renderName(_ name: String, color: UIColor) -> UIImageView {
+        var image = UIImage(named: name)
+        image = image?.withRenderingMode(.alwaysTemplate)
+        let imgView = UIImageView(image: image)
+        imgView.tintColor = color
+        return imgView
     }
 }
 
@@ -227,6 +237,154 @@ extension UITextField {
     
     @objc func doneButtonAction() {
         self.resignFirstResponder()
+    }
+    
+    static func setMaxLength(_ textField: UITextField,_ range: NSRange,_ replacementString: String, length: Int) -> Bool {
+        guard let textFieldText = textField.text,
+            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + replacementString.count
+        return count <= length
+    }
+}
+
+extension UILabel {
+    func textWidth() -> CGFloat {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.font = self.font
+        label.text = self.text
+        label.sizeToFit()
+        return label.frame.size.width
+    }
+    
+    func fontToFitHeight(min: CGFloat = 3, max: CGFloat = 70) {
+        var minFontSize: CGFloat = min
+        var maxFontSize: CGFloat = max
+        var fontSizeAverage: CGFloat = 0
+        var textAndLabelHeightDiff: CGFloat = 0
+        let labelHeight = self.frame.size.height
+        
+        while (minFontSize <= maxFontSize) {
+            
+            fontSizeAverage = minFontSize + (maxFontSize - minFontSize) / 2
+            // Abort if text happens to be nil
+            guard let text = self.text, text.count > 0 else {
+                break
+            }
+            if let labelText: NSString = text as NSString? {
+                
+                let testStringHeight = labelText.size(withAttributes: [NSAttributedString.Key.font: self.font.withSize(fontSizeAverage)]).height
+                
+                textAndLabelHeightDiff = labelHeight - testStringHeight
+                if (fontSizeAverage == minFontSize || fontSizeAverage == maxFontSize) {
+                    if (textAndLabelHeightDiff < 0) {
+                        self.font = self.font.withSize(fontSizeAverage - 1)
+                        return
+                    }
+                    self.font = self.font.withSize(fontSizeAverage)
+                    return
+                }
+                
+                if (textAndLabelHeightDiff < 0) {
+                    maxFontSize = fontSizeAverage - 1
+                    
+                } else if (textAndLabelHeightDiff > 0) {
+                    minFontSize = fontSizeAverage + 1
+                    
+                } else {
+                    self.font = self.font.withSize(fontSizeAverage)
+                    return
+                }
+            }
+        }
+        self.font = self.font.withSize(fontSizeAverage)
+        return
+    }
+    
+    func fontToFitWidth(min: CGFloat = 2, max: CGFloat = 70) {
+        var minFontSize: CGFloat = min
+        var maxFontSize: CGFloat = max
+        var fontSizeAverage: CGFloat = 0
+        var textAndLabelWidthDiff: CGFloat = 0
+        let labelWidth = self.frame.size.width
+        
+        while (minFontSize <= maxFontSize) {
+            
+            fontSizeAverage = minFontSize + (maxFontSize - minFontSize) / 2
+            // Abort if text happens to be nil
+            guard let text = self.text, text.count > 0 else {
+                break
+            }
+            if let labelText: NSString = text as NSString? {
+                
+                let testStringWidth = labelText.size(withAttributes: [NSAttributedString.Key.font: self.font.withSize(fontSizeAverage)]).width
+                
+                textAndLabelWidthDiff = labelWidth - testStringWidth
+                if (fontSizeAverage == minFontSize || fontSizeAverage == maxFontSize) {
+                    if (textAndLabelWidthDiff < 0) {
+                        self.font = self.font.withSize(fontSizeAverage - 1)
+                        return
+                    }
+                    self.font = self.font.withSize(fontSizeAverage - 1)
+                    return
+                }
+                
+                if (textAndLabelWidthDiff < 0) {
+                    maxFontSize = fontSizeAverage - 1
+                    
+                } else if (textAndLabelWidthDiff > 0) {
+                    minFontSize = fontSizeAverage + 1
+                    
+                } else {
+                    self.font = self.font.withSize(fontSizeAverage - 1)
+                    return
+                }
+            }
+        }
+        self.font = self.font.withSize(fontSizeAverage - 1)
+        return
+    }
+    
+    func getFontToFitWidth(min: CGFloat = 2, max: CGFloat = 70, labelWidth: CGFloat) -> CGFloat {
+        var minFontSize: CGFloat = min
+        var maxFontSize: CGFloat = max
+        var fontSizeAverage: CGFloat = 0
+        var textAndLabelWidthDiff: CGFloat = 0
+        
+        while (minFontSize <= maxFontSize) {
+            
+            fontSizeAverage = minFontSize + (maxFontSize - minFontSize) / 2
+            // Abort if text happens to be nil
+            guard let text = self.text, text.count > 0 else {
+                break
+            }
+            if let labelText: NSString = text as NSString? {
+                
+                let testStringWidth = labelText.size(withAttributes: [NSAttributedString.Key.font: self.font.withSize(fontSizeAverage)]).width
+                
+                textAndLabelWidthDiff = labelWidth - testStringWidth
+                if (fontSizeAverage == minFontSize || fontSizeAverage == maxFontSize) {
+                    if (textAndLabelWidthDiff < 0) {
+                        return fontSizeAverage - 1
+                    }
+                    return fontSizeAverage
+                }
+                
+                if (textAndLabelWidthDiff < 0) {
+                    maxFontSize = fontSizeAverage - 1
+                    
+                } else if (textAndLabelWidthDiff > 0) {
+                    minFontSize = fontSizeAverage + 1
+                    
+                } else {
+                    return fontSizeAverage
+                }
+            }
+        }
+        return fontSizeAverage
     }
 }
 

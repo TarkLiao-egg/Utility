@@ -51,6 +51,11 @@
 		CEDC1C46281635780038BE7F /* AnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1C45281635780038BE7F /* AnimateController.swift */; };
 		CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1C4828166FFE0038BE7F /* PageViewController.swift */; };
 		CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC1C4B28169A4B0038BE7F /* Rotate3DController.swift */; };
+		CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D25283F210300F34727 /* UIViewAnimationQueue.swift */; };
+		CEFA4D29283F213700F34727 /* AnimateLabelAnimateLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */; };
+		CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D2A283F4C7600F34727 /* WaterController.swift */; };
+		CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D2C283F4D5B00F34727 /* WaveView.swift */; };
+		CEFF5630283E355A0055623A /* AnimateLabelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF562F283E355A0055623A /* AnimateLabelController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +106,11 @@
 		CEDC1C45281635780038BE7F /* AnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateController.swift; sourceTree = "<group>"; };
 		CEDC1C4828166FFE0038BE7F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		CEDC1C4B28169A4B0038BE7F /* Rotate3DController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotate3DController.swift; sourceTree = "<group>"; };
+		CEFA4D25283F210300F34727 /* UIViewAnimationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnimationQueue.swift; sourceTree = "<group>"; };
+		CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateLabelAnimateLabelView.swift; sourceTree = "<group>"; };
+		CEFA4D2A283F4C7600F34727 /* WaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterController.swift; sourceTree = "<group>"; };
+		CEFA4D2C283F4D5B00F34727 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		CEFF562F283E355A0055623A /* AnimateLabelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateLabelController.swift; sourceTree = "<group>"; };
 		EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,13 +165,14 @@
 		52C989DE27F067860048F4CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				52C989DF27F067860048F4CD /* AppDelegate.swift */,
+				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				52CDD34427F1FBB2009A25FB /* Tool */,
 				CECF95B528000C0B00FA81C8 /* Alert */,
 				52C989F327F068C90048F4CD /* FunctionView */,
 				52CDD32927F1E4DE009A25FB /* FMDB */,
 				CE21AE7828212E4C0083169F /* Coordinator */,
-				52C989DF27F067860048F4CD /* AppDelegate.swift */,
-				52C989E127F067860048F4CD /* SceneDelegate.swift */,
+				CEFA4D27283F211900F34727 /* AnimateDigitialLabel */,
 				CEBE4BAE282CF32C00E15D70 /* Combine */,
 				CE21AD822817BCE70083169F /* Layer */,
 				CEDC1C4728166FEB0038BE7F /* BookTurePage */,
@@ -332,7 +343,11 @@
 		CEDC1C44281635640038BE7F /* Animate */ = {
 			isa = PBXGroup;
 			children = (
+				CEFA4D25283F210300F34727 /* UIViewAnimationQueue.swift */,
 				CEDC1C45281635780038BE7F /* AnimateController.swift */,
+				CEFF562F283E355A0055623A /* AnimateLabelController.swift */,
+				CEFA4D2A283F4C7600F34727 /* WaterController.swift */,
+				CEFA4D2C283F4D5B00F34727 /* WaveView.swift */,
 			);
 			path = Animate;
 			sourceTree = "<group>";
@@ -352,6 +367,14 @@
 				CE21AD852817CDB10083169F /* DiceController.swift */,
 			);
 			path = 3D;
+			sourceTree = "<group>";
+		};
+		CEFA4D27283F211900F34727 /* AnimateDigitialLabel */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */,
+			);
+			path = AnimateDigitialLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,6 +500,7 @@
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
 				CE21AD862817CDB10083169F /* DiceController.swift in Sources */,
+				CEFA4D29283F213700F34727 /* AnimateLabelAnimateLabelView.swift in Sources */,
 				52C989E027F067860048F4CD /* AppDelegate.swift in Sources */,
 				CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */,
 				CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */,
@@ -484,6 +508,7 @@
 				52CDD33A27F1F710009A25FB /* Resolver.swift in Sources */,
 				52CDD33127F1ED04009A25FB /* TransactionDetailDB.swift in Sources */,
 				5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */,
+				CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
@@ -491,6 +516,7 @@
 				CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */,
 				52CDD33827F1F6EE009A25FB /* Inject.swift in Sources */,
 				52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */,
+				CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */,
 				52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */,
 				CE21AD842817BCF80083169F /* LayerController.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
@@ -498,7 +524,9 @@
 				CEBE4C30282E698400E15D70 /* PermissionUtil.swift in Sources */,
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,
+				CEFF5630283E355A0055623A /* AnimateLabelController.swift in Sources */,
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
+				CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */,
 				CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */,
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
 				CE21AE7A28212E680083169F /* Coordinator.swift in Sources */,
