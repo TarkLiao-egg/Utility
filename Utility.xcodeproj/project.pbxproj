@@ -35,6 +35,7 @@
 		52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91228145709001AE32E /* SetCollectionViewController.swift */; };
 		52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91428145718001AE32E /* CollectionViewCell.swift */; };
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
+		CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE009DC328408EF200065556 /* BasicAnimateController.swift */; };
 		CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */; };
 		CE21AD842817BCF80083169F /* LayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD832817BCF80083169F /* LayerController.swift */; };
 		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
@@ -90,6 +91,7 @@
 		52D3F91228145709001AE32E /* SetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCollectionViewController.swift; sourceTree = "<group>"; };
 		52D3F91428145718001AE32E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
+		CE009DC328408EF200065556 /* BasicAnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimateController.swift; sourceTree = "<group>"; };
 		CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		CE21AD832817BCF80083169F /* LayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerController.swift; sourceTree = "<group>"; };
 		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				CEFF562F283E355A0055623A /* AnimateLabelController.swift */,
 				CEFA4D2A283F4C7600F34727 /* WaterController.swift */,
 				CEFA4D2C283F4D5B00F34727 /* WaveView.swift */,
+				CE009DC328408EF200065556 /* BasicAnimateController.swift */,
 			);
 			path = Animate;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
 				CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */,
 				CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */,
+				CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */,
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
 				CE21AE7A28212E680083169F /* Coordinator.swift in Sources */,
 				52D3F90E28143A6E001AE32E /* SetTableViewController.swift in Sources */,
