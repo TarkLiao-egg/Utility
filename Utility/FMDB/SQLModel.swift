@@ -1,4 +1,5 @@
 import Foundation
+import CryptoSwift
  
 protocol SQLModelProtocol {}
  
@@ -143,6 +144,11 @@ class SQLModel: NSObject, SQLModelProtocol {
             return false
         }
     }
+    
+    func getSQLForQueue() -> (String, [Any]?) {
+        let data = values()
+        return getSQL(data:data, forInsert:true)
+    }
      
     // 删除当天对象数据
     @discardableResult
@@ -160,6 +166,21 @@ class SQLModel: NSObject, SQLModelProtocol {
             }
         }
         return false
+    }
+    
+    func getDeleteSQL() -> String? {
+        let key = primaryKey()
+        let data = values()
+        let db = FMDBManager.sharedInstance.db
+        if var rid = data[key] {
+            if db.open() {
+                if rid is String {
+                    rid = "'\(rid)'"
+                }
+                return "DELETE FROM \(table) WHERE \(primaryKey())=\(rid)"
+            }
+        }
+        return nil
     }
      
     // 通过反射获取对象所有有的属性和属性值

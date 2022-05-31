@@ -50,7 +50,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 @available(iOS 13.0, *)
 extension SceneDelegate: UNUserNotificationCenterDelegate {
-    // Foreground.
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let _ = notification.request.content.userInfo
         completionHandler([.alert, .badge, .sound])

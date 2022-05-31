@@ -3,6 +3,10 @@ import Photos
 import PhotosUI
 
 class PermissionUtil {
+    enum Feature {
+        case camera
+        case location
+    }
     static func checkCameraPermission(_ target: UIViewController?, completion: @escaping ((Bool) -> Void)) {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
@@ -11,13 +15,13 @@ class PermissionUtil {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if !granted {
-                    setAlert(target: target, title: "Permission denied", msg: "Please allow the app to use the camera permission by the System Setting.")
+                    setFeatrueAlert(target, .camera)
                     completion(false)
                 }
             }
         
         case .denied, .restricted:
-            setAlert(target: target, title: "Permission denied", msg: "Please allow the app to use the camera permission by the System Setting.")
+            setFeatrueAlert(target, .camera)
             completion(false)
         default:
             completion(false)
@@ -29,7 +33,7 @@ class PermissionUtil {
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .restricted, .denied:
-                setAlert(target: target, title: "Permission denied", msg: "Please allow the app to use the location permission by the System Setting.")
+                setFeatrueAlert(target, .location)
                 completion(false)
             default:
                 print("unknown")
@@ -39,15 +43,23 @@ class PermissionUtil {
         }
         completion(true)
     }
-
+    
+    static func setFeatrueAlert(_ target: UIViewController?, _ type: Feature) {
+        switch type {
+        case .camera:
+            setAlert(target: target, title: "Camera Permission", msg: "Please go to the settings page to allow the app to access your camera permissions.")
+        case .location:
+            setAlert(target: target, title: "Location permission", msg: "Please go to the settings page to allow the app to access your location permissions.")
+        }
+    }
     
     static func setAlert(target: UIViewController?, title: String, msg: String) {
         guard let target = target else { return }
         let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Go", style: .default) { _ in
+        let yesAction = UIAlertAction(title: "Settings", style: .default) { _ in
             UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
         }
-        let noAction = UIAlertAction(title: "No", style: .cancel)
+        let noAction = UIAlertAction(title: "Not now", style: .cancel)
         alertVC.addAction(yesAction)
         alertVC.addAction(noAction)
         target.present(alertVC, animated: true)

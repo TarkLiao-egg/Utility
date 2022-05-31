@@ -5,7 +5,34 @@ class AlertUtil {
     static let shared = AlertUtil()
     
     var presentWindow: UIWindow?
+    var hasAlert: Bool = false
     
+    enum Transition {
+        case fade
+        case up
+    }
+    
+    static func clearAlert(_ transition: Transition = .fade) {
+        if transition == .up, let window = shared.presentWindow {
+            let springMoveLeftAnimation = CABasicAnimation(keyPath: "position.y")
+            springMoveLeftAnimation.fromValue = window.frame.height * 0.5
+            springMoveLeftAnimation.toValue = window.frame.height * 1.5
+            springMoveLeftAnimation.duration = 0.3
+            springMoveLeftAnimation.fillMode = .forwards
+            springMoveLeftAnimation.isRemovedOnCompletion = false
+            springMoveLeftAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            shared.presentWindow?.layer.add(springMoveLeftAnimation, forKey: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                shared.presentWindow?.removeFromSuperview()
+                shared.presentWindow = nil
+                shared.hasAlert = false
+            }
+        } else {
+            shared.presentWindow?.removeFromSuperview()
+            shared.presentWindow = nil
+            shared.hasAlert = false
+        }
+    }
     
     static func showAlert(_ model: AlertModel) {
         setAlert(model)
@@ -15,35 +42,65 @@ class AlertUtil {
         setAlert(AlertModel(type: .single, titleString: title, descriptionString: msg))
     }
     
-    static func setAlert(_ model: AlertModel) {
-        if #available(iOS 13.0, *) {
-            if let windowScene = UIApplication.shared.connectedScenes.filter({ $0.activationState == .foregroundActive }).first as? UIWindowScene {
-                shared.presentWindow = UIWindow(windowScene: windowScene)
+    static func setAlert(_ model: AlertModel, transition: Transition = .fade) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + (shared.hasAlert ? 0.3 : 0)) {
+            if #available(iOS 13.0, *) {
+                if let windowScene = UIApplication.shared.connectedScenes.filter({ $0.activationState == .foregroundActive }).first as? UIWindowScene {
+                    shared.presentWindow = UIWindow(windowScene: windowScene)
+                }
+            } else {
+                shared.presentWindow = UIWindow()
             }
-        } else {
-            shared.presentWindow = UIWindow()
-        }
-        
-        guard let _ = shared.presentWindow else {
-            // recursive
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                setAlert(model)
+            
+            guard let _ = shared.presentWindow else {
+                // recursive
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    setAlert(model, transition: transition)
+                }
+                return
             }
-            return
-        }
-        shared.presentWindow?.frame = UIScreen.main.bounds
-        shared.presentWindow?.backgroundColor = .clear
-        shared.presentWindow?.windowLevel = UIWindow.Level.statusBar + 1
-        let alert = AlertController(action: {
-            shared.presentWindow?.removeFromSuperview()
-            shared.presentWindow = nil
-        })
-        shared.presentWindow?.rootViewController = alert
-        shared.presentWindow?.makeKeyAndVisible()
-        shared.presentWindow?.alpha = 0
-        alert.configure(model)
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-            shared.presentWindow?.alpha = 1
+            shared.presentWindow?.frame = UIScreen.main.bounds
+            shared.presentWindow?.backgroundColor = .clear
+            shared.presentWindow?.windowLevel = UIWindow.Level.statusBar + 1
+            let alert: AlertController
+            switch model.type {
+            case .single:
+                alert = SingleAlertController(action: {
+                    AlertUtil.clearAlert()
+                })
+            case .mulitiple:
+                alert = MulitipleAlertController(action: {
+                    AlertUtil.clearAlert()
+                })
+            case .editData:
+                alert = EditDataController(action: {
+                    AlertUtil.clearAlert(.up)
+                })
+            default:
+                alert = MulitipleAlertController(action: {
+                    AlertUtil.clearAlert()
+                })
+            }
+            shared.presentWindow?.rootViewController = alert
+            shared.presentWindow?.makeKeyAndVisible()
+            alert.configure(model)
+            shared.hasAlert = true
+            switch transition {
+            case .fade:
+                let springMoveLeftAnimation = CABasicAnimation(keyPath: "opacity")
+                springMoveLeftAnimation.fromValue = 0
+                springMoveLeftAnimation.toValue = 1
+                springMoveLeftAnimation.duration = 0.3
+                springMoveLeftAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                shared.presentWindow?.layer.add(springMoveLeftAnimation, forKey: nil)
+            case .up:
+                let springMoveLeftAnimation = CABasicAnimation(keyPath: "position.y")
+                springMoveLeftAnimation.fromValue = shared.presentWindow!.frame.height * 1.5
+                springMoveLeftAnimation.toValue = shared.presentWindow!.frame.height * 0.5
+                springMoveLeftAnimation.duration = 0.3
+                springMoveLeftAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                shared.presentWindow?.layer.add(springMoveLeftAnimation, forKey: nil)
+            }
         }
     }
 }
@@ -51,6 +108,8 @@ struct AlertModel {
     enum Alert_Type {
         case single
         case mulitiple
+        case editData
+        case editAppoint
     }
     static let primaryTextColor: UIColor = UIColor.white
     static let subTextColor: UIColor = UIColor.white
@@ -78,9 +137,11 @@ struct AlertModel {
     var cancelButtonBackgroundColor: UIColor = .black
     var cancelButtonAction: (() -> Void)? = nil
     var closeAction: (() -> Void)? = nil
+    var anyAction: [((Any?) -> Void)] = []
+    var any: Any?
     
     
-    init(type: Alert_Type, isLock: Bool = false, cannotClose: Bool = false, titleString: String, descriptionString: String? = nil, confirmButtonString: String = "確認", cancelButtonString: String = "取消", confirmButtonAction: (() -> Void)? = nil, cancelButtonAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil) {
+    init(type: Alert_Type, isLock: Bool = false, cannotClose: Bool = false, titleString: String, descriptionString: String? = nil, confirmButtonString: String = "Yes", cancelButtonString: String = "No", confirmButtonAction: (() -> Void)? = nil, cancelButtonAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil, anyAction: [((Any?) -> Void)] = [], any: Any? = nil) {
         self.type = type
         self.isLock = isLock
         self.cannotClose = cannotClose
@@ -91,12 +152,14 @@ struct AlertModel {
         self.cancelButtonString = cancelButtonString
         self.cancelButtonAction = cancelButtonAction
         self.closeAction = closeAction
+        self.anyAction = anyAction
+        self.any = any
     }
     
     init(type: Alert_Type, isLock: Bool = false, titleString: String, titleColor: UIColor = primaryTextColor,
          descriptionString: String? = nil, descriptionColor: UIColor = subTextColor,
-         confirmButtonString: String = "確認", confirmButtonTextColor: UIColor = UIColor.white, confirmButtonBackgroundColor: UIColor = .black, confirmButtonAction: (() -> Void)? = nil,
-         cancelButtonString: String = "取消", cancelButtonTextColor: UIColor = .black, cancelButtonBackgroundColor: UIColor = .black, cancelButtonAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil) {
+         confirmButtonString: String = "Yes", confirmButtonTextColor: UIColor = UIColor.white, confirmButtonBackgroundColor: UIColor = .black, confirmButtonAction: (() -> Void)? = nil,
+         cancelButtonString: String = "No", cancelButtonTextColor: UIColor = .black, cancelButtonBackgroundColor: UIColor = .black, cancelButtonAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil, anyAction: [((Any?) -> Void)] = [], any: Any? = nil) {
         self.type = type
         self.isLock = isLock
         self.titleString = titleString
@@ -112,9 +175,11 @@ struct AlertModel {
         self.cancelButtonBackgroundColor = cancelButtonBackgroundColor
         self.cancelButtonAction = cancelButtonAction
         self.closeAction = closeAction
+        self.anyAction = anyAction
+        self.any = any
     }
     
-    init(type: Alert_Type, isLock: Bool = false, cannotClose: Bool = false, titleString: String, descriptionString: String? = nil, confirmButtonString: String = "確認", cancelButtonString: String = "取消", alertTitle: String = "", alertDescription: String = "", enterButtonAction: ((String) -> Void)? = nil, cancelButtonAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil) {
+    init(type: Alert_Type, isLock: Bool = false, cannotClose: Bool = false, titleString: String, descriptionString: String? = nil, confirmButtonString: String = "Yes", cancelButtonString: String = "No", alertTitle: String = "", alertDescription: String = "", enterButtonAction: ((String) -> Void)? = nil, cancelButtonAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil, anyAction: [((Any?) -> Void)] = [], any: Any? = nil) {
         self.type = type
         self.isLock = isLock
         self.cannotClose = cannotClose
@@ -127,12 +192,14 @@ struct AlertModel {
         self.cancelButtonString = cancelButtonString
         self.cancelButtonAction = cancelButtonAction
         self.closeAction = closeAction
+        self.anyAction = anyAction
+        self.any = any
     }
     
     init(type: Alert_Type, isLock: Bool = false, titleString: String, titleColor: UIColor = primaryTextColor,
          descriptionString: String? = nil, descriptionColor: UIColor = subTextColor, subTitle: String, subDescription: String? = nil,
-         confirmButtonString: String = "確認", confirmButtonTextColor: UIColor = UIColor.white, confirmButtonBackgroundColor: UIColor = .black, confirmButtonAction: (() -> Void)? = nil,
-         cancelButtonString: String = "取消", cancelButtonTextColor: UIColor = .black, cancelButtonBackgroundColor: UIColor = .black, cancelButtonAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil) {
+         confirmButtonString: String = "Yes", confirmButtonTextColor: UIColor = UIColor.white, confirmButtonBackgroundColor: UIColor = .black, confirmButtonAction: (() -> Void)? = nil,
+         cancelButtonString: String = "No", cancelButtonTextColor: UIColor = .black, cancelButtonBackgroundColor: UIColor = .black, cancelButtonAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil, anyAction: [((Any?) -> Void)] = [], any: Any? = nil) {
         self.type = type
         self.isLock = isLock
         self.titleString = titleString
@@ -150,5 +217,7 @@ struct AlertModel {
         self.cancelButtonBackgroundColor = cancelButtonBackgroundColor
         self.cancelButtonAction = cancelButtonAction
         self.closeAction = closeAction
+        self.anyAction = anyAction
+        self.any = any
     }
 }
