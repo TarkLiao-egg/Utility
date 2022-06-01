@@ -72,10 +72,6 @@ class AlertUtil {
                 alert = MulitipleAlertController(action: {
                     AlertUtil.clearAlert()
                 })
-            case .editData:
-                alert = EditDataController(action: {
-                    AlertUtil.clearAlert(.up)
-                })
             default:
                 alert = MulitipleAlertController(action: {
                     AlertUtil.clearAlert()
