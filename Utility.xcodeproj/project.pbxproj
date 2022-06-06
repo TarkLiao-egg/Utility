@@ -11,6 +11,11 @@
 		5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A1280C0DDF00CFAF1F /* NetWorkManager.swift */; };
 		5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A3280C0DF000CFAF1F /* GCDManager.swift */; };
 		5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */; };
+		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
+		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
+		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
+		52B4F4972849DAD60042033E /* CWProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4962849DAD60042033E /* CWProxy.swift */; };
+		52B4F499284E1D8D0042033E /* BezLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F498284E1D8D0042033E /* BezLayerController.swift */; };
 		52C989E027F067860048F4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C989DF27F067860048F4CD /* AppDelegate.swift */; };
 		52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C989E127F067860048F4CD /* SceneDelegate.swift */; };
 		52C989E727F067860048F4CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C989E527F067860048F4CD /* Main.storyboard */; };
@@ -37,7 +42,7 @@
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
 		CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE009DC328408EF200065556 /* BasicAnimateController.swift */; };
 		CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */; };
-		CE21AD842817BCF80083169F /* LayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD832817BCF80083169F /* LayerController.swift */; };
+		CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD832817BCF80083169F /* ReplicatorLayerController.swift */; };
 		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
 		CE21AE092818F8150083169F /* ReuseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE082818F8150083169F /* ReuseUI.swift */; };
 		CE21AE7A28212E680083169F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE7928212E670083169F /* Coordinator.swift */; };
@@ -78,6 +83,11 @@
 		5230F8A1280C0DDF00CFAF1F /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
 		5230F8A3280C0DF000CFAF1F /* GCDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDManager.swift; sourceTree = "<group>"; };
 		5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManager.swift; sourceTree = "<group>"; };
+		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
+		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
+		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
+		52B4F4962849DAD60042033E /* CWProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWProxy.swift; sourceTree = "<group>"; };
+		52B4F498284E1D8D0042033E /* BezLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezLayerController.swift; sourceTree = "<group>"; };
 		52C989DC27F067860048F4CD /* Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Utility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C989DF27F067860048F4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C989E127F067860048F4CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +116,7 @@
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
 		CE009DC328408EF200065556 /* BasicAnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimateController.swift; sourceTree = "<group>"; };
 		CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
-		CE21AD832817BCF80083169F /* LayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerController.swift; sourceTree = "<group>"; };
+		CE21AD832817BCF80083169F /* ReplicatorLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatorLayerController.swift; sourceTree = "<group>"; };
 		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
 		CE21AE082818F8150083169F /* ReuseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseUI.swift; sourceTree = "<group>"; };
 		CE21AE7928212E670083169F /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -170,6 +180,17 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				52B4F4942849DA570042033E /* CWBannerController.swift */,
+				52B4F4902849D9F10042033E /* CWBanner.swift */,
+				52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */,
+				52B4F4962849DAD60042033E /* CWProxy.swift */,
+			);
+			path = CWCarousel;
+			sourceTree = "<group>";
+		};
 		52C989D327F067860048F4CD = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +235,7 @@
 				5230F89A280BE03000CFAF1F /* Shadow */,
 				52CDD33627F1F6D3009A25FB /* Inject */,
 				52CDD33B27F1F76C009A25FB /* API */,
+				52B4F48F2849D9BC0042033E /* CWCarousel */,
 				52CDD33E27F1F7DF009A25FB /* CoreData */,
 				52C989E527F067860048F4CD /* Main.storyboard */,
 				52C989E827F067890048F4CD /* Assets.xcassets */,
@@ -320,7 +342,8 @@
 		CE21AD822817BCE70083169F /* Layer */ = {
 			isa = PBXGroup;
 			children = (
-				CE21AD832817BCF80083169F /* LayerController.swift */,
+				CE21AD832817BCF80083169F /* ReplicatorLayerController.swift */,
+				52B4F498284E1D8D0042033E /* BezLayerController.swift */,
 			);
 			path = Layer;
 			sourceTree = "<group>";
@@ -562,8 +585,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */,
+				52B4F499284E1D8D0042033E /* BezLayerController.swift in Sources */,
 				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
 				CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */,
+				52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
@@ -576,9 +601,12 @@
 				CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */,
 				52C989F527F068F20048F4CD /* FunctionCodeView.swift in Sources */,
 				52CDD33A27F1F710009A25FB /* Resolver.swift in Sources */,
+				52B4F4972849DAD60042033E /* CWProxy.swift in Sources */,
 				52CDD33127F1ED04009A25FB /* TransactionDetailDB.swift in Sources */,
 				5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */,
+				52B4F4952849DA570042033E /* CWBannerController.swift in Sources */,
 				CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */,
+				52B4F4912849D9F10042033E /* CWBanner.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
@@ -588,7 +616,7 @@
 				52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */,
 				CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */,
 				52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */,
-				CE21AD842817BCF80083169F /* LayerController.swift in Sources */,
+				CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
 				CEBE4C30282E698400E15D70 /* PermissionUtil.swift in Sources */,
@@ -774,7 +802,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TVV8999XA6;
+				DEVELOPMENT_TEAM = 6B67QT6MG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

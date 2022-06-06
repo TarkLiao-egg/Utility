@@ -1,6 +1,6 @@
 import UIKit
 import SnapKit
-class LayerController: UIViewController {
+class ReplicatorLayerController: UIViewController {
     var insertView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
