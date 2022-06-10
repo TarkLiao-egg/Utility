@@ -24,6 +24,7 @@ class SetCollectionViewController: UIViewController {
 extension SetCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     func setupCollectionView() {
+        collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -43,8 +44,17 @@ extension SetCollectionViewController: UICollectionViewDelegate, UICollectionVie
         return cell
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        print(collectionView.visibleCells)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        print("highLight\(indexPath.row)")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -128,6 +138,8 @@ extension SetCollectionViewController {
         layout = NewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = -20
+        layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         view.addSubview(collectionView)

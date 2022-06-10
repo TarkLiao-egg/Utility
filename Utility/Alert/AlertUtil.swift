@@ -104,8 +104,6 @@ struct AlertModel {
     enum Alert_Type {
         case single
         case mulitiple
-        case editData
-        case editAppoint
     }
     static let primaryTextColor: UIColor = UIColor.white
     static let subTextColor: UIColor = UIColor.white

@@ -216,7 +216,19 @@ extension AlertController {
         return view
     }
     
-    func getLineView() -> UIView {
+    func getDescriptionView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.addSubview(descriptionLabel)
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
+        descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        return view
+    }
+    
+    func getLineView(color: UIColor = UIColor(red: 187 / 255, green: 187 / 255, blue: 187 / 255, alpha: 1)) -> UIView {
         let lineView = UIView()
         lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true

@@ -46,6 +46,8 @@
 		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
 		CE21AE092818F8150083169F /* ReuseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE082818F8150083169F /* ReuseUI.swift */; };
 		CE21AE7A28212E680083169F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE7928212E670083169F /* Coordinator.swift */; };
+		CEBB58662851DD87006A922C /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB58652851DD87006A922C /* TestController.swift */; };
+		CEBB58692851E110006A922C /* PropertyNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB58682851E110006A922C /* PropertyNameController.swift */; };
 		CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */; };
 		CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BAF282CF34700E15D70 /* CombineController.swift */; };
 		CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BB6282E0F0B00E15D70 /* SystemAlertController.swift */; };
@@ -60,6 +62,8 @@
 		CEDF979228471BB1007F1B8D /* UtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979128471BB1007F1B8D /* UtilityTests.swift */; };
 		CEDF979A28471C74007F1B8D /* MulitipleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979828471C74007F1B8D /* MulitipleAlertController.swift */; };
 		CEDF979B28471C74007F1B8D /* SingleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979928471C74007F1B8D /* SingleAlertController.swift */; };
+		CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE7FEE2852F9B50046CB2F /* APIService.swift */; };
+		CEF51E1F284D8EB700DFFB35 /* TransitionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */; };
 		CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D25283F210300F34727 /* UIViewAnimationQueue.swift */; };
 		CEFA4D29283F213700F34727 /* AnimateLabelAnimateLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */; };
 		CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D2A283F4C7600F34727 /* WaterController.swift */; };
@@ -120,6 +124,8 @@
 		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
 		CE21AE082818F8150083169F /* ReuseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseUI.swift; sourceTree = "<group>"; };
 		CE21AE7928212E670083169F /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CEBB58652851DD87006A922C /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
+		CEBB58682851E110006A922C /* PropertyNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyNameController.swift; sourceTree = "<group>"; };
 		CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorCombine.swift; sourceTree = "<group>"; };
 		CEBE4BAF282CF34700E15D70 /* CombineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineController.swift; sourceTree = "<group>"; };
 		CEBE4BB6282E0F0B00E15D70 /* SystemAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlertController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,8 @@
 		CEDF979128471BB1007F1B8D /* UtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityTests.swift; sourceTree = "<group>"; };
 		CEDF979828471C74007F1B8D /* MulitipleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulitipleAlertController.swift; sourceTree = "<group>"; };
 		CEDF979928471C74007F1B8D /* SingleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAlertController.swift; sourceTree = "<group>"; };
+		CEEE7FEE2852F9B50046CB2F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionUtil.swift; sourceTree = "<group>"; };
 		CEFA4D25283F210300F34727 /* UIViewAnimationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnimationQueue.swift; sourceTree = "<group>"; };
 		CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateLabelAnimateLabelView.swift; sourceTree = "<group>"; };
 		CEFA4D2A283F4C7600F34727 /* WaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterController.swift; sourceTree = "<group>"; };
@@ -216,6 +224,7 @@
 			children = (
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
+				CEBB58652851DD87006A922C /* TestController.swift */,
 				52CDD34427F1FBB2009A25FB /* Tool */,
 				CECF95B528000C0B00FA81C8 /* Alert */,
 				52C989F327F068C90048F4CD /* FunctionView */,
@@ -237,6 +246,7 @@
 				52CDD33B27F1F76C009A25FB /* API */,
 				52B4F48F2849D9BC0042033E /* CWCarousel */,
 				52CDD33E27F1F7DF009A25FB /* CoreData */,
+				CEBB58672851E0F5006A922C /* PropertyName */,
 				52C989E527F067860048F4CD /* Main.storyboard */,
 				52C989E827F067890048F4CD /* Assets.xcassets */,
 				52C989EA27F067890048F4CD /* LaunchScreen.storyboard */,
@@ -280,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				52CDD33C27F1F77D009A25FB /* APIManager.swift */,
+				CEEE7FEE2852F9B50046CB2F /* APIService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -300,6 +311,7 @@
 				52CDD34527F1FBC3009A25FB /* Extensions.swift */,
 				CE21AE082818F8150083169F /* ReuseUI.swift */,
 				CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */,
+				CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -355,6 +367,14 @@
 				CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		CEBB58672851E0F5006A922C /* PropertyName */ = {
+			isa = PBXGroup;
+			children = (
+				CEBB58682851E110006A922C /* PropertyNameController.swift */,
+			);
+			path = PropertyName;
 			sourceTree = "<group>";
 		};
 		CEBE4BAE282CF32C00E15D70 /* Combine */ = {
@@ -507,6 +527,8 @@
 				Base,
 			);
 			mainGroup = 52C989D327F067860048F4CD;
+			packageReferences = (
+			);
 			productRefGroup = 52C989DD27F067860048F4CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -586,11 +608,13 @@
 			files = (
 				5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */,
 				52B4F499284E1D8D0042033E /* BezLayerController.swift in Sources */,
+				CEBB58692851E110006A922C /* PropertyNameController.swift in Sources */,
 				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
 				CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */,
 				52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
+				CEBB58662851DD87006A922C /* TestController.swift in Sources */,
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
 				CE21AD862817CDB10083169F /* DiceController.swift in Sources */,
@@ -609,6 +633,7 @@
 				52B4F4912849D9F10042033E /* CWBanner.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
+				CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */,
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
 				52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */,
 				CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */,
@@ -637,6 +662,7 @@
 				52CDD32B27F1E529009A25FB /* SQLModel.swift in Sources */,
 				CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */,
 				52CDD34327F1F833009A25FB /* CoreDataModel.xcdatamodeld in Sources */,
+				CEF51E1F284D8EB700DFFB35 /* TransitionUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -802,7 +828,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6B67QT6MG8;
+				DEVELOPMENT_TEAM = TVV8999XA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

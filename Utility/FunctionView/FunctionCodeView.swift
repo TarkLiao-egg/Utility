@@ -223,6 +223,10 @@ extension FunctionCodeView {
             reDraw()
         }
     }
+    
+    func setInnerView(_ view: UIView) {
+        gradientView.addSubview(view)
+    }
 }
 
 class InnerShadowLayer: CAShapeLayer {
