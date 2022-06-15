@@ -14,7 +14,55 @@ extension OP_Declarative {
     func forSelf(_ closure: (Self) -> Void) {
         closure(self)
     }
+    
+    @discardableResult
+    func setV(_ closure: (Self) -> Void, _ parent: inout UIView, _ closureUI: (Self) -> Void) -> Self {
+        closure(self)
+        if let view = self as? UIView {
+            parent.addSubview(view)
+            closureUI(self)
+        }
+        return self
+    }
+    
+    @discardableResult
+    func setS(_ closure: (Self) -> Void, _ closureUI: (Self) -> Void) -> Self {
+        closure(self)
+        closureUI(self)
+        return self
+    }
 }
+
+#if canImport(SnapKit)
+import SnapKit
+extension OP_Declarative {
+    @discardableResult
+    func VS(_ closure: ((Self) -> Void)? = nil, _ parent: UIView, _ closureUI: (_ make: ConstraintMaker) -> Void) -> Self {
+        closure?(self)
+        if let view = self as? UIView {
+            parent.addSubview(view)
+            if let myself = self as? UIView {
+                myself.snp.makeConstraints { make in
+                    closureUI(make)
+                }
+            }
+        }
+        
+        return self
+    }
+    
+    @discardableResult
+    func S(_ closure: (Self) -> Void, _ closureUI: ((_ make: ConstraintMaker) -> Void)? = nil) -> Self {
+        closure(self)
+        if let myself = self as? UIView, let closureUI = closureUI {
+            myself.snp.makeConstraints { make in
+                closureUI(make)
+            }
+        }
+        return self
+    }
+}
+#endif
 
 extension NSObject: OP_Declarative {}
 
@@ -200,6 +248,12 @@ extension UIScreen {
 }
 
 extension UITextField {
+    func setProperty(_ color: UIColor, _ fontStyle: UIFont.FontStyle = .medium, _ size: CGFloat, _ str: String? = nil, _ align: NSTextAlignment = .left) {
+        self.font = UIFont.getDefaultFont(fontStyle, size: size)
+        self.textAlignment = align
+        self.textColor = color
+        self.text = str
+    }
     
     var isBlank: Bool {
         guard let text = self.text else { return true }
@@ -250,7 +304,55 @@ extension UITextField {
     }
 }
 
+#if canImport(Combine)
+import Combine
+@available(iOS 13.0, *)
+extension UITextField {
+    func addDoneButtonOnKeyboard(doneClosure: ((UITextField?) -> Void)? = nil, clearClosure: ((UITextField?) -> Void)? = nil, cancelC: inout [AnyCancellable]) {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
+        
+        if let doneClosure = doneClosure {
+            done.getPublisher().sink { [weak self] _ in
+                self?.resignFirstResponder()
+                doneClosure(self)
+            }.store(in: &cancelC)
+        } else {
+            done.action = #selector(doneButtonAction)
+        }
+
+        done.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
+        done.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
+        var items = [flexSpace, done]
+        if let clearClosure = clearClosure {
+            let del: UIBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
+            del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
+            del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
+            done.getPublisher().sink { [weak self] _ in
+                self?.resignFirstResponder()
+                clearClosure(self)
+            }.store(in: &cancelC)
+            items.insert(del, at: 0)
+        }
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        self.inputAccessoryView = doneToolbar
+    }
+}
+#endif
+
 extension UILabel {
+    func setProperty(_ color: UIColor, _ fontStyle: UIFont.FontStyle = .medium, _ size: CGFloat, _ str: String? = nil, _ align: NSTextAlignment = .left, _ numLine: Int = 1) {
+        self.font = UIFont.getDefaultFont(fontStyle, size: size)
+        self.textAlignment = align
+        self.textColor = color
+        self.text = str
+        self.numberOfLines = numLine
+    }
+    
     func textWidth() -> CGFloat {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
@@ -389,6 +491,12 @@ extension UILabel {
 }
 
 extension UITextView {
+    func setProperty(_ color: UIColor, _ fontStyle: UIFont.FontStyle = .medium, _ size: CGFloat, _ str: String? = nil, _ align: NSTextAlignment = .left) {
+        self.font = UIFont.getDefaultFont(fontStyle, size: size)
+        self.textAlignment = align
+        self.textColor = color
+        self.text = str
+    }
     
     var isBlank: Bool {
         guard let text = self.text else { return true }
@@ -500,5 +608,57 @@ extension UIControl: CombineCompatible { }
 extension CombineCompatible where Self: UIControl {
     func getPublisher(for events: UIControl.Event) -> UIControlPublisher<Self> {
         return UIControlPublisher(control: self, events: events)
+    }
+}
+
+@available(iOS 13.0, *)
+final class UIBarButtonItemSubscription<SubscriberType: Subscriber, Control: UIBarButtonItem>: Subscription where SubscriberType.Input == Control {
+    private var subscriber: SubscriberType?
+    private let control: Control
+
+    init(subscriber: SubscriberType, control: Control) {
+        self.subscriber = subscriber
+        self.control = control
+        control.target = self
+        control.action = #selector(eventHandler)
+    }
+
+    func request(_ demand: Subscribers.Demand) {
+        // We do nothing here as we only want to send events when they occur.
+        // See, for more info: https://developer.apple.com/documentation/combine/subscribers/demand
+    }
+
+    func cancel() {
+        subscriber = nil
+    }
+
+    @objc private func eventHandler() {
+        _ = subscriber?.receive(control)
+    }
+}
+
+@available(iOS 13.0, *)
+struct UIBarButtonItemPublisher<Control: UIBarButtonItem>: Publisher {
+
+    typealias Output = Control
+    typealias Failure = Never
+
+    let control: Control
+
+    init(control: Control) {
+        self.control = control
+    }
+    
+    func receive<S>(subscriber: S) where S : Subscriber, S.Failure == UIBarButtonItemPublisher.Failure, S.Input == UIBarButtonItemPublisher.Output {
+        let subscription = UIBarButtonItemSubscription(subscriber: subscriber, control: control)
+        subscriber.receive(subscription: subscription)
+    }
+}
+
+extension UIBarItem: CombineCompatible { }
+@available(iOS 13.0, *)
+extension CombineCompatible where Self: UIBarButtonItem {
+    func getPublisher() -> UIBarButtonItemPublisher<Self> {
+        return UIBarButtonItemPublisher(control: self)
     }
 }
