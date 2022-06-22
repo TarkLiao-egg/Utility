@@ -52,7 +52,13 @@ extension OP_Declarative {
     }
     
     @discardableResult
-    func S(_ closure: (Self) -> Void, _ closureUI: ((_ make: ConstraintMaker) -> Void)? = nil) -> Self {
+    func S(_ closure: (Self) -> Void) -> Self {
+        closure(self)
+        return self
+    }
+    
+    @discardableResult
+    func SS(_ closure: (Self) -> Void, _ closureUI: ((_ make: ConstraintMaker) -> Void)? = nil) -> Self {
         closure(self)
         if let myself = self as? UIView, let closureUI = closureUI {
             myself.snp.makeConstraints { make in

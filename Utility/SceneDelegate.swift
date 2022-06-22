@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 //        window?.rootViewController = CWBannerController(style: .preview_big)
         window?.rootViewController = BezLayerController()
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

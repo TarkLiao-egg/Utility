@@ -2,6 +2,7 @@ import UIKit
 
 class AlertController: UIViewController {
     let backgroundColor: UIColor = .white
+    var isLock: Bool = false
     
     var stackView: UIStackView!
     var backgroundView: UIView!
@@ -35,6 +36,7 @@ class AlertController: UIViewController {
     }
     
     func configure(_ model: AlertModel) {
+        isLock = model.isLock
         titleLabel.text = model.titleString
         titleLabel.textColor = model.titleColor
         descriptionLabel.text = model.descriptionString
@@ -67,8 +69,10 @@ class AlertController: UIViewController {
     }
     
     @objc func closeButtonPressed() {
-        closeAction?()
-        windowCloseAction?()
+        if !isLock {
+            closeAction?()
+            windowCloseAction?()
+        }
     }
     
     @objc func confirmButtonPressed() {

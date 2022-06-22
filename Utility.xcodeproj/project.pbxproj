@@ -63,6 +63,7 @@
 		CEDF979A28471C74007F1B8D /* MulitipleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979828471C74007F1B8D /* MulitipleAlertController.swift */; };
 		CEDF979B28471C74007F1B8D /* SingleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979928471C74007F1B8D /* SingleAlertController.swift */; };
 		CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE7FEE2852F9B50046CB2F /* APIService.swift */; };
+		CEF25757285B1FAE00FB26C9 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF25756285B1FAE00FB26C9 /* ShareController.swift */; };
 		CEF51E1F284D8EB700DFFB35 /* TransitionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */; };
 		CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D25283F210300F34727 /* UIViewAnimationQueue.swift */; };
 		CEFA4D29283F213700F34727 /* AnimateLabelAnimateLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */; };
@@ -142,6 +143,7 @@
 		CEDF979828471C74007F1B8D /* MulitipleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulitipleAlertController.swift; sourceTree = "<group>"; };
 		CEDF979928471C74007F1B8D /* SingleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAlertController.swift; sourceTree = "<group>"; };
 		CEEE7FEE2852F9B50046CB2F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		CEF25756285B1FAE00FB26C9 /* ShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionUtil.swift; sourceTree = "<group>"; };
 		CEFA4D25283F210300F34727 /* UIViewAnimationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnimationQueue.swift; sourceTree = "<group>"; };
 		CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateLabelAnimateLabelView.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				52B4F48F2849D9BC0042033E /* CWCarousel */,
 				52CDD33E27F1F7DF009A25FB /* CoreData */,
 				CEBB58672851E0F5006A922C /* PropertyName */,
+				CEF25755285B1F9C00FB26C9 /* Share */,
 				52C989E527F067860048F4CD /* Main.storyboard */,
 				52C989E827F067890048F4CD /* Assets.xcassets */,
 				52C989EA27F067890048F4CD /* LaunchScreen.storyboard */,
@@ -451,6 +454,14 @@
 			path = UtilityTests;
 			sourceTree = "<group>";
 		};
+		CEF25755285B1F9C00FB26C9 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				CEF25756285B1FAE00FB26C9 /* ShareController.swift */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		CEFA4D27283F211900F34727 /* AnimateDigitialLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +622,7 @@
 				CEBB58692851E110006A922C /* PropertyNameController.swift in Sources */,
 				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
 				CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */,
+				CEF25757285B1FAE00FB26C9 /* ShareController.swift in Sources */,
 				52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,

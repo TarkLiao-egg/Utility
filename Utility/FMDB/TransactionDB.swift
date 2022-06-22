@@ -12,6 +12,7 @@ class TransactionDB: SQLModel {
         self.time = time
         self.title = title
         self.descriptionStr = description
+        self.imgKey = UUID().uuidString
     }
     
     required init() {

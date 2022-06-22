@@ -102,6 +102,8 @@ class FunctionCodeView: UIView {
             gradientViewLayer.startPoint = gradientStartPoint
             gradientViewLayer.endPoint = gradientEndPoint
             gradientViewLayer.colors = gradientColors.compactMap({$0.cgColor})
+            gradientViewLayer.frame = bounds
+            gradientView.layer.addSublayer(gradientViewLayer)
         } else {
             gradientView.backgroundColor = viewBackgroundColor
         }
@@ -132,10 +134,7 @@ class FunctionCodeView: UIView {
         gradientBorderLayer.colors = borderColors.compactMap({$0.cgColor})
         gradientBorderLayer.mask = borderShape
         gradientView.layer.addSublayer(gradientBorderLayer)
-        gradientViewLayer.frame = bounds
-        
         gradientView.layer.mask = cornersMaskLayer
-        gradientView.layer.addSublayer(gradientViewLayer)
     }
 }
 
