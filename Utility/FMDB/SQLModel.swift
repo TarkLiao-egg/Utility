@@ -306,7 +306,7 @@ class SQLModel: NSObject, SQLModelProtocol {
                 sql += "BOOLEAN DEFAULT " + ((val as! Bool) ? "1" : "0")
             } else if val is Date {
                 sql += "DATE"
-            } else if val is NSData {
+            } else if val is Data {
                 sql += "BLOB"
             } else {
                 // Default to text

@@ -1,18 +1,20 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Combine
 
 class FMDBController: UIViewController {
     var disposeBag: DisposeBag = .init()
     
     @Inject private var apiManager: APIManager
     @Inject private var dbManager: FMDBManager
+    var data = DataDB()
+    var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
+        setupUI()
+        data = DataDB(title: "test", image: UIImage(named: "default")!)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,4 +69,30 @@ extension FMDBController {
 //        }
 //        return .init(sum: sum, sections: TransactionListViewModel.getSections(transactions: transactions))
 //    }
+}
+
+extension FMDBController {
+    func setupUI() {
+        view.backgroundColor = .black
+        
+        imageView = UIImageView.name("").VS({
+            $0.contentMode = .scaleToFill
+        }, view) { make in
+            make.size.equalTo(100)
+            make.center.equalToSuperview()
+        }
+        
+        UIButton().VS({
+            $0.setTitle("set", for: .normal)
+            $0.addTarget(self, action: #selector(self.imageSelector), for: .touchUpInside)
+        }, view) { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.size.equalTo(100)
+        }
+    }
+    
+    @objc func imageSelector() {
+        imageView.image = UIImage(data: data.image)
+    }
 }

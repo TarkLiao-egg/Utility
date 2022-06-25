@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521EDA262866C00F00AD6098 /* DataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EDA252866C00F00AD6098 /* DataDB.swift */; };
 		5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F89B280BE17900CFAF1F /* InsideShadowController.swift */; };
 		5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A1280C0DDF00CFAF1F /* NetWorkManager.swift */; };
 		5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A3280C0DF000CFAF1F /* GCDManager.swift */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		5012B534A7F328082D8809F1 /* Pods-Utility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.debug.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.debug.xcconfig"; sourceTree = "<group>"; };
+		521EDA252866C00F00AD6098 /* DataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDB.swift; sourceTree = "<group>"; };
 		5230F89B280BE17900CFAF1F /* InsideShadowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideShadowController.swift; sourceTree = "<group>"; };
 		5230F8A1280C0DDF00CFAF1F /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
 		5230F8A3280C0DF000CFAF1F /* GCDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDManager.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				52CDD33427F1F4C0009A25FB /* FMDBController.swift */,
+				521EDA252866C00F00AD6098 /* DataDB.swift */,
 				52CDD32A27F1E529009A25FB /* SQLModel.swift */,
 				52CDD32C27F1E54E009A25FB /* FMDBManager.swift */,
 				52CDD32E27F1ECEB009A25FB /* TransactionDB.swift */,
@@ -643,6 +646,7 @@
 				52B4F4952849DA570042033E /* CWBannerController.swift in Sources */,
 				CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */,
 				52B4F4912849D9F10042033E /* CWBanner.swift in Sources */,
+				521EDA262866C00F00AD6098 /* DataDB.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
 				CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */,

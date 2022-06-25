@@ -166,7 +166,7 @@ extension ShareController {
     }
     
     func getShareView() -> UIView {
-        return UIView().S { view in
+        return UIView().SS { view in
             UILabel().VS({
                 $0.text = "Share App"
                 $0.textColor = .white
@@ -181,7 +181,7 @@ extension ShareController {
     }
     
     func getLangView() -> UIView {
-        return UIView().S { view in
+        return UIView().SS { view in
             UILabel().VS({
                 $0.text = "Language"
                 $0.textColor = .white
@@ -232,7 +232,7 @@ extension ShareController {
     }
     
     func getAboutView() -> UIView {
-        return UIView().S { view in
+        return UIView().SS { view in
             UILabel().VS({
                 $0.text = "About"
                 $0.textColor = .white

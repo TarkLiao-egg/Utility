@@ -42,15 +42,16 @@ class BezLayerController: UIViewController {
         path.lineJoinStyle = .round//设置两条线连结点的样式
         path.lineCapStyle = .square//设置线条拐角帽的样式
         path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: rect.width, y: 0))
         path.addLine(to: CGPoint(x: 0, y: rect.height))
         path.addLine(to: CGPoint(x: rect.width, y: rect.height))
-        path.addLine(to: CGPoint(x: rect.width, y: 0))
+//        path.stroke() 不close
         path.close()
         let layer = CAShapeLayer()
-        layer.fillRule = .evenOdd
+        layer.fillRule = .nonZero
         layer.path = path.cgPath
-        layer.lineWidth = 1
-        layer.fillColor = UIColor.clear.cgColor
+        layer.lineWidth = 3
+        layer.fillColor = UIColor.green.cgColor
         layer.strokeColor = UIColor.white.cgColor
         
         testView.layer.addSublayer(layer)

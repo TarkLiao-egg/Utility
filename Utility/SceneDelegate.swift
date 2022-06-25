@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 
 //        window?.rootViewController = CWBannerController(style: .preview_big)
-        window?.rootViewController = BezLayerController()
+        window?.rootViewController = FMDBController()
         window?.makeKeyAndVisible()
     }
 
