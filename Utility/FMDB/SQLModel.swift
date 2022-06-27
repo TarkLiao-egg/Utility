@@ -149,6 +149,10 @@ class SQLModel: NSObject, SQLModelProtocol {
         let data = values()
         return getSQL(data:data, forInsert:true)
     }
+    
+    func getDeleteSQL(rid: String) -> String {
+        return "DELETE FROM \(table) WHERE id='\(rid)'"
+    }
      
     // 删除当天对象数据
     @discardableResult
@@ -306,7 +310,7 @@ class SQLModel: NSObject, SQLModelProtocol {
                 sql += "BOOLEAN DEFAULT " + ((val as! Bool) ? "1" : "0")
             } else if val is Date {
                 sql += "DATE"
-            } else if val is Data {
+            } else if val is NSData {
                 sql += "BLOB"
             } else {
                 // Default to text
