@@ -314,7 +314,7 @@ extension UITextField {
 import Combine
 @available(iOS 13.0, *)
 extension UITextField {
-    func addDoneButtonOnKeyboard(doneClosure: ((UITextField?) -> Void)? = nil, clearClosure: ((UITextField?) -> Void)? = nil, cancelC: inout [AnyCancellable]) {
+    func addDoneButtonOnKeyboard(doneClosure: ((UITextField) -> Void)? = nil, clearClosure: ((UITextField) -> Void)? = nil, cancelC: inout [AnyCancellable]) {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
 
@@ -323,7 +323,8 @@ extension UITextField {
         
         if let doneClosure = doneClosure {
             done.getPublisher().sink { [weak self] _ in
-                self?.resignFirstResponder()
+                guard let self = self else { return }
+                self.resignFirstResponder()
                 doneClosure(self)
             }.store(in: &cancelC)
         } else {
@@ -338,7 +339,8 @@ extension UITextField {
             del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .normal)
             del.setTitleTextAttributes([NSAttributedString.Key.font:UIFont(name: "PingFangTC-Semibold", size: 15) ?? UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineColor: UIColor.clear], for: .selected)
             done.getPublisher().sink { [weak self] _ in
-                self?.resignFirstResponder()
+                guard let self = self else { return }
+                self.resignFirstResponder()
                 clearClosure(self)
             }.store(in: &cancelC)
             items.insert(del, at: 0)

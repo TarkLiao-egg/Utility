@@ -8,6 +8,7 @@ class DataDB: SQLModel {
     
     init(title: String, image: UIImage) {
         self.title = title
+        self.imageData = NSData()
         super.init()
         saveImage(image)
     }

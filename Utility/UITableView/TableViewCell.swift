@@ -31,7 +31,7 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(data: Int) {
+    func configure(_ data: Int) {
         label.text = String(data)
     }
 }

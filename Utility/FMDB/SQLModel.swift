@@ -1,13 +1,34 @@
 import Foundation
-//import CryptoSwift
+import FMDB
  
+class FMDBSource {
+    static let shared: FMDBSource = .init()
+    static let dbName = "DB.db"
+    lazy var dbURL: URL = {
+        let fileURL = try! FileManager.default
+            .url(for: .applicationSupportDirectory, in: .userDomainMask,
+                 appropriateFor: nil, create: true)
+            .appendingPathComponent(FMDBSource.dbName)
+        print(fileURL)
+        return fileURL
+    }()
+    lazy var db: FMDatabase = {
+        let database = FMDatabase(url: dbURL)
+        return database
+    }()
+    
+    lazy var dbQueue: FMDatabaseQueue? = {
+        let databaseQueue = FMDatabaseQueue(url: dbURL)
+        return databaseQueue
+    }()
+}
 protocol SQLModelProtocol {}
  
 @objcMembers
 class SQLModel: NSObject, SQLModelProtocol {
-     
-    internal var table = FMDBManager.dbName
-    internal static let datab = FMDBManager.sharedInstance.db
+     static let shared = SQLModel()
+    internal var table = FMDBSource.dbName
+    internal static var datab = FMDBSource.shared.db
      
     // 记录每个模式对应的数据表是否已经创建完毕了
     private static var verified = [String:Bool]()
@@ -18,9 +39,9 @@ class SQLModel: NSObject, SQLModelProtocol {
         // 自动初始化表名
         self.table = type(of: self).table
         // 自动建对应的数据库表
-        let verified = SQLModel.verified[self.table]
+        let verified = Self.verified[self.table]
         if verified == nil || !verified! {
-            let db = SQLModel.datab
+            let db = Self.datab
             var sql = "CREATE TABLE IF NOT EXISTS \(table) ("
             // Columns
             let cols = values()
@@ -37,7 +58,7 @@ class SQLModel: NSObject, SQLModelProtocol {
             sql += ")"
             if db.open() {
                 if db.executeUpdate(sql, withArgumentsIn:[]) {
-                    SQLModel.verified[table] = true
+                    Self.verified[table] = true
                     print("\(table) 表自动创建成功")
                 }
             }
@@ -63,7 +84,7 @@ class SQLModel: NSObject, SQLModelProtocol {
     // 删除指定数据（可附带条件）
     @discardableResult
     class func remove(filter: String = "") -> Bool {
-        let db = SQLModel.datab
+        let db = Self.datab
         var sql = "DELETE FROM \(table)"
         if !filter.isEmpty {
             // 添加删除条件
@@ -79,7 +100,7 @@ class SQLModel: NSObject, SQLModelProtocol {
      
     // 获取数量（可附带条件）
     class func count(filter: String = "") -> Int {
-        let db = SQLModel.datab
+        let db = Self.datab
         var sql = "SELECT COUNT(*) AS count FROM \(table)"
         if !filter.isEmpty {
             // 添加查询条件
@@ -96,7 +117,7 @@ class SQLModel: NSObject, SQLModelProtocol {
     }
     
     class func latestIndex() -> Int {
-        let db = SQLModel.datab
+        let db = Self.datab
         let sql = "SELECT seq FROM sqlite_sequence WHERE name = '\(table)'"
         if let res = db.executeQuery(sql, withArgumentsIn: []) {
             if res.next() {
@@ -116,7 +137,7 @@ class SQLModel: NSObject, SQLModelProtocol {
         let key = primaryKey()
         let data = values()
         var insert = true
-        let db = FMDBManager.sharedInstance.db
+        let db = Self.datab
          
         if let rid = data[key] {
             var val = "\(rid)"
@@ -159,7 +180,7 @@ class SQLModel: NSObject, SQLModelProtocol {
     func delete() -> Bool{
         let key = primaryKey()
         let data = values()
-        let db = FMDBManager.sharedInstance.db
+        let db = Self.datab
         if var rid = data[key] {
             if db.open() {
                 if rid is String {
@@ -175,7 +196,7 @@ class SQLModel: NSObject, SQLModelProtocol {
     func getDeleteSQL() -> String? {
         let key = primaryKey()
         let data = values()
-        let db = FMDBManager.sharedInstance.db
+        let db = Self.datab
         if var rid = data[key] {
             if db.open() {
                 if rid is String {
@@ -310,7 +331,7 @@ class SQLModel: NSObject, SQLModelProtocol {
                 sql += "BOOLEAN DEFAULT " + ((val as! Bool) ? "1" : "0")
             } else if val is Date {
                 sql += "DATE"
-            } else if val is NSData {
+            } else if val is Data {
                 sql += "BLOB"
             } else {
                 // Default to text
@@ -330,7 +351,7 @@ extension SQLModelProtocol where Self: SQLModel {
         var result = [Self]()
         let tmp = self.init()
         let data = tmp.values()
-        let db = SQLModel.datab
+        let db = Self.datab
         let fsql = sql.isEmpty ? "SELECT * FROM \(table)" : sql
         if let res = db.executeQuery(fsql, withArgumentsIn: []){
             // 遍历输出结果

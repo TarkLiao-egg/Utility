@@ -53,6 +53,7 @@
 		CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BAF282CF34700E15D70 /* CombineController.swift */; };
 		CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BB6282E0F0B00E15D70 /* SystemAlertController.swift */; };
 		CEBE4C30282E698400E15D70 /* PermissionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4C2F282E698400E15D70 /* PermissionUtil.swift */; };
+		CEC74558287801AA0019B95D /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC74557287801AA0019B95D /* UIImage+Gif.swift */; };
 		CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B628000C3700FA81C8 /* AlertController.swift */; };
 		CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECF95B828000C4100FA81C8 /* AlertUtil.swift */; };
 		CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED696CA280D6FC5008793EB /* ScrollEditController.swift */; };
@@ -133,6 +134,7 @@
 		CEBE4BAF282CF34700E15D70 /* CombineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineController.swift; sourceTree = "<group>"; };
 		CEBE4BB6282E0F0B00E15D70 /* SystemAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlertController.swift; sourceTree = "<group>"; };
 		CEBE4C2F282E698400E15D70 /* PermissionUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionUtil.swift; sourceTree = "<group>"; };
+		CEC74557287801AA0019B95D /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		CECF95B628000C3700FA81C8 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		CECF95B828000C4100FA81C8 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		CED696CA280D6FC5008793EB /* ScrollEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEditController.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				CE21AE082818F8150083169F /* ReuseUI.swift */,
 				CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */,
 				CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */,
+				CEC74557287801AA0019B95D /* UIImage+Gif.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */,
 				CEDF979B28471C74007F1B8D /* SingleAlertController.swift in Sources */,
 				CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */,
+				CEC74558287801AA0019B95D /* UIImage+Gif.swift in Sources */,
 				CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */,
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
 				CE21AE7A28212E680083169F /* Coordinator.swift in Sources */,

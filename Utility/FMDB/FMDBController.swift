@@ -93,6 +93,6 @@ extension FMDBController {
     }
     
     @objc func imageSelector() {
-        imageView.image = UIImage(data: data.image)
+        imageView.image = UIImage(data: data.imageData as Data)
     }
 }

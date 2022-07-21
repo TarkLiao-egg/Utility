@@ -48,7 +48,7 @@ extension SetTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
-        cell.configure(data: datas[indexPath.row])
+        cell.configure(datas[indexPath.row])
         return cell
     }
     

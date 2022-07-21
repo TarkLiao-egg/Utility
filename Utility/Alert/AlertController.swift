@@ -1,9 +1,10 @@
 import UIKit
+import SnapKit
 
 class AlertController: UIViewController {
-    let backgroundColor: UIColor = .white
+    let backgroundColor: UIColor = UIColor.hex(0x042F59)
     var isLock: Bool = false
-    
+    var alertShadowView: UIView!
     var stackView: UIStackView!
     var backgroundView: UIView!
     var titleLabel: UILabel!
@@ -43,8 +44,10 @@ class AlertController: UIViewController {
         descriptionLabel.textColor = model.descriptionColor
         confirmButton?.setTitle(model.confirmButtonString, for: .normal)
         confirmButton?.setTitleColor(model.confirmButtonTextColor, for: .normal)
+        confirmButton?.backgroundColor = model.confirmButtonBackgroundColor
         confirmButtonAction = model.confirmButtonAction
         cancelButtonAction = model.cancelButtonAction
+        cancelButton?.backgroundColor = model.cancelButtonBackgroundColor
         cancelButton?.setTitle(model.cancelButtonString, for: .normal)
         cancelButton?.setTitleColor(model.cancelButtonTextColor, for: .normal)
         closeAction = model.closeAction
@@ -99,12 +102,12 @@ extension AlertController {
         backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        let shadowView = getShadowView()
-        view.addSubview(shadowView)
-        shadowView.translatesAutoresizingMaskIntoConstraints = false
-        shadowView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        shadowView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        shadowView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.856).isActive = true
+        alertShadowView = getShadowView()
+        view.addSubview(alertShadowView)
+        alertShadowView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.856)
+        }
     }
     
     func getShadowView() -> UIView {
@@ -121,11 +124,9 @@ extension AlertController {
         stackView.distribution = .fill
         stackView.axis = .vertical
         shadowView.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor).isActive = true
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         titleLabel = UILabel()
         titleLabel.text = "Wallpaper"
@@ -139,7 +140,7 @@ extension AlertController {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .center
         descriptionLabel.textColor = .black
-        descriptionLabel.font = UIFont(name: "PingFangTC-Regular", size: 18) ?? UIFont.systemFont(ofSize: 18)
+        descriptionLabel.font = UIFont(name: "PingFangTC-Regular", size: 14) ?? UIFont.systemFont(ofSize: 14)
         return shadowView
     }
     
