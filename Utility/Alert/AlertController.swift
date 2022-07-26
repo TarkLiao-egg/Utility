@@ -179,7 +179,7 @@ extension AlertController {
     
     func getCancelButtonView() -> UIView {
         let cancelView = UIView()
-        cancelView.backgroundColor = backgroundColor
+        cancelView.backgroundColor = .clear
         
         cancelButton = UIButton()
         cancelButton?.setTitle("NO", for: .normal)

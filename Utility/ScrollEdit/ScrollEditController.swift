@@ -46,22 +46,17 @@ extension ScrollEditController {
     func setupUI() {
         view.backgroundColor = .white
         
-        scrollView = UIScrollView()
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints { make in
+        scrollView = UIScrollView().VS(nil, view) { make in
             make.top.bottom.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
         }
         
-        let stackView = UIStackView()
-        stackView.forSelf {
+        let stackView = UIStackView().VS({
             $0.axis = .vertical
             $0.spacing = 0
             $0.distribution = .fill
             $0.alignment = .fill
-        }
-        scrollView.addSubview(stackView)
-        stackView.snp.makeConstraints { make in
+        }, scrollView) { make in
             make.edges.equalToSuperview()
             make.width.equalTo(scrollView)
         }
