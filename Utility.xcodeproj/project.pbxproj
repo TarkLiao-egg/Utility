@@ -12,6 +12,7 @@
 		5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A1280C0DDF00CFAF1F /* NetWorkManager.swift */; };
 		5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A3280C0DF000CFAF1F /* GCDManager.swift */; };
 		5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */; };
+		523BD86D28981D6400A62840 /* GCDBarrierController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD86C28981D6400A62840 /* GCDBarrierController.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -91,6 +92,7 @@
 		5230F8A1280C0DDF00CFAF1F /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
 		5230F8A3280C0DF000CFAF1F /* GCDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDManager.swift; sourceTree = "<group>"; };
 		5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManager.swift; sourceTree = "<group>"; };
+		523BD86C28981D6400A62840 /* GCDBarrierController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBarrierController.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		523BD86B28981D2000A62840 /* GCDBarrier */ = {
+			isa = PBXGroup;
+			children = (
+				523BD86C28981D6400A62840 /* GCDBarrierController.swift */,
+			);
+			path = GCDBarrier;
+			sourceTree = "<group>";
+		};
 		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				523BD86B28981D2000A62840 /* GCDBarrier */,
 				52CDD34427F1FBB2009A25FB /* Tool */,
 				CECF95B528000C0B00FA81C8 /* Alert */,
 				52C989F327F068C90048F4CD /* FunctionView */,
@@ -661,6 +672,7 @@
 				CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */,
 				52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */,
 				CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */,
+				523BD86D28981D6400A62840 /* GCDBarrierController.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
 				CEBE4C30282E698400E15D70 /* PermissionUtil.swift in Sources */,
@@ -848,7 +860,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TVV8999XA6;
+				DEVELOPMENT_TEAM = 6B67QT6MG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -877,7 +889,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TVV8999XA6;
+				DEVELOPMENT_TEAM = 6B67QT6MG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
