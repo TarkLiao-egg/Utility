@@ -3,11 +3,12 @@ import ImageIO
 
 extension UIImageView {
 
-    public func loadGif(name: String) {
+    public func loadGif(name: String, completion: (() -> Void)?) {
         DispatchQueue.global().async {
             let image = UIImage.gif(name: name)
             DispatchQueue.main.async {
                 self.image = image
+                completion?()
             }
         }
     }

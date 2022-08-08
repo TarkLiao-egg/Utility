@@ -133,6 +133,20 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func getDateTimeStringAMPM(_ isUpper: Bool = false) -> String {
+        let hourString = getFormatString(format: "HH")
+        var amPm = "am"
+        guard var hours = Int(hourString) else {
+            return ""
+        }
+        if hours > 12 {
+            amPm = "pm"
+            hours -= 12
+        }
+        amPm = isUpper ? amPm.uppercased() : amPm.lowercased()
+        return String(format: "%02d", hours) + getFormatString(format: ":mm ") + amPm
+    }
+    
     func getDateShowString() -> String {
         //    Decmber 20, 2022
         let month: String

@@ -76,6 +76,48 @@ extension SetTableViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
     }
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let sport = sports[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "") { [unowned self] (action, view, resultClosure) in
+            //TODO action
+            resultClosure(true)
+        }
+        deleteAction.backgroundColor = .clear
+        let actions = UISwipeActionsConfiguration(actions: [deleteAction])
+        actions.performsFirstActionWithFullSwipe = false
+        return actions
+    }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        for subView in tableView.subviews {
+            if NSStringFromClass(subView.classForCoder) == "UISwipeActionPullView" {
+                if let btn = subView.subviews.first as? UIButton {
+                    btn.backgroundColor = .clear
+                    if let buttonView = btn.subviews.first {
+                        //TODO buttonView
+                    }
+                }
+            } else if NSStringFromClass(subView.classForCoder) == "_UITableViewCellSwipeContainerView" {
+                // iOS13.0
+                subView.backgroundColor = .clear
+                for sub in subView.subviews {
+                    sub.backgroundColor = .clear
+                    if NSStringFromClass(sub.classForCoder) == "UISwipeActionPullView" {
+                        sub.subviews.last?.backgroundColor = .clear
+                        if let btn = sub.subviews.first as? UIButton {
+                            btn.backgroundColor = .clear
+                            if let buttonView = btn.subviews.first {
+                                //TODO buttonView
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension SetTableViewController {

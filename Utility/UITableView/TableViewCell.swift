@@ -39,15 +39,18 @@ class TableViewCell: UITableViewCell {
 extension TableViewCell {
     func setupUI() {
         backgroundColor = .clear
-        contentView.backgroundColor = .red
+        contentView.backgroundColor = .clear
         
-        label = UILabel()
-        label.font = UIFont.getDefaultFont(.regular, size: 18)
-        label.textColor = .black
-        label.textAlignment = .center
-        contentView.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        getView().VS({
+            $0.backgroundColor = .clear
+        }, contentView) { make in
+            
+        }
+    }
+    
+    func getView() -> UIView {
+        return UIView().S { view in
+            
         }
     }
 }

@@ -160,7 +160,9 @@ class SQLModel: NSObject, SQLModelProtocol {
         // 执行SQL语句
          
         if db.open() {
-            return db.executeUpdate(sql, withArgumentsIn: params ?? [])
+            let isSuccess = db.executeUpdate(sql, withArgumentsIn: params ?? [])
+            db.close()
+            return isSuccess
         } else {
             return false
         }
@@ -353,19 +355,21 @@ extension SQLModelProtocol where Self: SQLModel {
         let data = tmp.values()
         let db = Self.datab
         let fsql = sql.isEmpty ? "SELECT * FROM \(table)" : sql
-        if let res = db.executeQuery(fsql, withArgumentsIn: []){
-            // 遍历输出结果
-            while res.next() {
-                let t = self.init()
-                for (key, _) in data {
-                    if let val = res.object(forColumn: key) {
-                        t.setValue(val, forKey:key)
+        if db.open() {
+            if let res = db.executeQuery(fsql, withArgumentsIn: []){
+                // 遍历输出结果
+                while res.next() {
+                    let t = self.init()
+                    for (key, _) in data {
+                        if let val = res.object(forColumn: key) {
+                            t.setValue(val, forKey:key)
+                        }
                     }
+                    result.append(t)
                 }
-                result.append(t)
+            }else{
+                print("查询失败")
             }
-        }else{
-            print("查询失败")
         }
         return result
     }

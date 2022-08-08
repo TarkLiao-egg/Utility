@@ -8,6 +8,7 @@ target 'Utility' do
   # Pods for Utility
   pod 'FMDB', '~> 2.7.5'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'lottie-ios'
   pod 'CryptoSwift'
   pod 'RxSwift', '~> 4'
   pod 'Moya/RxSwift', '~> 13.0'

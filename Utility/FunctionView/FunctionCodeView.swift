@@ -6,7 +6,7 @@ class FunctionCodeView: UIView {
     private var gradientBorderLayer = CAGradientLayer()
     private var specificCornerLayer = CAShapeLayer()
     private var innerShadowLayer = InnerShadowLayer()
-    private var isMoveLast = false // 把GradientView移到最下層，只需要一次
+    private var isMoveLast = false // move GradientView to last layer, only once
 
     // MARK: Specific corner
     var cornerRadius: CGFloat = 0
@@ -68,7 +68,7 @@ class FunctionCodeView: UIView {
         clearLayer()
         reDrawLayer()
         
-        // 將gradientView 移到最後一層，不能用@IBOutlet, 似乎不是同一個
+        // // move GradientView to last layer, not allow @IBOutlet
         if !isMoveLast {
             self.sendSubviewToBack(gradientView)
             isMoveLast = !isMoveLast
@@ -344,26 +344,3 @@ class InnerShadowLayer: CAShapeLayer {
         ctx.fillPath(using: .evenOdd)
     }
 }
-
-//#if canImport(SwiftUI) && DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct ControllersPreviews: UIViewRepresentable {
-//
-//    func makeUIView(context: Context) -> FunctionCodeView {
-//        FunctionCodeView()
-//    }
-//
-//    func updateUIView(_ uiView: FunctionCodeView, context: Context) {
-//    }
-//
-//    typealias UIViewType = FunctionCodeView
-//}
-//@available(iOS 13.0.0, *)
-//struct Controller_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ControllersPreviews()
-//            .previewLayout(.fixed(width: 375, height: 80))
-//    }
-//}
-//#endif

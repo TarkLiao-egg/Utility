@@ -48,6 +48,8 @@
 		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
 		CE21AE092818F8150083169F /* ReuseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE082818F8150083169F /* ReuseUI.swift */; };
 		CE21AE7A28212E680083169F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE7928212E670083169F /* Coordinator.swift */; };
+		CE35664B289BB5A800910ADF /* VisionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35664A289BB5A800910ADF /* VisionController.swift */; };
+		CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B201028922B8D004D9A91 /* JsonGifController.swift */; };
 		CEBB58662851DD87006A922C /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB58652851DD87006A922C /* TestController.swift */; };
 		CEBB58692851E110006A922C /* PropertyNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB58682851E110006A922C /* PropertyNameController.swift */; };
 		CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */; };
@@ -65,6 +67,8 @@
 		CEDF979228471BB1007F1B8D /* UtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979128471BB1007F1B8D /* UtilityTests.swift */; };
 		CEDF979A28471C74007F1B8D /* MulitipleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979828471C74007F1B8D /* MulitipleAlertController.swift */; };
 		CEDF979B28471C74007F1B8D /* SingleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979928471C74007F1B8D /* SingleAlertController.swift */; };
+		CEE138E32898FFD20088419B /* PhotoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE138E22898FFD20088419B /* PhotoUtil.swift */; };
+		CEE138EE2899160E0088419B /* ShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE138ED2899160E0088419B /* ShareModel.swift */; };
 		CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE7FEE2852F9B50046CB2F /* APIService.swift */; };
 		CEF25757285B1FAE00FB26C9 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF25756285B1FAE00FB26C9 /* ShareController.swift */; };
 		CEF51E1F284D8EB700DFFB35 /* TransitionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */; };
@@ -130,6 +134,8 @@
 		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
 		CE21AE082818F8150083169F /* ReuseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseUI.swift; sourceTree = "<group>"; };
 		CE21AE7928212E670083169F /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CE35664A289BB5A800910ADF /* VisionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionController.swift; sourceTree = "<group>"; };
+		CE4B201028922B8D004D9A91 /* JsonGifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonGifController.swift; sourceTree = "<group>"; };
 		CEBB58652851DD87006A922C /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		CEBB58682851E110006A922C /* PropertyNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyNameController.swift; sourceTree = "<group>"; };
 		CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorCombine.swift; sourceTree = "<group>"; };
@@ -148,6 +154,8 @@
 		CEDF979128471BB1007F1B8D /* UtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityTests.swift; sourceTree = "<group>"; };
 		CEDF979828471C74007F1B8D /* MulitipleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulitipleAlertController.swift; sourceTree = "<group>"; };
 		CEDF979928471C74007F1B8D /* SingleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAlertController.swift; sourceTree = "<group>"; };
+		CEE138E22898FFD20088419B /* PhotoUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUtil.swift; sourceTree = "<group>"; };
+		CEE138ED2899160E0088419B /* ShareModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareModel.swift; sourceTree = "<group>"; };
 		CEEE7FEE2852F9B50046CB2F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		CEF25756285B1FAE00FB26C9 /* ShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionUtil.swift; sourceTree = "<group>"; };
@@ -244,6 +252,7 @@
 				523BD86B28981D2000A62840 /* GCDBarrier */,
 				52CDD34427F1FBB2009A25FB /* Tool */,
 				CECF95B528000C0B00FA81C8 /* Alert */,
+				CE356649289BB58800910ADF /* VisionKit */,
 				52C989F327F068C90048F4CD /* FunctionView */,
 				52CDD32927F1E4DE009A25FB /* FMDB */,
 				CE21AE7828212E4C0083169F /* Coordinator */,
@@ -264,6 +273,7 @@
 				52B4F48F2849D9BC0042033E /* CWCarousel */,
 				52CDD33E27F1F7DF009A25FB /* CoreData */,
 				CEBB58672851E0F5006A922C /* PropertyName */,
+				CE4B200F28922B76004D9A91 /* JsonGif */,
 				CEF25755285B1F9C00FB26C9 /* Share */,
 				52C989E527F067860048F4CD /* Main.storyboard */,
 				52C989E827F067890048F4CD /* Assets.xcassets */,
@@ -327,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBE4C2F282E698400E15D70 /* PermissionUtil.swift */,
+				CEE138E22898FFD20088419B /* PhotoUtil.swift */,
 				52CDD34527F1FBC3009A25FB /* Extensions.swift */,
 				CE21AE082818F8150083169F /* ReuseUI.swift */,
 				CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */,
@@ -387,6 +398,22 @@
 				CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		CE356649289BB58800910ADF /* VisionKit */ = {
+			isa = PBXGroup;
+			children = (
+				CE35664A289BB5A800910ADF /* VisionController.swift */,
+			);
+			path = VisionKit;
+			sourceTree = "<group>";
+		};
+		CE4B200F28922B76004D9A91 /* JsonGif */ = {
+			isa = PBXGroup;
+			children = (
+				CE4B201028922B8D004D9A91 /* JsonGifController.swift */,
+			);
+			path = JsonGif;
 			sourceTree = "<group>";
 		};
 		CEBB58672851E0F5006A922C /* PropertyName */ = {
@@ -475,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF25756285B1FAE00FB26C9 /* ShareController.swift */,
+				CEE138ED2899160E0088419B /* ShareModel.swift */,
 			);
 			path = Share;
 			sourceTree = "<group>";
@@ -647,6 +675,7 @@
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
 				CE21AD862817CDB10083169F /* DiceController.swift in Sources */,
+				CE35664B289BB5A800910ADF /* VisionController.swift in Sources */,
 				CEFA4D29283F213700F34727 /* AnimateLabelAnimateLabelView.swift in Sources */,
 				CEDF979A28471C74007F1B8D /* MulitipleAlertController.swift in Sources */,
 				52C989E027F067860048F4CD /* AppDelegate.swift in Sources */,
@@ -662,6 +691,7 @@
 				52B4F4912849D9F10042033E /* CWBanner.swift in Sources */,
 				521EDA262866C00F00AD6098 /* DataDB.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
+				CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */,
 				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
 				CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */,
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
@@ -671,6 +701,7 @@
 				52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */,
 				CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */,
 				52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */,
+				CEE138E32898FFD20088419B /* PhotoUtil.swift in Sources */,
 				CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */,
 				523BD86D28981D6400A62840 /* GCDBarrierController.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
@@ -679,6 +710,7 @@
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,
 				CEFF5630283E355A0055623A /* AnimateLabelController.swift in Sources */,
+				CEE138EE2899160E0088419B /* ShareModel.swift in Sources */,
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
 				CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */,
 				CEDF979B28471C74007F1B8D /* SingleAlertController.swift in Sources */,
@@ -863,6 +895,7 @@
 				DEVELOPMENT_TEAM = 6B67QT6MG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "camera usage";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -892,6 +925,7 @@
 				DEVELOPMENT_TEAM = 6B67QT6MG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "camera usage";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
