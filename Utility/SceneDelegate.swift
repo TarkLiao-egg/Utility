@@ -16,9 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Resolver.shareInstance.setupFactories()
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-
-//        window?.rootViewController = CWBannerController(style: .preview_big)
-        window?.rootViewController = GCDBarrierController()
+        window?.rootViewController = ConcurrencyController()
         window?.makeKeyAndVisible()
     }
 

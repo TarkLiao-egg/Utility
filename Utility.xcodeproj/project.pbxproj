@@ -13,6 +13,7 @@
 		5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A3280C0DF000CFAF1F /* GCDManager.swift */; };
 		5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */; };
 		523BD86D28981D6400A62840 /* GCDBarrierController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD86C28981D6400A62840 /* GCDBarrierController.swift */; };
+		523BD87028A15E7E00A62840 /* ConcurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD86F28A15E7E00A62840 /* ConcurrencyController.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -97,6 +98,7 @@
 		5230F8A3280C0DF000CFAF1F /* GCDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDManager.swift; sourceTree = "<group>"; };
 		5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManager.swift; sourceTree = "<group>"; };
 		523BD86C28981D6400A62840 /* GCDBarrierController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBarrierController.swift; sourceTree = "<group>"; };
+		523BD86F28A15E7E00A62840 /* ConcurrencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrencyController.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,14 @@
 			path = GCDBarrier;
 			sourceTree = "<group>";
 		};
+		523BD86E28A15E6B00A62840 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				523BD86F28A15E7E00A62840 /* ConcurrencyController.swift */,
+			);
+			path = Concurrency;
+			sourceTree = "<group>";
+		};
 		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +259,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				523BD86E28A15E6B00A62840 /* Concurrency */,
 				523BD86B28981D2000A62840 /* GCDBarrier */,
 				52CDD34427F1FBB2009A25FB /* Tool */,
 				CECF95B528000C0B00FA81C8 /* Alert */,
@@ -697,6 +708,7 @@
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
 				52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */,
 				CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */,
+				523BD87028A15E7E00A62840 /* ConcurrencyController.swift in Sources */,
 				52CDD33827F1F6EE009A25FB /* Inject.swift in Sources */,
 				52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */,
 				CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */,
