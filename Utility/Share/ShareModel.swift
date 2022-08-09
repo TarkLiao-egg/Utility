@@ -43,8 +43,6 @@ extension ShareModel: UIActivityItemSource {
         return appName
     }
     
-    // The item we want the user to act on.
-    // In this case, it's the URL to the Wikipedia page
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         return urlStr
     }
@@ -53,8 +51,6 @@ extension ShareModel: UIActivityItemSource {
         return UIImage(named: iconName)!
     }
     
-    // The metadata we want the system to represent as a rich link
-    @available(iOS 13.0, *)
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = LPLinkMetadata()
         let url = URL(string: urlStr)!
