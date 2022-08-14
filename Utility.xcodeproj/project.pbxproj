@@ -14,6 +14,8 @@
 		5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */; };
 		523BD86D28981D6400A62840 /* GCDBarrierController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD86C28981D6400A62840 /* GCDBarrierController.swift */; };
 		523BD87028A15E7E00A62840 /* ConcurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD86F28A15E7E00A62840 /* ConcurrencyController.swift */; };
+		523BD87328A86DAD00A62840 /* GRDBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD87228A86DAD00A62840 /* GRDBController.swift */; };
+		523BD87628A8BE6300A62840 /* DBInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD87528A8BE6300A62840 /* DBInit.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -99,6 +101,8 @@
 		5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManager.swift; sourceTree = "<group>"; };
 		523BD86C28981D6400A62840 /* GCDBarrierController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBarrierController.swift; sourceTree = "<group>"; };
 		523BD86F28A15E7E00A62840 /* ConcurrencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrencyController.swift; sourceTree = "<group>"; };
+		523BD87228A86DAD00A62840 /* GRDBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBController.swift; sourceTree = "<group>"; };
+		523BD87528A8BE6300A62840 /* DBInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBInit.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -222,6 +226,15 @@
 			path = Concurrency;
 			sourceTree = "<group>";
 		};
+		523BD87128A86D9F00A62840 /* GRDB */ = {
+			isa = PBXGroup;
+			children = (
+				523BD87228A86DAD00A62840 /* GRDBController.swift */,
+				523BD87528A8BE6300A62840 /* DBInit.swift */,
+			);
+			path = GRDB;
+			sourceTree = "<group>";
+		};
 		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +272,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				523BD87128A86D9F00A62840 /* GRDB */,
 				523BD86E28A15E6B00A62840 /* Concurrency */,
 				523BD86B28981D2000A62840 /* GCDBarrier */,
 				52CDD34427F1FBB2009A25FB /* Tool */,
@@ -682,9 +696,11 @@
 				52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
+				523BD87628A8BE6300A62840 /* DBInit.swift in Sources */,
 				CEBB58662851DD87006A922C /* TestController.swift in Sources */,
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
+				523BD87328A86DAD00A62840 /* GRDBController.swift in Sources */,
 				CE21AD862817CDB10083169F /* DiceController.swift in Sources */,
 				CE35664B289BB5A800910ADF /* VisionController.swift in Sources */,
 				CEFA4D29283F213700F34727 /* AnimateLabelAnimateLabelView.swift in Sources */,

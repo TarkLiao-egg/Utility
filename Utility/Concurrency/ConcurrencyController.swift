@@ -3,7 +3,7 @@ import UIKit
 class ConcurrencyController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+
         
         if #available(iOS 15.0, *) {
             //        doTask()

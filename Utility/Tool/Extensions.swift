@@ -110,6 +110,14 @@ extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.date(from: self)
     }
+    
+    func rangeString(_ range: NSRange) -> String? {
+        if let range = Range(range, in: self) {
+            return String(self[range])
+        } else {
+            return nil
+        }
+    }
 }
 
 extension Int {
