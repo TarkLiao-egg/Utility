@@ -1,15 +1,10 @@
-//
-//  DBInit.swift
-//  Utility
-//
-//  Created by 廖力頡 on 2022/8/14.
-//
 
 import Foundation
 import GRDB
 
 class DBManager: NSObject {
     static let dbName = "DB.db"
+    static let shared = DBManager()
     private static var dbPath: String = {
         let filePath: String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!.appending("/\(DBManager.dbName)")
         print(filePath)
@@ -23,17 +18,48 @@ class DBManager: NSObject {
         return configuration
     }()
     
-    static var dbQueue: DatabaseQueue = {
+    static let dbQueue: DatabaseQueue = {
         let db = try! DatabaseQueue(path: DBManager.dbPath, configuration: DBManager.configuration)
         db.releaseMemory()
         return db
     }()
-    override init() {
-        Player().createTable()
+    static func createTable() {
+        TimerModel().createTable()
+    }
+    
+    func read(completion: (([TimerModel]) -> Void))  {
+        try? DBManager.dbQueue.read { db in
+            completion(try TimerModel.fetchAll(db))
+        }
+    }
+    
+    func create(_ items: [TimerModel]) {
+        try? DBManager.dbQueue.write({ db in
+            for item in items {
+                try item.insert(db)
+            }
+        })
+    }
+    
+    func update(_ items: [TimerModel]) {
+        try? DBManager.dbQueue.write({ db in
+            for item in items {
+                try item.update(db)
+            }
+        })
+    }
+    
+    func delete(_ items: [TimerModel]) {
+        try? DBManager.dbQueue.write({ db in
+            for item in items {
+                try item.delete(db)
+            }
+        })
     }
 }
 
-class DBInit {
+class DBInit: DBProtocol {
+    
     static var ignorePrefix: String = "i_"
     private static let dbQueue: DatabaseQueue = DBManager.dbQueue
     
@@ -45,7 +71,7 @@ class DBInit {
             tableName = String(tableName[Range(match.range, in: tableName)!])
         }
         
-        try? DBManager.dbQueue.inDatabase { (db) -> Void in
+        try? Self.dbQueue.inDatabase { (db) -> Void in
             print(tableName)
             try db.create(table: tableName, temporary: false, ifNotExists: true, body: { (t) in
                 
@@ -130,5 +156,77 @@ class DBInit {
         if mi.children.count == 0 { return any }
         let (_, some) = mi.children.first!
         return some
+    }
+}
+
+protocol DBProtocol {}
+
+extension DBProtocol {
+    static var dbQueue: DatabaseQueue {
+        return DBManager.dbQueue
+    }
+}
+
+
+extension DBProtocol where Self: FetchableRecord {
+    
+    static func get(completion: (([Self]) -> Void)) {
+        var datas = [Self]()
+        
+        try? dbQueue.read { db in
+            datas = try Self.fetchAll(db, sql: "SELECT * FROM \(Self.self)")
+            completion(datas)
+        }
+    }
+    
+    static func create(_ items: [TimerModel]) {
+        try? dbQueue.write({ db in
+            for item in items {
+                try item.insert(db)
+            }
+        })
+    }
+    
+    static func update(_ items: [TimerModel]) {
+        try? dbQueue.write({ db in
+            for item in items {
+                try item.update(db)
+            }
+        })
+    }
+    
+    func delete(_ items: [TimerModel]) {
+        try? Self.dbQueue.write({ db in
+            for item in items {
+                try item.delete(db)
+            }
+        })
+    }
+}
+
+extension Array where Element: PersistableRecord {
+    static var dbQueue: DatabaseQueue {
+        return DBManager.dbQueue
+    }
+    func create() {
+        try? Self.dbQueue.write({ db in
+            for item in self {
+                try item.insert(db)
+            }
+        })
+    }
+    func update() {
+        try? Self.dbQueue.write({ db in
+            for item in self {
+                try item.update(db)
+            }
+        })
+    }
+    func delete() {
+        try? Self.dbQueue.write({ db in
+            for item in self {
+                try item.delete(db)
+            }
+        })
     }
 }
