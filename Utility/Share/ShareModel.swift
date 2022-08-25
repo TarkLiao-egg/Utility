@@ -51,6 +51,7 @@ extension ShareModel: UIActivityItemSource {
         return UIImage(named: iconName)!
     }
     
+    @available(iOS 13.0, *)
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = LPLinkMetadata()
         let url = URL(string: urlStr)!

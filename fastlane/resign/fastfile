@@ -1,0 +1,107 @@
+default_platform(:ios)
+
+platform :ios do
+
+  private_lane :filePath do
+    name = ENV['IPA_NAME'] || "sample"
+    "build/#{name}.ipa"
+  end
+
+  desc "upload to testflight"
+  lane :upload_testflight do 
+
+    connectAppStoreWithAPIKey
+
+    puts "upload ipa from #{filePath}"
+    pilot(
+      ipa: filePath,
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  lane :connectAppStoreWithAPIKey do
+
+    if File.exist?(ENV['API_KEY_PATH'])
+      app_store_connect_api_key(
+        key_id: ENV['API_KEY_ID'],
+        issuer_id: ENV['API_KEY_ISSUER_ID'],
+        key_filepath: ENV['API_KEY_PATH'],
+        in_house: false
+      ) 
+    else 
+      app_store_connect_api_key(
+        key_id: ENV['API_KEY_ID'],
+        issuer_id: ENV['API_KEY_ISSUER_ID'],
+        key_content: ENV['API_KEY_CONTENT'],
+        in_house: false
+      ) 
+    end 
+
+  end
+
+  lane :resign_app do 
+
+    connectAppStoreWithAPIKey
+
+    keychain_pass= ENV['BITRISE_KEYCHAIN_PASSWORD'] || ENV['MATCH_KEYCHAIN_PASSWORD']
+    ENV['BITRISE_KEYCHAIN_PASSWORD'] = keychain_pass
+    puts "keychain_pass = #{keychain_pass}"
+
+    match_nuke(
+      type: "appstore",
+      team_id: ENV['TEAM_ID'],
+      app_identifier: ENV['BUNDLE_ID'],
+      skip_confirmation: true
+    )
+    
+    sh("security unlock-keychain -p #{keychain_pass} ~/Library/Keychains/login.keychain")
+
+    cert(
+      development: false,
+      force: false,
+      generate_apple_certs: true,
+      team_id: ENV['TEAM_ID'],
+      output_path: "provision"
+    )
+
+    puts "CERT_CERTIFICATE_ID = #{lane_context[SharedValues::CERT_CERTIFICATE_ID]}"
+    puts "CERT_FILE_PATH = #{lane_context[SharedValues::CERT_FILE_PATH]}"
+
+    sigh(
+      force: false,
+      app_identifier:ENV['BUNDLE_ID'],
+      output_path:"provision",
+      cert_id: lane_context[SharedValues::CERT_CERTIFICATE_ID]
+    )
+
+    puts "SIGH_PROFILE_PATH = #{lane_context[SharedValues::SIGH_PROFILE_PATH]}"
+    puts "SIGH_PROFILE_PATHS = #{lane_context[SharedValues::SIGH_PROFILE_PATHS]}"
+    puts "SIGH_NAME = #{lane_context[SharedValues::SIGH_NAME]}"
+    puts "SIGH_PROFILE_TYPE = #{lane_context[SharedValues::SIGH_PROFILE_TYPE]}"
+    
+    unlock_keychain(
+      password: keychain_pass
+    )
+
+    identity = sh("security find-identity -p codesigning -v | head -n 1")[5,40]
+    puts "identity = #{identity}"
+
+    version=ENV['NEW_VERSION'] || "0.1"
+    build=ENV['BITRISE_BUILD_NUMBER'] || ENV['NEW_BUILD'] || "1"
+
+    puts "version = #{version}"
+    puts "build = #{build}"
+
+    resign(
+      ipa: filePath,
+      provisioning_profile: lane_context[SharedValues::SIGH_PROFILE_PATH],
+      bundle_id: ENV['BUNDLE_ID'],
+      signing_identity: identity,
+      short_version: version,
+      bundle_version: build,
+      use_app_entitlements: true
+    )
+
+    upload_testflight
+  end
+end

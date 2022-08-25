@@ -24,38 +24,38 @@ class DBManager: NSObject {
         return db
     }()
     static func createTable() {
-        TimerModel().createTable()
+//        TimerModel().createTable()
     }
     
-    func read(completion: (([TimerModel]) -> Void))  {
-        try? DBManager.dbQueue.read { db in
-            completion(try TimerModel.fetchAll(db))
-        }
-    }
-    
-    func create(_ items: [TimerModel]) {
-        try? DBManager.dbQueue.write({ db in
-            for item in items {
-                try item.insert(db)
-            }
-        })
-    }
-    
-    func update(_ items: [TimerModel]) {
-        try? DBManager.dbQueue.write({ db in
-            for item in items {
-                try item.update(db)
-            }
-        })
-    }
-    
-    func delete(_ items: [TimerModel]) {
-        try? DBManager.dbQueue.write({ db in
-            for item in items {
-                try item.delete(db)
-            }
-        })
-    }
+//    func read(completion: (([TimerModel]) -> Void))  {
+//        try? DBManager.dbQueue.read { db in
+//            completion(try TimerModel.fetchAll(db))
+//        }
+//    }
+//
+//    func create(_ items: [TimerModel]) {
+//        try? DBManager.dbQueue.write({ db in
+//            for item in items {
+//                try item.insert(db)
+//            }
+//        })
+//    }
+//
+//    func update(_ items: [TimerModel]) {
+//        try? DBManager.dbQueue.write({ db in
+//            for item in items {
+//                try item.update(db)
+//            }
+//        })
+//    }
+//
+//    func delete(_ items: [TimerModel]) {
+//        try? DBManager.dbQueue.write({ db in
+//            for item in items {
+//                try item.delete(db)
+//            }
+//        })
+//    }
 }
 
 class DBInit: DBProtocol {
@@ -179,29 +179,29 @@ extension DBProtocol where Self: FetchableRecord {
         }
     }
     
-    static func create(_ items: [TimerModel]) {
-        try? dbQueue.write({ db in
-            for item in items {
-                try item.insert(db)
-            }
-        })
-    }
+//    static func create(_ items: [TimerModel]) {
+//        try? dbQueue.write({ db in
+//            for item in items {
+//                try item.insert(db)
+//            }
+//        })
+//    }
     
-    static func update(_ items: [TimerModel]) {
-        try? dbQueue.write({ db in
-            for item in items {
-                try item.update(db)
-            }
-        })
-    }
+//    static func update(_ items: [TimerModel]) {
+//        try? dbQueue.write({ db in
+//            for item in items {
+//                try item.update(db)
+//            }
+//        })
+//    }
     
-    func delete(_ items: [TimerModel]) {
-        try? Self.dbQueue.write({ db in
-            for item in items {
-                try item.delete(db)
-            }
-        })
-    }
+//    func delete(_ items: [TimerModel]) {
+//        try? Self.dbQueue.write({ db in
+//            for item in items {
+//                try item.delete(db)
+//            }
+//        })
+//    }
 }
 
 extension Array where Element: PersistableRecord {

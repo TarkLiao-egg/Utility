@@ -1,0 +1,154 @@
+---
+format_version: '11'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+workflows:
+  DeleteCert:
+    description: |
+      The workflow only builds the project because the project scanner could not find any tests.
+
+      Next steps:
+      - Check out [Getting started with iOS apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-ios-apps.html).
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@6: {}
+    - script@1:
+        inputs:
+        - content: |-
+            fastlane deleteCert
+            rm $BITRISE_SOURCE_DIR/provision/*
+        title: Script - deleteCert
+    - cache-push@2:
+        inputs:
+        - cache_paths: "$BITRISE_SOURCE_DIR/provision"
+    - deploy-to-bitrise-io@2: {}
+  Fastlane:
+    description: |
+      The workflow only builds the project because the project scanner could not find any tests.
+
+      Next steps:
+      - Check out [Getting started with iOS apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-ios-apps.html).
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@6: {}
+    - cache-pull@2: {}
+    - cocoapods-install@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        inputs:
+        - content: fastlane update_info
+        title: Script - Add keyString for Info.plist
+    - set-ios-version@2:
+        inputs:
+        - bundle_version: "$BITRISE_BUILD_NUMBER"
+        - bundle_version_short: ''
+        - info_plist_file: REPLACE/Info.plist
+    - script@1:
+        inputs:
+        - content: curl 'https://api.myip.com'
+    - script@1:
+        inputs:
+        - content: fastlane first
+        title: Script - Archive app AND Upload testflight
+    - deploy-to-bitrise-io@2: {}
+    - cache-push@2:
+        inputs:
+        - cache_paths: "$BITRISE_SOURCE_DIR/Pods"
+  GetCert:
+    description: |
+      The workflow only builds the project because the project scanner could not find any tests.
+
+      Next steps:
+      - Check out [Getting started with iOS apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-ios-apps.html).
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@6: {}
+    - script@1:
+        inputs:
+        - content: fastlane createCert
+        title: Script - createCert
+    - script@1:
+        title: Script - Export Identity
+        inputs:
+        - content: security export -k login.keychain -t identities -f pkcs12 -P "0000"
+            -o ./provision/CertificateWithKey.p12
+    - deploy-to-bitrise-io@2: {}
+    - cache-push@2:
+        inputs:
+        - cache_paths: "$BITRISE_SOURCE_DIR/provision"
+  SDK:
+    description: |
+      The workflow only builds the project because the project scanner could not find any tests.
+
+      Next steps:
+      - Check out [Getting started with iOS apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-ios-apps.html).
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@6: {}
+    - cache-pull@2: {}
+    - cocoapods-install@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        inputs:
+        - content: fastlane update_info
+        title: Script - Add keyString for Info.plist
+    - set-ios-version@2:
+        inputs:
+        - bundle_version: "$BITRISE_BUILD_NUMBER"
+        - bundle_version_short: 1.1.0
+        - info_plist_file: REPLACE/Info.plist
+    - script@1:
+        inputs:
+        - content: curl 'https://api.myip.com'
+    - script@1:
+        inputs:
+        - content: fastlane all
+        title: Script - Archive app AND Upload testflight
+    - deploy-to-bitrise-io@2: {}
+    - cache-push@2:
+        inputs:
+        - cache_paths: "$BITRISE_SOURCE_DIR/Pods"
+  Upload:
+    description: |
+      The workflow only builds the project because the project scanner could not find any tests.
+
+      Next steps:
+      - Check out [Getting started with iOS apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-ios-apps.html).
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@6: {}
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - cocoapods-install@2: {}
+    - xcode-archive@4.5:
+        inputs:
+        - export_method: app-store
+        - perform_clean_action: 'yes'
+        - export_development_team: ''
+        - upload_bitcode: 'no'
+        - compile_bitcode: 'no'
+        - distribution_method: app-store
+    - deploy-to-itunesconnect-application-loader@1:
+        inputs:
+        - password: "$APPLE_ID_KEY"
+        - app_password: "$APP_TWO_ID"
+        - itunescon_user: "$APPLE_ID"
+    - deploy-to-bitrise-io@2: {}
+    - cache-push@2:
+        inputs:
+        - cache_paths: "$BITRISE_SOURCE_DIR"
+meta:
+  bitrise.io:
+    stack: osx-xcode-13.2.x
+    machine_type_id: g2.4core
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: REPLACE.xcworkspace
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: REPLACE
+  - opts:
+      is_expand: false
+    BITRISE_DISTRIBUTION_METHOD: app-store

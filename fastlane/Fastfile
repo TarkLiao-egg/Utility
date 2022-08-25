@@ -1,0 +1,209 @@
+default_platform(:ios)
+
+platform :ios do
+  lane :matchCert do
+    connectAppStoreWithAPIKey
+    match(
+      app_identifier: ["#{ENV['BUNDLE_ID']}"],
+      git_branch: "#{ENV['SCHEME']}",
+      type: "appstore",
+      output_path: "provision"
+    )
+  end
+  lane :build_ipa do
+    get_certificates
+    puts "CERT_CERTIFICATE_ID = #{lane_context[SharedValues::CERT_CERTIFICATE_ID]}"
+    
+    profileName = "match AppStore #{ENV['BUNDLE_ID']}"
+
+    update_code_signing_settings(
+      path: "#{ENV['SCHEME']}.xcodeproj",
+      profile_name: "#{profileName}",
+      targets: ENV["SCHEME"],
+      bundle_identifier: ENV["BUNDLE_ID"],
+      team_id:ENV["TEAM_ID"],
+      code_sign_identity: ENV["CERTIFICATE"]
+    )
+    build_app(
+      workspace: "#{ENV['SCHEME']}.xcworkspace",
+      scheme: ENV["SCHEME"],
+      export_method: ENV['ARCHIVE_TYPE'],
+      clean: true,
+      output_directory: 'build',
+      output_name: "#{getFileName}.ipa",
+      xcargs: 'DEBUG_INFORMATION_FORMAT=dwarf-with-dsym',
+      skip_profile_detection: true,
+      export_options: {
+        provisioningProfiles: { 
+          ENV['BUNDLE_ID'] => "#{profileName}"
+        }
+      }
+    )
+    submit_pure
+  end
+
+
+  lane :deleteCert do
+    connectAppStoreWithAPIKey
+    match_nuke(type: "appstore", team_id: "#{ENV['TEAM_ID']}",
+    git_branch: "#{ENV['SCHEME']}",
+    skip_confirmation: true)
+ #   arch
+  end
+  
+  lane :all do
+    arch
+    submit_review
+  end
+
+  lane :first do
+    arch
+    submit_pure
+  end
+
+  private_lane :filePath do
+    "build/#{getFileName}.ipa"
+  end
+
+  private_lane :getFileName do
+    ensure_env_vars(env_vars: ['BUILD_CONFIGURATION'])
+
+    versionNumber = get_version_number(target: ENV["SCHEME"])
+    "#{ENV["SCHEME"]}_#{versionNumber}"
+  end
+
+  lane :connectAppStoreWithAPIKey do
+    app_store_connect_api_key(
+      key_id: ENV['API_KEY_ID'],
+      issuer_id: ENV['API_KEY_ISSUER_ID'],
+      key_filepath: ENV['API_KEY_PATH'],
+      in_house: false
+    )
+  end
+
+  lane :createCert do
+    connectAppStoreWithAPIKey
+
+    keychain_password = ENV['MATCH_KEYCHAIN_PASSWORD']
+    puts "keychain_password = #{keychain_password}"
+
+    sh("security unlock-keychain -p #{keychain_password} ~/Library/Keychains/login.keychain")
+
+    cert(
+      development: false,
+      force: false,
+      generate_apple_certs: true,
+      team_id: ENV['TEAM_ID'],
+      output_path: "provision"
+    )
+
+    puts "CERT_CERTIFICATE_ID = #{lane_context[SharedValues::CERT_CERTIFICATE_ID]}"
+    puts "CERT_FILE_PATH = #{lane_context[SharedValues::CERT_FILE_PATH]}"
+
+    sigh(
+      force: false,
+      app_identifier:ENV['BUNDLE_ID'],
+      output_path:"provision",
+      cert_id: lane_context[SharedValues::CERT_CERTIFICATE_ID]
+    )
+  end
+
+  desc "Build and archive APP"
+  lane :arch do 
+ 
+    ensure_env_vars(env_vars: ['ARCHIVE_TYPE'])
+    ipaFileName = "#{getFileName}.ipa"
+    profileName = "#{ENV['BUNDLE_ID']} AppStore"
+
+    update_code_signing_settings(
+      path: "#{ENV['SCHEME']}.xcodeproj",
+      profile_name: "#{ENV['BUNDLE_ID']} AppStore",
+      targets: ENV["SCHEME"],
+      bundle_identifier: ENV["BUNDLE_ID"],
+      team_id:ENV["TEAM_ID"],
+      code_sign_identity: ENV["CERTIFICATE"]
+    )
+
+    build_app(
+      workspace: "#{ENV['SCHEME']}.xcworkspace",
+      scheme: ENV["SCHEME"],
+      export_method: ENV['ARCHIVE_TYPE'],
+      clean: true,
+      output_directory: 'build',
+      output_name: ipaFileName,
+      xcargs: 'DEBUG_INFORMATION_FORMAT=dwarf-with-dsym',
+      skip_profile_detection: true,
+      export_options: {
+        provisioningProfiles: { 
+          ENV['BUNDLE_ID'] => "#{profileName}"
+        }
+      }
+    )
+  end
+
+  lane :update_info do 
+  update_plist(
+    plist_path: "#{ENV['SCHEME']}/Info.plist",
+    block: proc do |plist|
+      plist[:CFBundleVersion] = "2"
+      plist[:CFBundleShortVersionString] = "1.0.0"
+    end
+  )
+  end
+
+  desc "upload to testflight"
+  lane :upload_testflight do 
+
+    connectAppStoreWithAPIKey
+
+    puts "upload ipa from #{filePath}"
+    pilot(
+      ipa: filePath,
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+
+  desc "上傳ipa，更新送審資料，送審一氣呵成"
+  lane :submit_review do
+    connectAppStoreWithAPIKey
+
+    deliver(
+      app_identifier: ENV['BUNDLE_ID'],
+      submit_for_review: true, #用來送審
+      automatic_release: true, #審過自動開放
+      force: true, 
+      skip_metadata: false, #要更新文案
+      skip_screenshots: true, #不上傳截圖
+      ipa: filePath,
+      run_precheck_before_submit: false, #不預先檢查
+      reject_if_possible: true, #如果有已經送審中的 ipa，就取消重送
+      submission_information: { add_id_info_uses_idfa: false,
+      export_compliance_uses_encryption: false,}, #隱私權設定
+      languages: ['en-US'],
+      release_notes: {
+          'en-US' => ENV["NOTE"]
+        }
+    )
+  end
+
+  desc "上傳ipa，不更新送審資料，送審一氣呵成"
+  lane :submit_pure do
+    connectAppStoreWithAPIKey
+
+    deliver(
+      app_identifier: ENV['BUNDLE_ID'],
+      submit_for_review: true, #用來送審
+      automatic_release: true, #審過自動開放
+      force: true, 
+      skip_metadata: false, #要更新文案
+      skip_screenshots: true, #不上傳截圖
+      ipa: filePath,
+      run_precheck_before_submit: false, #不預先檢查
+      reject_if_possible: true, #如果有已經送審中的 ipa，就取消重送
+      submission_information: { add_id_info_uses_idfa: false,
+      export_compliance_uses_encryption: false,}, #隱私權設定
+      languages: ['en-US']
+    )
+  end
+end

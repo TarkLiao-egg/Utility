@@ -1,0 +1,89 @@
+default_platform(:ios)
+
+platform :ios do
+  lane :connectAppStoreWithAPIKey do
+    app_store_connect_api_key(
+      key_id: "ZMQ3F745T4",
+      issuer_id: "b6692dcf-f50d-4a6c-b77f-4e4ba76d5b4f",
+      key_filepath: "fastlane/AuthKey_ZMQ3F745T4.p8",
+      duration: 1200, # optional
+      in_house: false
+    )
+  
+    # Automatically loads Actions.lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
+  end
+
+  desc "把 git 上的 cert 跟 provision 抓下來"
+  lane :matchInfos do |options|
+    ENV["MATCH_KEYCHAIN_PASSWORD"] = "hengyuan" 
+
+    # 這邊沒有跟 Apple 後台溝通，不用執行 connectAppStoreWithAPIKey
+
+    match(type: 'appstore',
+        app_identifier: ENV["BUNDLE_ID"],
+        readonly: true
+      )
+  end
+
+  desc "更新 git 上面的 cert 跟 provision，會改動 Apple Developer 裡面的設定"
+  lane :matchAll do 
+    ENV["MATCH_READONLY"] = "false" #default false, will renew provision
+    ENV["MATCH_FORCE"] = "false" #default false, not always renew provision
+
+    connectAppStoreWithAPIKey
+
+    match(
+      type: "appstore",
+      force_for_new_devices: true,
+      app_identifier: ENV["BUNDLE_ID"]
+    )
+  end
+
+  # archive
+  desc "Build and archive APP"
+  lane :archive do 
+    ensure_env_vars(env_vars: ['ARCHIVE_TYPE'])
+    ipaFileName = "#{getFileName}.ipa"
+    matchInfos(type: ENV['ARCHIVE_TYPE'])
+
+    # 更新 priject 裡面的設定，殼包應該不用這步
+    update_code_signing_settings(
+      path: ENV["PROJECT"],
+      profile_name: ENV["PROFILE"],
+      targets: ENV["SCHEME"],
+      bundle_identifier: ENV["BUNDLE_ID"],
+      code_sign_identity: ENV["CERTIFICATE"]
+    )
+
+    build_app(
+      workspace: ENV["WORKSPACE"],
+      scheme: ENV["SCHEME"],
+      export_method: ENV['ARCHIVE_TYPE'],
+      clean: true,
+      output_directory: 'build',
+      output_name: ipaFileName,
+      xcargs: 'DEBUG_INFORMATION_FORMAT=dwarf-with-dsym',
+      skip_profile_detection: true
+    )
+  end
+
+  desc "Release >>>>>>>>>> Upload app to TestFlight..."
+  lane :uploadTestFlight do
+    connectAppStoreWithAPIKey
+    ipaFilePath = "build/#{getFileName}.ipa"
+    upload_to_testflight(
+      ipa: ipaFilePath,
+      build_number: ENV["BUILD_NUMBER"]
+    )
+  end
+
+  private_lane :getFileName do
+    ensure_env_vars(env_vars: ['BUILD_CONFIGURATION'])
+
+    versionNumber = get_version_number(target: ENV["SCHEME"])
+    buildNumber = get_info_plist_value(path: ENV['INFOPLIST'] , key: "CFBundleVersion")
+
+    # e.g: videoap_2.0.0_10
+    "#{ENV["SCHEME"]}_#{versionNumber}_#{buildNumber}"
+  end
+end
