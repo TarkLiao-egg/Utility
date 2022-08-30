@@ -113,13 +113,29 @@ class GRDBController: UIViewController {
 
 }
 
-class Player: DBInit, FetchableRecord, PersistableRecord, Codable {
-    var id: Int?
-    var val: Int
-    var name: String
-    init(val: Int = 0, name: String = "") {
-        self.val = val
-        self.name = name
+
+class Player: DBInit, FetchableRecord, PersistableRecord, Codable, Comparable {
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    var timestamp: Int
+    var times: Int
+    var exerciseTimeStr: String
+    static func < (lhs: Player, rhs: Player) -> Bool {
+        return lhs.timestamp > rhs.timestamp
+    }
+    
+    init(date: Date, times: Int, exStr: String) {
+        self.timestamp = date.getInt()
+        self.times = times
+        self.exerciseTimeStr = exStr
         super.init()
+    }
+    
+    required override init() {
+        self.timestamp = Date().getInt()
+        self.times = 0
+        self.exerciseTimeStr = ""
     }
 }
