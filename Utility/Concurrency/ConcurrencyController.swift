@@ -1,18 +1,27 @@
 import UIKit
-
+// MARK: for XCode above` 13.2
 class ConcurrencyController: UIViewController {
 
     override func viewDidLoad() {
 
-        
-        if #available(iOS 15.0, *) {
+        let concurrentQueue = DispatchQueue(label: "io.some.thread",qos: .userInteractive, attributes: .concurrent)
+//        concurrentQueue.async {
+//            async let data = asyncAction() // equal async let data = await asyncAction()
+//            print("async progress") // not wait data result
+//            print(await data + " async let")
+//        }
+//        if #available(iOS 15.0, *) {
             //        doTask()
             //        doCompetionAction()
             //        doCompletionToConcurrencyAction()
+        if #available(iOS 13.0, *) {
             doCompletionThrowsToConcurrencyAction()
         } else {
             // Fallback on earlier versions
         }
+//        } else {
+//            // Fallback on earlier versions
+//        }
     }
 }
 
@@ -38,7 +47,7 @@ extension ConcurrencyController {
     }
 }
 
-@available(iOS 15.0, *)
+@available(iOS 13.0, *)
 extension ConcurrencyController {
     func doCompletionToConcurrencyAction() {
         Task {
@@ -78,7 +87,7 @@ extension ConcurrencyController {
     }
 }
 
-@available(iOS 15.0, *)
+@available(iOS 13.0, *)
 extension ConcurrencyController {
     enum TestError: Error {
         case unknown
