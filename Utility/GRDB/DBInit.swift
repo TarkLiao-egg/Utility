@@ -24,7 +24,7 @@ class DBManager: NSObject {
         return db
     }()
     static func createTable() {
-        DataModel().createTable()
+        Player().createTable()
     }
     
     func read<T: FetchableRecord>(_ type: T.Type, completion: (([T]) -> Void))  {

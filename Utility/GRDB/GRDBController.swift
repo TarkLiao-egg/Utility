@@ -18,7 +18,7 @@ class GRDBController: UIViewController {
             self.datas = data
             print(data.count)
             for datum in data {
-                print(datum.name)
+                print(datum.id)
             }
         }
         writeData { isComp in
@@ -29,7 +29,7 @@ class GRDBController: UIViewController {
             self.datas = data
             print(data.count)
             for datum in data {
-                print(datum.name)
+                print(datum.id)
             }
             
             
@@ -45,7 +45,7 @@ class GRDBController: UIViewController {
             self.datas = data
             print(data.count)
             for datum in data {
-                print(datum.name)
+                print(datum.id)
             }
         }
         
@@ -66,7 +66,7 @@ class GRDBController: UIViewController {
     
     func updateData(_ datas: [Player], completion: (Bool) -> Void) {
         for data in datas {
-            data.name += "2"
+            data.timestamp += 2
         }
         do {
             try dbQueue.write({ db in
@@ -83,8 +83,8 @@ class GRDBController: UIViewController {
     func writeData(completion: (Bool) -> Void) {
         do {
             var array = [Player]()
-            array.append(Player(val: 2, name: "tark"))
-            array.append(Player(val: 3, name: "Gloria"))
+            array.append(Player(date: Date(), times: 1, exStr: "123"))
+            array.append(Player(date: Date(), times: 2, exStr: "1234"))
             try dbQueue.write({ db in
                 for item in array {
                     try item.insert(db)
@@ -127,14 +127,14 @@ class Player: DBInit, FetchableRecord, PersistableRecord, Codable, Comparable {
     }
     
     init(date: Date, times: Int, exStr: String) {
-        self.timestamp = date.getInt()
+        self.timestamp = date.getTimeStamp()
         self.times = times
         self.exerciseTimeStr = exStr
         super.init()
     }
     
     required override init() {
-        self.timestamp = Date().getInt()
+        self.timestamp = Date().getTimeStamp()
         self.times = 0
         self.exerciseTimeStr = ""
     }

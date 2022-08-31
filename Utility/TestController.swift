@@ -2,7 +2,9 @@ import UIKit
 import Combine
 import RxSwift
 //import Moya
-@available(iOS 13.0.0, *)
+
+
+@available(iOS 13.0, *)
 class TestController: UIViewController {
     var cancelC = [AnyCancellable]()
     var lableView: AnimateLabelView!
@@ -27,13 +29,20 @@ class TestController: UIViewController {
         })
         setupButton()
     }
+    
+//    func testResponse() {
+//        print("viewController testResponse")
+////        next?.testResponse()
+//    }
 }
-@available(iOS 13.0.0, *)
+@available(iOS 13.0, *)
 extension TestController {
     func setupButton() {
-        randomButton.getPublisher(for: .touchUpInside).sink { [unowned self] _ in
-            lableView.animate(String(Int.random(in: 0...1099999)))
-        }.store(in: &cancelC)
+        randomButton.addTarget(nil, action: #selector(testAction), for: .touchUpInside)
+//        randomButton.getPublisher(for: .touchUpInside).sink { [unowned self] _ in
+//            lableView.animate(String(Int.random(in: 0...1099999)))
+//            testResponse()
+//        }.store(in: &cancelC)
     }
     
 //    func handleFlatmap<R:Decodable>(_ json: Any, _ type: R) -> AnyPublisher<R?,MoyaError> {
@@ -51,5 +60,6 @@ extension TestController {
 //            }
 //          }.eraseToAnyPublisher()
 //    }
-     
+    @objc func testAction() {
+    }
 }

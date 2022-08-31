@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Resolver.shareInstance.setupFactories()
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = TestController()
+        window?.rootViewController = ResponderChainController.start()
         window?.makeKeyAndVisible()
     }
 
