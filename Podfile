@@ -14,7 +14,7 @@ target 'Utility' do
   pod 'Moya/RxSwift', '~> 13.0'
   pod 'RxCocoa', '~> 4', :inhibit_warnings => true
   pod 'Alamofire', '~> 4.9.1'
-  pod 'GRDB.swift'
+  pod 'GRDB.swift', '~> 5.26.0' 
 
 #  pod 'Moya', '~> 15.0.0'
 #  pod 'Moya/Combine', '~> 15.0.0'

@@ -115,15 +115,15 @@ class GRDBController: UIViewController {
 
 
 class Player: DBInit, FetchableRecord, PersistableRecord, Codable, Comparable {
-    static func == (lhs: Player, rhs: Player) -> Bool {
-        return lhs.id == rhs.id
-    }
+    
     
     var timestamp: Int
     var times: Int
     var exerciseTimeStr: String
     var imageData: Data?
-    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.id == rhs.id
+    }
     static func < (lhs: Player, rhs: Player) -> Bool {
         return lhs.timestamp > rhs.timestamp
     }
