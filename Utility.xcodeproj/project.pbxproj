@@ -16,6 +16,7 @@
 		523BD87028A15E7E00A62840 /* ConcurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD86F28A15E7E00A62840 /* ConcurrencyController.swift */; };
 		523BD87328A86DAD00A62840 /* GRDBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD87228A86DAD00A62840 /* GRDBController.swift */; };
 		523BD87628A8BE6300A62840 /* DBInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD87528A8BE6300A62840 /* DBInit.swift */; };
+		525F89FE28F832CF00C2E8DB /* RegularExpressionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -106,6 +107,7 @@
 		523BD86F28A15E7E00A62840 /* ConcurrencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrencyController.swift; sourceTree = "<group>"; };
 		523BD87228A86DAD00A62840 /* GRDBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBController.swift; sourceTree = "<group>"; };
 		523BD87528A8BE6300A62840 /* DBInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBInit.swift; sourceTree = "<group>"; };
+		525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionController.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,14 @@
 			path = GRDB;
 			sourceTree = "<group>";
 		};
+		525F89FC28F832A300C2E8DB /* RegularExpression */ = {
+			isa = PBXGroup;
+			children = (
+				525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */,
+			);
+			path = RegularExpression;
+			sourceTree = "<group>";
+		};
 		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +288,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				525F89FC28F832A300C2E8DB /* RegularExpression */,
 				CE362DC928F7F5EE00B4DDF4 /* Direction */,
 				52EB6E7628BFD1B500D85784 /* ResponderChain */,
 				523BD87128A86D9F00A62840 /* GRDB */,
@@ -774,6 +785,7 @@
 				CEC74558287801AA0019B95D /* UIImage+Gif.swift in Sources */,
 				CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */,
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
+				525F89FE28F832CF00C2E8DB /* RegularExpressionController.swift in Sources */,
 				CE21AE7A28212E680083169F /* Coordinator.swift in Sources */,
 				52D3F90E28143A6E001AE32E /* SetTableViewController.swift in Sources */,
 				CEDC1C46281635780038BE7F /* AnimateController.swift in Sources */,
