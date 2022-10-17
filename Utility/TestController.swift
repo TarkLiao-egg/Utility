@@ -12,22 +12,8 @@ class TestController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        lableView = AnimateLabelView(font: UIFont.getDefaultFont(.regular, size: 40), size: 40, textColor: UIColor.hex(0xff0000)).VS({
-        lableView = AnimateLabelView(font: UIFont.systemFont(ofSize: 40, weight: .regular), size: 40, textColor: UIColor.hex(0xff0000)).VS({
-            $0.backgroundColor = .white
-            
-        }, view) { make in
-            make.width.equalTo(100)
-            make.center.equalToSuperview()
-            make.height.equalTo(40)
-        }
         
-        randomButton = UIButton().VS({
-            $0.setTitle("Random", for: .normal)
-        }, view, { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
-        })
-        setupButton()
+
     }
     
 //    func testResponse() {
@@ -35,6 +21,7 @@ class TestController: UIViewController {
 ////        next?.testResponse()
 //    }
 }
+
 @available(iOS 13.0, *)
 extension TestController {
     func setupButton() {

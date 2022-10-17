@@ -47,6 +47,8 @@
 		52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91428145718001AE32E /* CollectionViewCell.swift */; };
 		52EB6E7828BFD1E400D85784 /* ResponderChainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */; };
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
+		CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324728F8F235006C6A0D /* SwiftView.swift */; };
+		CE00324B28F8F739006C6A0D /* PATController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324A28F8F739006C6A0D /* PATController.swift */; };
 		CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE009DC328408EF200065556 /* BasicAnimateController.swift */; };
 		CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */; };
 		CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD832817BCF80083169F /* ReplicatorLayerController.swift */; };
@@ -140,6 +142,8 @@
 		52D3F91428145718001AE32E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderChainController.swift; sourceTree = "<group>"; };
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
+		CE00324728F8F235006C6A0D /* SwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftView.swift; sourceTree = "<group>"; };
+		CE00324A28F8F739006C6A0D /* PATController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATController.swift; sourceTree = "<group>"; };
 		CE009DC328408EF200065556 /* BasicAnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimateController.swift; sourceTree = "<group>"; };
 		CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		CE21AD832817BCF80083169F /* ReplicatorLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatorLayerController.swift; sourceTree = "<group>"; };
@@ -212,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				5230F8A1280C0DDF00CFAF1F /* NetWorkManager.swift */,
-				5230F8A3280C0DF000CFAF1F /* GCDManager.swift */,
 				5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */,
 			);
 			path = Manager;
@@ -288,6 +291,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				CE00324C28F8F73D006C6A0D /* PAT */,
 				525F89FC28F832A300C2E8DB /* RegularExpression */,
 				CE362DC928F7F5EE00B4DDF4 /* Direction */,
 				52EB6E7628BFD1B500D85784 /* ResponderChain */,
@@ -310,6 +314,7 @@
 				52D3F911281456EC001AE32E /* UICollectionView */,
 				CED696E128112F74008793EB /* InterruptibleAnimate */,
 				CED696C9280D6FB2008793EB /* ScrollEdit */,
+				CE00324628F8F1E8006C6A0D /* GCD */,
 				5230F8A0280C0DD500CFAF1F /* Manager */,
 				5230F89A280BE03000CFAF1F /* Shadow */,
 				52CDD33627F1F6D3009A25FB /* Inject */,
@@ -331,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				52C989F627F06A430048F4CD /* FunctionViewController.swift */,
+				CE00324728F8F235006C6A0D /* SwiftView.swift */,
 				52C989F427F068F20048F4CD /* FunctionCodeView.swift */,
 			);
 			path = FunctionView;
@@ -432,6 +438,22 @@
 				EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE00324628F8F1E8006C6A0D /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				5230F8A3280C0DF000CFAF1F /* GCDManager.swift */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		CE00324C28F8F73D006C6A0D /* PAT */ = {
+			isa = PBXGroup;
+			children = (
+				CE00324A28F8F739006C6A0D /* PATController.swift */,
+			);
+			path = PAT;
 			sourceTree = "<group>";
 		};
 		CE21AD822817BCE70083169F /* Layer */ = {
@@ -752,6 +774,7 @@
 				52B4F4952849DA570042033E /* CWBannerController.swift in Sources */,
 				CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */,
 				52B4F4912849D9F10042033E /* CWBanner.swift in Sources */,
+				CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */,
 				521EDA262866C00F00AD6098 /* DataDB.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */,
@@ -787,6 +810,7 @@
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
 				525F89FE28F832CF00C2E8DB /* RegularExpressionController.swift in Sources */,
 				CE21AE7A28212E680083169F /* Coordinator.swift in Sources */,
+				CE00324B28F8F739006C6A0D /* PATController.swift in Sources */,
 				52D3F90E28143A6E001AE32E /* SetTableViewController.swift in Sources */,
 				CEDC1C46281635780038BE7F /* AnimateController.swift in Sources */,
 				52CDD33527F1F4C0009A25FB /* FMDBController.swift in Sources */,

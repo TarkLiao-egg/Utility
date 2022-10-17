@@ -19,67 +19,6 @@ class GCDManager {
     static func test() {
         
     }
-    class BlurImageOperation: Operation {
-        var inputImage: UIImage?
-        var outputImage: UIImage?
-            
-        override func main() {
-            sleep(3)
-            print("end operation \(Thread.current)")
-        }
-    }
-    static func operationQueue() {
-        let queue = OperationQueue()
-        let op = BlurImageOperation()
-        let op2 = BlurImageOperation()
-        
-        let group = DispatchGroup()
-        group.enter()
-        group.enter()
-        op.completionBlock = {
-            print("op1完成")
-            group.leave()
-        }
-        op2.completionBlock = {
-            print("op2完成")
-            group.leave()
-        }
-        queue.addOperation(op)
-        queue.addOperation(op2)
-        queue.addOperation {
-            print("option1 \(Thread.current)")
-        }
-        queue.waitUntilAllOperationsAreFinished()
-        print("end")
-        
-        group.notify(queue: DispatchQueue.main) {
-            print("group 任务执行结束")
-            print(Thread.current)
-        }
-    }
-    
-    static func dispatchGroup() {
-        // DispatchGroup 異步任務同步結果
-        let group = DispatchGroup()
-        for i in 0...1 {
-            DispatchQueue.global().async {
-                group.enter()
-                getData(i) {
-                    group.leave()
-                }
-            }
-        }
-        //queue参数表示以下任务添加到的队列
-        group.notify(queue: DispatchQueue.global()) {
-            print("group 任务执行结束")
-            print(Thread.current)
-        }
-        func getData(_ i: Int, completion: (()-> Void)?) {
-            sleep(arc4random()%3)//休眠时间随机
-            print(i)
-            completion?()
-        }
-    }
     
     
     static func mainSerial() {
@@ -262,6 +201,46 @@ class GCDManager {
         //從上至下依序進行，全在主線程
     }
     
+    // MARK: 同步任務應用
+    class BlurImageOperation: Operation {
+        var inputImage: UIImage?
+        var outputImage: UIImage?
+            
+        override func main() {
+            sleep(3)
+            print("end operation \(Thread.current)")
+        }
+    }
+    static func operationQueue() {
+        let queue = OperationQueue()
+        let op = BlurImageOperation()
+        let op2 = BlurImageOperation()
+        
+        let group = DispatchGroup()
+        group.enter()
+        group.enter()
+        op.completionBlock = {
+            print("op1完成")
+            group.leave()
+        }
+        op2.completionBlock = {
+            print("op2完成")
+            group.leave()
+        }
+        queue.addOperation(op)
+        queue.addOperation(op2)
+        queue.addOperation {
+            print("option1 \(Thread.current)")
+        }
+        queue.waitUntilAllOperationsAreFinished()
+        print("end")
+        
+        group.notify(queue: DispatchQueue.main) {
+            print("group 任务执行结束")
+            print(Thread.current)
+        }
+    }
+    
     static func handleOperation() {
         let blockOperation = BlockOperation()
         for i in 1...10 {
@@ -322,6 +301,30 @@ class GCDManager {
 //        operationQueue.progress.resume()
 //        阻塞在这里
         operationQueue.waitUntilAllOperationsAreFinished()
+    }
+    
+    // MARK: 異步應用
+    static func dispatchGroup() {
+        // DispatchGroup 異步任務同步結果
+        let group = DispatchGroup()
+        for i in 0...1 {
+            DispatchQueue.global().async {
+                group.enter()
+                getData(i) {
+                    group.leave()
+                }
+            }
+        }
+        //queue参数表示以下任务添加到的队列
+        group.notify(queue: DispatchQueue.global()) {
+            print("group 任务执行结束")
+            print(Thread.current)
+        }
+        func getData(_ i: Int, completion: (()-> Void)?) {
+            sleep(arc4random()%3)//休眠时间随机
+            print(i)
+            completion?()
+        }
     }
     
     static func semaphore() {
