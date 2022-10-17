@@ -63,28 +63,13 @@ extension PATController {
     }
 }
 
-protocol ProtocolWithoutOpaque: Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool
-    var test: Int {get set}
-}
+protocol ProtocolWithoutOpaque {}
 
-extension ProtocolWithoutOpaque {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.test == rhs.test
-    }
-}
+struct Without1: ProtocolWithoutOpaque {}
 
-struct Without1: ProtocolWithoutOpaque {
-    var test: Int = 2
-    
-    
-}
+struct Without2: ProtocolWithoutOpaque {}
 
-struct Without2: ProtocolWithoutOpaque {
-    var test: Int = 3
-}
-
-func test() {
+func testWithoutOpaque() {
     let w1 = getWithout(true)
     let w2 = getWithout(false)
 //    Binary operator '==' cannot be applied to two 'ProtocolWithoutOpaque' operands
@@ -100,40 +85,29 @@ func getWithout(_ isMM: Bool) -> ProtocolWithoutOpaque {
     return Without2()
 }
 
-protocol Burger {
+protocol ProtocolWithOpaque: Equatable {
     associatedtype TestType
     var veg: TestType { get set }
-//    var bread: String { get set }
-//    var veg: String { get set }
-//    var cheese: String { get set }
-//    var meet: String { get set }
 }
-struct McDonaldsBurger: Burger{
-    typealias TestType = String
-    var veg: Self.TestType = "2"
-}
-struct BurgerKingBurger: Burger{
+
+struct With1: ProtocolWithOpaque {
     typealias TestType = Int
     var veg: Self.TestType = 2
 }
+
 @available(iOS 13.0.0, *)
-func getBurger(by isMM: Bool) -> some Burger{
-    //Function declares an opaque return type, but the return statements in its body do not have matching underlying types
-//    if isMM {
-//        return McDonaldsBurger()
-//    } else {
-//        return BurgerKingBurger()
-//    }
-    return McDonaldsBurger()
+func testWithOpaque() {
+    let w1 = getWith(true)
+    let w2 = getWith(false)
+    if w1 == w2 {
+        
+    }
 }
-//func getBurger(by isMM: Bool) -> Burger {
-////    Protocol 'Burger' can only be used as a generic constraint because it has Self or associated type requirements
-//    if isMM {
-//        return McDonaldsBurger()
-//    } else {
-//        return BurgerKingBurger()
-//    }
-//}
+
+@available(iOS 13.0.0, *)
+func getWith(_ isMM: Bool) -> some ProtocolWithOpaque {
+    return With1()
+}
 
 
 // MARK: Subtyping vs Generic programming
