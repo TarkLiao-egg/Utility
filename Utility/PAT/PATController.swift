@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import RxCocoa
 //Protocols with Associated Types (PATs)
 //https://www.appcoda.com.tw/swift-polymorphism/
 
@@ -62,34 +63,77 @@ extension PATController {
     }
 }
 
+protocol ProtocolWithoutOpaque: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool
+    var test: Int {get set}
+}
+
+extension ProtocolWithoutOpaque {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.test == rhs.test
+    }
+}
+
+struct Without1: ProtocolWithoutOpaque {
+    var test: Int = 2
+    
+    
+}
+
+struct Without2: ProtocolWithoutOpaque {
+    var test: Int = 3
+}
+
+func test() {
+    let w1 = getWithout(true)
+    let w2 = getWithout(false)
+//    Binary operator '==' cannot be applied to two 'ProtocolWithoutOpaque' operands
+//    if w1 == w2 {
+//
+//    }
+}
+
+func getWithout(_ isMM: Bool) -> ProtocolWithoutOpaque {
+    if isMM {
+        return Without1()
+    }
+    return Without2()
+}
+
 protocol Burger {
+    associatedtype TestType
+    var veg: TestType { get set }
 //    var bread: String { get set }
 //    var veg: String { get set }
 //    var cheese: String { get set }
 //    var meet: String { get set }
 }
-struct McDonaldsBurger: Burger{}
-struct BurgerKingBurger: Burger{}
+struct McDonaldsBurger: Burger{
+    typealias TestType = String
+    var veg: Self.TestType = "2"
+}
+struct BurgerKingBurger: Burger{
+    typealias TestType = Int
+    var veg: Self.TestType = 2
+}
 @available(iOS 13.0.0, *)
 func getBurger(by isMM: Bool) -> some Burger{
-    if isMM {
-        return McDonaldsBurger()
-    } else {
-        return BurgerKingBurger()
-    }
+    //Function declares an opaque return type, but the return statements in its body do not have matching underlying types
+//    if isMM {
+//        return McDonaldsBurger()
+//    } else {
+//        return BurgerKingBurger()
+//    }
+    return McDonaldsBurger()
 }
-func getBurger(by isMM: Bool) -> Burger{
-    if isMM {
-        return McDonaldsBurger()
-    } else {
-        return BurgerKingBurger()
-    }
-}
-
-
-
-
-
+//func getBurger(by isMM: Bool) -> Burger {
+////    Protocol 'Burger' can only be used as a generic constraint because it has Self or associated type requirements
+//    if isMM {
+//        return McDonaldsBurger()
+//    } else {
+//        return BurgerKingBurger()
+//    }
+//}
 
 
 // MARK: Subtyping vs Generic programming
