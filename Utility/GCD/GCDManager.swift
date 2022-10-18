@@ -13,13 +13,8 @@ class GCDManager {
     
     static func run() {
 //        serial()
-        operationQueue()
+        operationQueueAsync()
     }
-    
-    static func test() {
-        
-    }
-    
     
     static func mainSerial() {
         let serialQueue = DispatchQueue(label: "io.some.thread",qos: .userInteractive)
@@ -505,7 +500,7 @@ protocol ChainedOperationOutputProviding {
     var output: Any? { get }
 }
 
-extension ChainedAsyncResultOperation: ChainedOperationOutputProviding {
+extension UnfurlURLOperation: ChainedOperationOutputProviding {
     var output: Any? {
         return try? result?.get()
     }
@@ -592,7 +587,7 @@ final class FetchTitleChainedOperation: ChainedAsyncResultOperation<URL, String,
 
 
 extension GCDManager {
-    func operationQueueAsync() {
+    static func operationQueueAsync() {
         let queue = OperationQueue()
         let unfurlOperation = UnfurlURLOperation(shortURL: URL(string: "https://bit.ly/33UDb5L")!)
         let fetchTitleOperation = FetchTitleChainedOperation()
