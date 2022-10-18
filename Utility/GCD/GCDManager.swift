@@ -345,3 +345,266 @@ class GCDManager {
         print("over")
     }
 }
+
+// Async OperationQueue
+// https://www.avanderlee.com/swift/advanced-asynchronous-operations/
+class AsyncOperation: Operation {
+    private let lockQueue = DispatchQueue(label: "com.swiftlee.asyncoperation", attributes: .concurrent)
+
+    override var isAsynchronous: Bool {
+        return true
+    }
+
+    private var _isExecuting: Bool = false
+    override private(set) var isExecuting: Bool {
+        get {
+            return lockQueue.sync { () -> Bool in
+                return _isExecuting
+            }
+        }
+        set {
+            willChangeValue(forKey: "isExecuting")
+            lockQueue.sync(flags: [.barrier]) {
+                _isExecuting = newValue
+            }
+            didChangeValue(forKey: "isExecuting")
+        }
+    }
+
+    private var _isFinished: Bool = false
+    override private(set) var isFinished: Bool {
+        get {
+            return lockQueue.sync { () -> Bool in
+                return _isFinished
+            }
+        }
+        set {
+            willChangeValue(forKey: "isFinished")
+            lockQueue.sync(flags: [.barrier]) {
+                _isFinished = newValue
+            }
+            didChangeValue(forKey: "isFinished")
+        }
+    }
+
+    override func start() {
+        print("Starting")
+        guard !isCancelled else {
+            finish()
+            return
+        }
+
+        isFinished = false
+        isExecuting = true
+        main()
+    }
+
+    override func main() {
+        fatalError("Subclasses must implement `main` without overriding super.")
+    }
+
+    func finish() {
+        isExecuting = false
+        isFinished = true
+    }
+}
+
+
+final class FileUploadOperation: AsyncOperation {
+
+    private let fileURL: URL
+    private let targetUploadURL: URL
+    private var uploadTask: URLSessionTask?
+
+    init(fileURL: URL, targetUploadURL: URL) {
+        self.fileURL = fileURL
+        self.targetUploadURL = targetUploadURL
+    }
+
+    override func main() {
+        uploadTask = URLSession.shared.uploadTask(with: URLRequest(url: targetUploadURL), fromFile: fileURL) { (data, response, error) in
+            // Handle the response
+            // ...
+            // Call finish
+            self.finish()
+        }
+    }
+
+    override func cancel() {
+        uploadTask?.cancel()
+        super.cancel()
+    }
+}
+
+class AsyncResultOperation<Success, Failure>: AsyncOperation where Failure: Error {
+
+    private(set) public var result: Result<Success, Failure>?
+
+    final override public func finish() {
+        guard !isCancelled else { return super.finish() }
+        fatalError("Make use of finish(with:) instead to ensure a result")
+    }
+
+    public func finish(with result: Result<Success, Failure>) {
+        self.result = result
+        super.finish()
+    }
+
+    override open func cancel() {
+        fatalError("Make use of cancel(with:) instead to ensure a result")
+    }
+
+    public func cancel(with error: Failure) {
+        self.result = .failure(error)
+        super.cancel()
+    }
+}
+
+final class UnfurlURLOperation: AsyncResultOperation<URL, UnfurlURLOperation.Error> {
+    enum Error: Swift.Error {
+        case canceled
+        case missingRedirectURL
+        case underlying(error: Swift.Error)
+    }
+
+    private let shortURL: URL
+    private var dataTask: URLSessionTask?
+
+    init(shortURL: URL) {
+        self.shortURL = shortURL
+    }
+
+    override func main() {
+        var request = URLRequest(url: shortURL)
+        request.httpMethod = "HEAD"
+
+        dataTask = URLSession.shared.dataTask(with: request, completionHandler: { [weak self] (_, response, error) in
+            if let error = error {
+                self?.finish(with: .failure(Error.underlying(error: error)))
+                return
+            }
+
+            guard let longURL = response?.url else {
+                self?.finish(with: .failure(Error.missingRedirectURL))
+                return
+            }
+
+            self?.finish(with: .success(longURL))
+        })
+        dataTask?.resume()
+    }
+
+    override func cancel() {
+        dataTask?.cancel()
+        cancel(with: .canceled)
+    }
+}
+
+
+protocol ChainedOperationOutputProviding {
+    var output: Any? { get }
+}
+
+extension ChainedAsyncResultOperation: ChainedOperationOutputProviding {
+    var output: Any? {
+        return try? result?.get()
+    }
+}
+
+class ChainedAsyncResultOperation<Input, Output, Failure>: AsyncResultOperation<Output, Failure> where Failure: Swift.Error {
+
+    private(set) public var input: Input?
+
+    public init(input: Input? = nil) {
+        self.input = input
+    }
+
+    override public final func start() {
+        updateInputFromDependencies()
+        super.start()
+    }
+
+    /// Updates the input by fetching the output of its dependencies.
+    /// Will always get the first output matching dependency.
+    /// If `input` is already set, the input from dependencies will be ignored.
+    private func updateInputFromDependencies() {
+        guard input == nil else { return }
+        input = dependencies.compactMap { dependency in
+            return (dependency as? ChainedOperationOutputProviding)?.output as? Input
+        }.first
+    }
+}
+
+final class FetchTitleChainedOperation: ChainedAsyncResultOperation<URL, String, FetchTitleChainedOperation.Error> {
+    public enum Error: Swift.Error {
+        case canceled
+        case dataParsingFailed
+        case missingInputURL
+        case missingPageTitle
+        case underlying(error: Swift.Error)
+    }
+
+    private var dataTask: URLSessionTask?
+
+    override final public func main() {
+        guard let input = input else { return finish(with: .failure(.missingInputURL)) }
+
+        var request = URLRequest(url: input)
+        request.httpMethod = "GET"
+
+        dataTask = URLSession.shared.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
+            do {
+                if let error = error {
+                    throw error
+                }
+
+                guard let data = data, let html = String(data: data, encoding: .utf8) else {
+                    throw Error.dataParsingFailed
+                }
+
+                guard let pageTitle = self?.pageTitle(for: html) else {
+                    throw Error.missingPageTitle
+                }
+
+                self?.finish(with: .success(pageTitle))
+            } catch {
+                if let error = error as? Error {
+                    self?.finish(with: .failure(error))
+                } else {
+                    self?.finish(with: .failure(.underlying(error: error)))
+                }
+            }
+        })
+        dataTask?.resume()
+    }
+
+    private func pageTitle(for html: String) -> String? {
+        guard let rangeFrom = html.range(of: "<title>")?.upperBound else { return nil }
+        guard let rangeTo = html[rangeFrom...].range(of: "</title>")?.lowerBound else { return nil }
+        return String(html[rangeFrom..<rangeTo])
+    }
+
+    override final public func cancel() {
+        dataTask?.cancel()
+        cancel(with: .canceled)
+    }
+}
+
+
+extension GCDManager {
+    func operationQueueAsync() {
+        let queue = OperationQueue()
+        let unfurlOperation = UnfurlURLOperation(shortURL: URL(string: "https://bit.ly/33UDb5L")!)
+        let fetchTitleOperation = FetchTitleChainedOperation()
+        fetchTitleOperation.addDependency(unfurlOperation)
+
+        queue.addOperations([unfurlOperation, fetchTitleOperation], waitUntilFinished: true)
+
+        print("Operation finished with: \(fetchTitleOperation.result!)")
+        // Prints: Operation finished with: success("A weekly Swift Blog on Xcode and iOS Development - SwiftLee")
+
+    }
+    
+}
+
+
