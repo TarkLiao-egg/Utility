@@ -5,17 +5,18 @@ class ShareModel: NSObject {
     let iconName: String
     var urlStr: String
     let shareStr: String
-    init(appName: String, iconName: String, shareStr: String) {
-        self.appName = appName
+    init(iconName: String, shareStr: String) {
+        self.appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as! String
         self.iconName = iconName
         self.urlStr = ""
         self.shareStr = shareStr
     }
     
     func shareAction(_ vc: UIViewController, color: UIColor = .black, image: UIImage? = nil, str: String? = nil) {
-        let loading = UIActivityIndicatorView().VS({
-            $0.color = color
-        }, vc.view) { make in
+        let loading = UIActivityIndicatorView()
+        loading.color = color
+        vc.view.addSubview(loading)
+        loading.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.size.equalTo(100)
         }
