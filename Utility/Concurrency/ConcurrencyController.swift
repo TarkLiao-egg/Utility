@@ -24,8 +24,24 @@ class ConcurrencyController: UIViewController {
 //        }
     }
 }
+@available(iOS 13.0, *)
+extension ConcurrencyController {
+    func doOnMainThread() async {
+        await MainActor.run {
+          // 更新 UI
+        }
+        
+        Task { @MainActor in
+          // 這裡的函數將在 UI 線程上運行
+        }
+    }
+    @MainActor func iWillRunInMainThread() async {
+      // 這個函數將在 UI 線程中運行
+    }
 
-@available(iOS 15.0, *)
+}
+
+@available(iOS 13.0, *)
 extension ConcurrencyController {
     func doTask() {
         Task {
