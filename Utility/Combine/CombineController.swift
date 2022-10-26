@@ -18,6 +18,7 @@ class CombineController: UIViewController {
     let label = UILabel()
     
     @Published var intValue: Int = 2
+    @Published var addValue: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,14 @@ class CombineController: UIViewController {
         } receiveValue: { int in
             print("class:\(int.int)")
         }.store(in: &cancelC)
+        
+        $addValue.scan(-1, {
+            print("before\($0)")
+            print("after:\($1)")
+            return $1
+        }).sink { data in
+            print("data:\(data)")
+        }.store(in: &cancelC)
     }
 }
 
@@ -72,6 +81,7 @@ extension CombineController {
         structCVS.value.int += 1
         classCVS.value.int += 1
         print(classCVS.value.int)
+        addValue += 1
     }
 }
 

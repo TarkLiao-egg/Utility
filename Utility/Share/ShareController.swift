@@ -18,7 +18,7 @@ class ShareController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let shareModel = ShareModel(appName: "Pet Hungry", iconName: "iconName", shareStr: "Share this app with your friends.")
+        let shareModel = ShareModel(iconName: "iconName", shareStr: "Share this app with your friends.")
         shareModel.shareAction(self, color: .white, image: nil, str: "https://pethungry.org")
         
         setupUI()
