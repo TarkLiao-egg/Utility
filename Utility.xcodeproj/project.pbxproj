@@ -51,6 +51,9 @@
 		CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324728F8F235006C6A0D /* SwiftView.swift */; };
 		CE00324B28F8F739006C6A0D /* PATController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324A28F8F739006C6A0D /* PATController.swift */; };
 		CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE009DC328408EF200065556 /* BasicAnimateController.swift */; };
+		CE192B6D2914EF6900CFAA56 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE192B6C2914EF6900CFAA56 /* CustomTableView.swift */; };
+		CE192B702914F10F00CFAA56 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE192B6F2914F10F00CFAA56 /* DatePickerView.swift */; };
+		CE192B722914F25700CFAA56 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE192B712914F25700CFAA56 /* CustomCollectionView.swift */; };
 		CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */; };
 		CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD832817BCF80083169F /* ReplicatorLayerController.swift */; };
 		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
@@ -147,6 +150,9 @@
 		CE00324728F8F235006C6A0D /* SwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftView.swift; sourceTree = "<group>"; };
 		CE00324A28F8F739006C6A0D /* PATController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATController.swift; sourceTree = "<group>"; };
 		CE009DC328408EF200065556 /* BasicAnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimateController.swift; sourceTree = "<group>"; };
+		CE192B6C2914EF6900CFAA56 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		CE192B6F2914F10F00CFAA56 /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		CE192B712914F25700CFAA56 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		CE2124DF28360F7D00F230C7 /* PaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		CE21AD832817BCF80083169F /* ReplicatorLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatorLayerController.swift; sourceTree = "<group>"; };
 		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
@@ -313,6 +319,7 @@
 				CEDC1C4728166FEB0038BE7F /* BookTurePage */,
 				CEDC1C4A28169A2A0038BE7F /* 3D */,
 				CEDC1C44281635640038BE7F /* Animate */,
+				CE192B6E2914F0E400CFAA56 /* DatePickerView */,
 				52D3F90C28143A58001AE32E /* UITableView */,
 				52D3F911281456EC001AE32E /* UICollectionView */,
 				CED696E128112F74008793EB /* InterruptibleAnimate */,
@@ -413,6 +420,7 @@
 			children = (
 				52D3F90D28143A6E001AE32E /* SetTableViewController.swift */,
 				52D3F90F2814553D001AE32E /* TableViewCell.swift */,
+				CE192B6C2914EF6900CFAA56 /* CustomTableView.swift */,
 			);
 			path = UITableView;
 			sourceTree = "<group>";
@@ -422,6 +430,7 @@
 			children = (
 				52D3F91228145709001AE32E /* SetCollectionViewController.swift */,
 				52D3F91428145718001AE32E /* CollectionViewCell.swift */,
+				CE192B712914F25700CFAA56 /* CustomCollectionView.swift */,
 			);
 			path = UICollectionView;
 			sourceTree = "<group>";
@@ -465,6 +474,14 @@
 				CE00324A28F8F739006C6A0D /* PATController.swift */,
 			);
 			path = PAT;
+			sourceTree = "<group>";
+		};
+		CE192B6E2914F0E400CFAA56 /* DatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				CE192B6F2914F10F00CFAA56 /* DatePickerView.swift */,
+			);
+			path = DatePickerView;
 			sourceTree = "<group>";
 		};
 		CE21AD822817BCE70083169F /* Layer */ = {
@@ -781,6 +798,7 @@
 				52C989F527F068F20048F4CD /* FunctionCodeView.swift in Sources */,
 				52CDD33A27F1F710009A25FB /* Resolver.swift in Sources */,
 				52B4F4972849DAD60042033E /* CWProxy.swift in Sources */,
+				CE192B702914F10F00CFAA56 /* DatePickerView.swift in Sources */,
 				52CDD33127F1ED04009A25FB /* TransactionDetailDB.swift in Sources */,
 				5230F8A6280C0E0100CFAF1F /* MemoryManager.swift in Sources */,
 				52B4F4952849DA570042033E /* CWBannerController.swift in Sources */,
@@ -812,8 +830,10 @@
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,
 				CEFF5630283E355A0055623A /* AnimateLabelController.swift in Sources */,
 				CEE138EE2899160E0088419B /* ShareModel.swift in Sources */,
+				CE192B722914F25700CFAA56 /* CustomCollectionView.swift in Sources */,
 				52EB6E7828BFD1E400D85784 /* ResponderChainController.swift in Sources */,
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
+				CE192B6D2914EF6900CFAA56 /* CustomTableView.swift in Sources */,
 				CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */,
 				CEDF979B28471C74007F1B8D /* SingleAlertController.swift in Sources */,
 				CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */,

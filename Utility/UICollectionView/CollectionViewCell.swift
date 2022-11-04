@@ -9,7 +9,9 @@ import UIKit
 import SnapKit
 
 class CollectionViewCell: UICollectionViewCell {
+    var data: Int = 0
     var initValue: Int = 0
+    let label = UILabel()
     var view: UIView!
     init(initValue: Int) {
         self.initValue = initValue
@@ -25,7 +27,7 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure() {
+    func configure(_ data: Int) {
         self.clipsToBounds = false
         contentView.clipsToBounds = false
         view.backgroundColor = UIColor(red: CGFloat.random(in: 0...255) / 255, green: CGFloat.random(in: 0...255) / 255, blue: CGFloat.random(in: 0...255) / 255, alpha: 1)
@@ -47,7 +49,12 @@ extension CollectionViewCell {
     
     func getView() -> UIView {
         let view = UIView()
-        
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         return view
     }
 }

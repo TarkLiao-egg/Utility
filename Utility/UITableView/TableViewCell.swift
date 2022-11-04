@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 class TableViewCell: UITableViewCell {
     var label: UILabel!
@@ -38,7 +39,7 @@ class TableViewCell: UITableViewCell {
 
 extension TableViewCell {
     func setupUI() {
-        backgroundColor = .clear
+        backgroundColor = .white
         contentView.backgroundColor = .clear
         
         getView().VS({
@@ -50,7 +51,12 @@ extension TableViewCell {
     
     func getView() -> UIView {
         return UIView().S { view in
-            
+            label = UILabel().VS({
+                $0.textColor = .black
+                $0.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
+            }, view, { make in
+                make.edges.equalToSuperview()
+            })
         }
     }
 }
