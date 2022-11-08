@@ -32,9 +32,14 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(_ data: Int) {
-        label.text = String(data)
+    override func configure(_ model: Any) {
+        if let model = model as? Int {
+            label.text = String(model)
+        }
     }
+}
+
+extension TableViewCell {
 }
 
 extension TableViewCell {

@@ -18,6 +18,8 @@ class SetCollectionViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupCollectionView()
+        
+        collectionView = CustomCollectionView(type: CollectionViewCell.self)
     }
 }
 

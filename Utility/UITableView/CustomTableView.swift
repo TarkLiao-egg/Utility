@@ -3,7 +3,7 @@ import UIKit
 
 
 class CustomTableView<T: UITableViewCell>: UITableView, UITableViewDataSource, UITableViewDelegate {
-    private var datas = [Int]()
+    private var datas = [Any]()
     
     init(type: T.Type) {
         super.init(frame: .zero, style: .plain)
@@ -18,22 +18,29 @@ class CustomTableView<T: UITableViewCell>: UITableView, UITableViewDataSource, U
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(_ datas: [Int]) {
-        self.datas = datas
-        reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? T else { return UITableViewCell() }
-//        cell.configure(datas[indexPath.row])
+        cell.configure(datas[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func setData(_ datas: [Any]) {
+        self.datas = datas
+        reloadData()
+    }
+    
+}
+
+extension UITableViewCell {
+    @objc func configure(_ model: Any) {
+        
     }
 }

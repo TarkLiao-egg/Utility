@@ -1,35 +1,26 @@
 import UIKit
 
-class CustomCollectionView: UICollectionView {
+class CustomCollectionView<T: UICollectionViewCell>: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     let layout = UICollectionViewFlowLayout()
-    var datas = [Int]()
+    var datas = [Any]()
     var isSelect: Int = -1
     
-    init() {
+    init(type: T.Type) {
         layout.scrollDirection = .vertical
         super.init(frame: .zero, collectionViewLayout: layout)
-        register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        register(type, forCellWithReuseIdentifier: "cell")
         backgroundColor = .clear
         delegate = self
         dataSource = self
         showsVerticalScrollIndicator = false
         contentInsetAdjustmentBehavior = .never
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension CustomCollectionView {
-    func setData(_ items: [Int]) {
-        datas = items
-        reloadData()
-    }
     
-}
-
-extension CustomCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datas.count
     }
@@ -58,6 +49,20 @@ extension CustomCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension CustomCollectionView {
+    func setData(_ items: [Any]) {
+        datas = items
+        reloadData()
+    }
+    
+}
+
+extension UICollectionViewCell {
+    @objc func configure(_ model: Any) {
+        
     }
 }
 
