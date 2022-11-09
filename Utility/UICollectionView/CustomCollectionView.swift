@@ -26,7 +26,7 @@ class CustomCollectionView<T: UICollectionViewCell>: UICollectionView, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? T else { return UICollectionViewCell() }
         cell.configure(datas[indexPath.row])
         return cell
     }
