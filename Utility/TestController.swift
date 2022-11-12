@@ -1,15 +1,32 @@
 import UIKit
+import SnapKit
 import Combine
+import SwiftUI
 
+@available(iOS 13.0, *)
 class TestController: UIViewController {
-    let customView = CustomTableView(type: TableViewCell.self)
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(customView)
-        customView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        view.backgroundColor = .white
+    }
+    
+}
+
+@available(iOS 13.0, *)
+extension TestController {
+    func setupButton() {
+        UIButton().VS({
+            $0.setTitle("Test", for: .normal)
+            $0.setTitleColor(.black, for: .normal)
+            $0.addTarget(self, action: #selector(self.testAction), for: .touchUpInside)
+        }, view) { make in
+            make.size.equalTo(60)
+            make.leading.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
+    }
+    
+    @objc func testAction() {
         
-        customView.setData([1,2,34,5,6,7,8,89])
     }
 }

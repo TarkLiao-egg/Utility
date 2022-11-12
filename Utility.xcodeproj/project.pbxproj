@@ -17,6 +17,8 @@
 		523BD87328A86DAD00A62840 /* GRDBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD87228A86DAD00A62840 /* GRDBController.swift */; };
 		523BD87628A8BE6300A62840 /* DBInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD87528A8BE6300A62840 /* DBInit.swift */; };
 		525F89FE28F832CF00C2E8DB /* RegularExpressionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */; };
+		5290BE872920049C000AD325 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE862920049C000AD325 /* CircleProgressView.swift */; };
+		5290BE8929200780000AD325 /* CircleProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8829200780000AD325 /* CircleProgressViewController.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -114,6 +116,8 @@
 		523BD87228A86DAD00A62840 /* GRDBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBController.swift; sourceTree = "<group>"; };
 		523BD87528A8BE6300A62840 /* DBInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBInit.swift; sourceTree = "<group>"; };
 		525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionController.swift; sourceTree = "<group>"; };
+		5290BE862920049C000AD325 /* CircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
+		5290BE8829200780000AD325 /* CircleProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressViewController.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -262,6 +266,15 @@
 			path = RegularExpression;
 			sourceTree = "<group>";
 		};
+		5290BE8529200475000AD325 /* CircleProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				5290BE862920049C000AD325 /* CircleProgressView.swift */,
+				5290BE8829200780000AD325 /* CircleProgressViewController.swift */,
+			);
+			path = CircleProgressView;
+			sourceTree = "<group>";
+		};
 		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +312,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				5290BE8529200475000AD325 /* CircleProgressView */,
 				52D0461A290C378300255D67 /* ConvertPoint */,
 				CE00324C28F8F73D006C6A0D /* PAT */,
 				525F89FC28F832A300C2E8DB /* RegularExpression */,
@@ -808,6 +822,7 @@
 				521EDA262866C00F00AD6098 /* DataDB.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */,
+				5290BE872920049C000AD325 /* CircleProgressView.swift in Sources */,
 				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
 				CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */,
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
@@ -851,6 +866,7 @@
 				CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */,
 				52CDD34327F1F833009A25FB /* CoreDataModel.xcdatamodeld in Sources */,
 				CEF51E1F284D8EB700DFFB35 /* TransitionUtil.swift in Sources */,
+				5290BE8929200780000AD325 /* CircleProgressViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
