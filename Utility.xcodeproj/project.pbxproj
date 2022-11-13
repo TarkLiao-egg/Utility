@@ -19,6 +19,7 @@
 		525F89FE28F832CF00C2E8DB /* RegularExpressionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */; };
 		5290BE872920049C000AD325 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE862920049C000AD325 /* CircleProgressView.swift */; };
 		5290BE8929200780000AD325 /* CircleProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8829200780000AD325 /* CircleProgressViewController.swift */; };
+		5290BE8C2920CD2A000AD325 /* CATextLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -118,6 +119,7 @@
 		525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionController.swift; sourceTree = "<group>"; };
 		5290BE862920049C000AD325 /* CircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		5290BE8829200780000AD325 /* CircleProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressViewController.swift; sourceTree = "<group>"; };
+		5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATextLayerController.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -275,6 +277,14 @@
 			path = CircleProgressView;
 			sourceTree = "<group>";
 		};
+		5290BE8A2920CD0A000AD325 /* CATextLayer */ = {
+			isa = PBXGroup;
+			children = (
+				5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */,
+			);
+			path = CATextLayer;
+			sourceTree = "<group>";
+		};
 		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +322,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				5290BE8A2920CD0A000AD325 /* CATextLayer */,
 				5290BE8529200475000AD325 /* CircleProgressView */,
 				52D0461A290C378300255D67 /* ConvertPoint */,
 				CE00324C28F8F73D006C6A0D /* PAT */,
@@ -834,6 +845,7 @@
 				CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */,
 				52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */,
 				CEE138E32898FFD20088419B /* PhotoUtil.swift in Sources */,
+				5290BE8C2920CD2A000AD325 /* CATextLayerController.swift in Sources */,
 				CE362DCB28F7F5FA00B4DDF4 /* DirectionController.swift in Sources */,
 				CE362DC828F7F5D800B4DDF4 /* DirectionUtil.swift in Sources */,
 				CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */,
