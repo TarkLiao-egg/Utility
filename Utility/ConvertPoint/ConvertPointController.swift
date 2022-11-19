@@ -5,6 +5,7 @@ class ConvertPointController: UIViewController {
     var blue2: UIView!
     var rred3: UIView!
     var gren4: UIView!
+    var yelo5: UIView!
     
     var gray5: UIView!
     var blue6: UIView!
@@ -18,32 +19,54 @@ class ConvertPointController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //A.convert(B.frame, to: C) = (x: A.x + B.x - C.x, y: A.y + B.y - C.y, width: B.width, height: B.height)
+        
+        //A.convert(B.frame, to: C)
         //被轉換的父物件.convert(被轉換物件.frame, to: 轉換至哪個物件) = 被轉換物件的frame在 to物件的frame
         
-        //A.convert(B.frame, to: C) = (x: B.x + C.x - A.x, y: B.y + C.y - A.y, width: B.width, height: B.height)
+        //A.convert(B.frame, from: C)
         //轉換至哪個物件.convert(被轉換物件.frame, from: 被轉換的父物件) = 被轉換物件的frame在 to物件的frame
         
         
-        //A.convert(B.point, to: C) = (x: A.x + B.x - C.x, y: A.y + B.y - C.y)
+        //A.convert(B.point, to: C)
         //被轉換的物件.convert(CGPoint(x: 被轉換物件的x座標, y:被轉換物件的y座標, to: 轉換至哪個物件) = 被轉換物件的座標 在to物件的座標
         
-        //A.convert(B.point, from: C) = (x: B.x + C.x - A.x, y: B.y + C.y - A.y)
+        //A.convert(B.point, from: C)
         //轉換至哪個物件.convert(CGPoint(x: 被轉換物件的x座標, y:被轉換物件的y座標, from: 被轉換的物件) = 被轉換物件的座標 在to物件的座標
         
-        //MARK: 轉換至哪個物件具局限性，只能是被轉
+        
 //        gray1 = (  0,   0, 320, 320)
-//        blue2 = ( 40,  40, 240, 240)
-//        rred3 = ( 80,  80, 160, 160)
-//        gren4 = (120, 120,  80,  80)
+//        blue2 = ( 30,  30, 260, 260)
+//        rred3 = ( 70,  70, 180, 180)
+//        gren4 = (130, 130,  60,  60)
+//        yelo5 = (140, 140,  40,  40)
         
-        rred3.convert(gren4.frame, to: blue2) == blue2.convert(gren4.frame, from: rred3)
-        
-        gray1.convert(CGPoint(x:0, y:0), to: rred3) == rred3.convert(CGPoint(x:0, y:0), from: gray1)
+//        (0.0, 0.0, 320.0, 320.0)
+//        (30.0, 30.0, 260.0, 260.0)
+//        (40.0, 40.0, 180.0, 180.0)
+//        (60.0, 60.0, 60.0, 60.0)
+//        (10.0, 10.0, 40.0, 40.0)
+        let y5 = gren4.convert(yelo5.frame.origin, to: view).x
+        let g4 = rred3.convert(gren4.frame.origin, to: view).x
+        let r3 = blue2.convert(rred3.frame.origin, to: view).x
+        let b2 = gray1.convert(blue2.frame.origin, to: view).x
+        let gr1 = gray1.convert(gray1.frame.origin, to: view).x
+        print(y5 - g4 - (g4 - g4))
+        print(y5 - g4 - (g4 - r3))
+        print(y5 - g4 - (g4 - gr1))
+        print(r3 - y5 - (b2 - gr1))
+        print(gren4.convert(yelo5.frame.origin, to: gren4))// (10.0, 10.0)
+        print(rred3.convert(yelo5.frame.origin, to: gren4))// (-50.0, -50.0)
+        print(gray1.convert(yelo5.frame.origin, to: gren4))// (-120.0, -120.0)
+        print(gray1.convert(rred3.frame.origin, to: yelo5))// (-100.0, -100.0)
+//        print(gray1.convert(gray1.frame.origin, to: view))
+//        print(gray1.convert(blue2.frame.origin, to: view))
+//        print(blue2.convert(rred3.frame.origin, to: view))
+//        print(rred3.convert(gren4.frame.origin, to: view))
+//        print(gren4.convert(yelo5.frame.origin, to: view))
     }
 
-    @objc func testAction() {
-        print("tark")
+    @objc func testAction(tap: UITapGestureRecognizer) {
+        print(tap.location(in: view))
     }
 }
 
@@ -61,7 +84,7 @@ extension ConvertPointController {
         blue2.backgroundColor = .blue
         gray1.addSubview(blue2)
         blue2.snp.makeConstraints { make in
-            make.size.equalTo(240)
+            make.size.equalTo(260)
             make.center.equalToSuperview()
         }
         
@@ -69,7 +92,7 @@ extension ConvertPointController {
         rred3.backgroundColor = .red
         blue2.addSubview(rred3)
         rred3.snp.makeConstraints { make in
-            make.size.equalTo(160)
+            make.size.equalTo(180)
             make.center.equalToSuperview()
         }
         
@@ -77,10 +100,24 @@ extension ConvertPointController {
         gren4.backgroundColor = .green
         rred3.addSubview(gren4)
         gren4.snp.makeConstraints { make in
-            make.size.equalTo(80)
+            make.size.equalTo(60)
             make.center.equalToSuperview()
         }
         
+        yelo5 = UIView()
+        yelo5.backgroundColor = .yellow
+        gren4.addSubview(yelo5)
+        yelo5.snp.makeConstraints { make in
+            make.size.equalTo(40)
+            make.center.equalToSuperview()
+        }
+        view.layoutIfNeeded()
+        
+//        print(gray1.frame)
+//        print(blue2.frame)
+//        print(rred3.frame)
+//        print(gren4.frame)
+//        print(yelo5.frame)
         
         gray5 = UIView()
         gray5.backgroundColor = .gray
