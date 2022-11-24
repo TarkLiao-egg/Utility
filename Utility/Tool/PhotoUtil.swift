@@ -6,8 +6,10 @@ import PhotosUI
 @available(iOS 13.0, *)
 class PhotoUtil: NSObject {
     static let shared = PhotoUtil()
+    var imageCallback: ((UIImage?) -> Void)?
     @Published var image: UIImage?
-    func cameraAction(_ vc: UIViewController?) {
+    func cameraAction(_ vc: UIViewController?, imageCallback: ((UIImage?) -> Void)?) {
+        self.imageCallback = imageCallback
         let pickerViewController = UIImagePickerController()
         pickerViewController.delegate = self
         pickerViewController.allowsEditing = true
@@ -17,7 +19,8 @@ class PhotoUtil: NSObject {
         vc?.present(pickerViewController, animated: true, completion: nil)
     }
     
-    func albumAction(_ vc: UIViewController?) {
+    func albumAction(_ vc: UIViewController?, imageCallback: ((UIImage?) -> Void)?) {
+        self.imageCallback = imageCallback
         let pickerViewController = UIImagePickerController()
         pickerViewController.delegate = self
         pickerViewController.allowsEditing = true
@@ -39,6 +42,7 @@ extension PhotoUtil: UIImagePickerControllerDelegate, UINavigationControllerDele
             return
         }
         PhotoUtil.shared.image = image
+        imageCallback?(image)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
