@@ -21,6 +21,10 @@
 		5290BE8929200780000AD325 /* CircleProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8829200780000AD325 /* CircleProgressViewController.swift */; };
 		5290BE8C2920CD2A000AD325 /* CATextLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */; };
 		5290BE8E292E716F000AD325 /* WaterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8D292E716F000AD325 /* WaterFlowLayout.swift */; };
+		5290BE90292FA282000AD325 /* CardViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8F292FA282000AD325 /* CardViewLayout.swift */; };
+		5290BE92292FA29D000AD325 /* CardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE91292FA29D000AD325 /* CardCollectionView.swift */; };
+		5290BE94292FA2BE000AD325 /* CardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE93292FA2BE000AD325 /* CardCollectionViewController.swift */; };
+		5290BE96292FA54F000AD325 /* CardCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE95292FA54F000AD325 /* CardCollectCell.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -122,6 +126,10 @@
 		5290BE8829200780000AD325 /* CircleProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressViewController.swift; sourceTree = "<group>"; };
 		5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATextLayerController.swift; sourceTree = "<group>"; };
 		5290BE8D292E716F000AD325 /* WaterFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFlowLayout.swift; sourceTree = "<group>"; };
+		5290BE8F292FA282000AD325 /* CardViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewLayout.swift; sourceTree = "<group>"; };
+		5290BE91292FA29D000AD325 /* CardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionView.swift; sourceTree = "<group>"; };
+		5290BE93292FA2BE000AD325 /* CardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewController.swift; sourceTree = "<group>"; };
+		5290BE95292FA54F000AD325 /* CardCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectCell.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -287,6 +295,18 @@
 			path = CATextLayer;
 			sourceTree = "<group>";
 		};
+		5290BE97292FB4E8000AD325 /* CustomCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5290BE8D292E716F000AD325 /* WaterFlowLayout.swift */,
+				5290BE93292FA2BE000AD325 /* CardCollectionViewController.swift */,
+				5290BE91292FA29D000AD325 /* CardCollectionView.swift */,
+				5290BE8F292FA282000AD325 /* CardViewLayout.swift */,
+				5290BE95292FA54F000AD325 /* CardCollectCell.swift */,
+			);
+			path = CustomCollectionViewLayout;
+			sourceTree = "<group>";
+		};
 		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +369,8 @@
 				CE192B6E2914F0E400CFAA56 /* DatePickerView */,
 				52D3F90C28143A58001AE32E /* UITableView */,
 				52D3F911281456EC001AE32E /* UICollectionView */,
+				5290BE97292FB4E8000AD325 /* CustomCollectionViewLayout */,
+				52B4F48F2849D9BC0042033E /* CWCarousel */,
 				CED696E128112F74008793EB /* InterruptibleAnimate */,
 				CED696C9280D6FB2008793EB /* ScrollEdit */,
 				CE00324628F8F1E8006C6A0D /* GCD */,
@@ -356,7 +378,6 @@
 				5230F89A280BE03000CFAF1F /* Shadow */,
 				52CDD33627F1F6D3009A25FB /* Inject */,
 				52CDD33B27F1F76C009A25FB /* API */,
-				52B4F48F2849D9BC0042033E /* CWCarousel */,
 				52CDD33E27F1F7DF009A25FB /* CoreData */,
 				CEBB58672851E0F5006A922C /* PropertyName */,
 				CE4B200F28922B76004D9A91 /* JsonGif */,
@@ -458,7 +479,6 @@
 				52D3F91228145709001AE32E /* SetCollectionViewController.swift */,
 				52D3F91428145718001AE32E /* CollectionViewCell.swift */,
 				CE192B712914F25700CFAA56 /* CustomCollectionView.swift */,
-				5290BE8D292E716F000AD325 /* WaterFlowLayout.swift */,
 			);
 			path = UICollectionView;
 			sourceTree = "<group>";
@@ -805,6 +825,7 @@
 				52B4F499284E1D8D0042033E /* BezLayerController.swift in Sources */,
 				CEBB58692851E110006A922C /* PropertyNameController.swift in Sources */,
 				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
+				5290BE96292FA54F000AD325 /* CardCollectCell.swift in Sources */,
 				CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */,
 				CEF25757285B1FAE00FB26C9 /* ShareController.swift in Sources */,
 				52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */,
@@ -833,6 +854,7 @@
 				CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */,
 				52B4F4912849D9F10042033E /* CWBanner.swift in Sources */,
 				CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */,
+				5290BE90292FA282000AD325 /* CardViewLayout.swift in Sources */,
 				521EDA262866C00F00AD6098 /* DataDB.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */,
@@ -853,6 +875,7 @@
 				CE362DCB28F7F5FA00B4DDF4 /* DirectionController.swift in Sources */,
 				CE362DC828F7F5D800B4DDF4 /* DirectionUtil.swift in Sources */,
 				CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */,
+				5290BE94292FA2BE000AD325 /* CardCollectionViewController.swift in Sources */,
 				523BD86D28981D6400A62840 /* GCDBarrierController.swift in Sources */,
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
@@ -864,6 +887,7 @@
 				CE192B722914F25700CFAA56 /* CustomCollectionView.swift in Sources */,
 				52EB6E7828BFD1E400D85784 /* ResponderChainController.swift in Sources */,
 				52CDD33D27F1F77D009A25FB /* APIManager.swift in Sources */,
+				5290BE92292FA29D000AD325 /* CardCollectionView.swift in Sources */,
 				CE192B6D2914EF6900CFAA56 /* CustomTableView.swift in Sources */,
 				CEFA4D26283F210300F34727 /* UIViewAnimationQueue.swift in Sources */,
 				CEDF979B28471C74007F1B8D /* SingleAlertController.swift in Sources */,
