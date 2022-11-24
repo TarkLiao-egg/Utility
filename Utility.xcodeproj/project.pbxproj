@@ -25,6 +25,7 @@
 		5290BE92292FA29D000AD325 /* CardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE91292FA29D000AD325 /* CardCollectionView.swift */; };
 		5290BE94292FA2BE000AD325 /* CardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE93292FA2BE000AD325 /* CardCollectionViewController.swift */; };
 		5290BE96292FA54F000AD325 /* CardCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE95292FA54F000AD325 /* CardCollectCell.swift */; };
+		5290BE99292FB84C000AD325 /* CAEmitterLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE98292FB84C000AD325 /* CAEmitterLayerController.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -130,6 +131,7 @@
 		5290BE91292FA29D000AD325 /* CardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionView.swift; sourceTree = "<group>"; };
 		5290BE93292FA2BE000AD325 /* CardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewController.swift; sourceTree = "<group>"; };
 		5290BE95292FA54F000AD325 /* CardCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectCell.swift; sourceTree = "<group>"; };
+		5290BE98292FB84C000AD325 /* CAEmitterLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEmitterLayerController.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -307,6 +309,14 @@
 			path = CustomCollectionViewLayout;
 			sourceTree = "<group>";
 		};
+		5290BE9A292FB8B7000AD325 /* CAEmitterLayer */ = {
+			isa = PBXGroup;
+			children = (
+				5290BE98292FB84C000AD325 /* CAEmitterLayerController.swift */,
+			);
+			path = CAEmitterLayer;
+			sourceTree = "<group>";
+		};
 		52B4F48F2849D9BC0042033E /* CWCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +354,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				5290BE9A292FB8B7000AD325 /* CAEmitterLayer */,
 				5290BE8A2920CD0A000AD325 /* CATextLayer */,
 				5290BE8529200475000AD325 /* CircleProgressView */,
 				52D0461A290C378300255D67 /* ConvertPoint */,
@@ -822,6 +833,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5230F8A4280C0DF000CFAF1F /* GCDManager.swift in Sources */,
+				5290BE99292FB84C000AD325 /* CAEmitterLayerController.swift in Sources */,
 				52B4F499284E1D8D0042033E /* BezLayerController.swift in Sources */,
 				CEBB58692851E110006A922C /* PropertyNameController.swift in Sources */,
 				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
