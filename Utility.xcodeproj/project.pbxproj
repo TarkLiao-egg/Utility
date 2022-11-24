@@ -20,6 +20,7 @@
 		5290BE872920049C000AD325 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE862920049C000AD325 /* CircleProgressView.swift */; };
 		5290BE8929200780000AD325 /* CircleProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8829200780000AD325 /* CircleProgressViewController.swift */; };
 		5290BE8C2920CD2A000AD325 /* CATextLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */; };
+		5290BE8E292E716F000AD325 /* WaterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8D292E716F000AD325 /* WaterFlowLayout.swift */; };
 		52B4F4912849D9F10042033E /* CWBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4902849D9F10042033E /* CWBanner.swift */; };
 		52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */; };
 		52B4F4952849DA570042033E /* CWBannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4F4942849DA570042033E /* CWBannerController.swift */; };
@@ -120,6 +121,7 @@
 		5290BE862920049C000AD325 /* CircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		5290BE8829200780000AD325 /* CircleProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressViewController.swift; sourceTree = "<group>"; };
 		5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATextLayerController.swift; sourceTree = "<group>"; };
+		5290BE8D292E716F000AD325 /* WaterFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4902849D9F10042033E /* CWBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBanner.swift; sourceTree = "<group>"; };
 		52B4F4922849DA080042033E /* CWSwiftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSwiftFlowLayout.swift; sourceTree = "<group>"; };
 		52B4F4942849DA570042033E /* CWBannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWBannerController.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 				52D3F91228145709001AE32E /* SetCollectionViewController.swift */,
 				52D3F91428145718001AE32E /* CollectionViewCell.swift */,
 				CE192B712914F25700CFAA56 /* CustomCollectionView.swift */,
+				5290BE8D292E716F000AD325 /* WaterFlowLayout.swift */,
 			);
 			path = UICollectionView;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
 				CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */,
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
+				5290BE8E292E716F000AD325 /* WaterFlowLayout.swift in Sources */,
 				52C989E227F067860048F4CD /* SceneDelegate.swift in Sources */,
 				CED696E328112F87008793EB /* InterruptibleAnimateController.swift in Sources */,
 				523BD87028A15E7E00A62840 /* ConcurrencyController.swift in Sources */,
