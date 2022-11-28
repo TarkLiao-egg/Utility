@@ -60,6 +60,7 @@
 		CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324728F8F235006C6A0D /* SwiftView.swift */; };
 		CE00324B28F8F739006C6A0D /* PATController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324A28F8F739006C6A0D /* PATController.swift */; };
 		CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE009DC328408EF200065556 /* BasicAnimateController.swift */; };
+		CE0D4E132934439D009EB11A /* TaskGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0D4E122934439D009EB11A /* TaskGroupController.swift */; };
 		CE192B6D2914EF6900CFAA56 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE192B6C2914EF6900CFAA56 /* CustomTableView.swift */; };
 		CE192B702914F10F00CFAA56 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE192B6F2914F10F00CFAA56 /* DatePickerView.swift */; };
 		CE192B722914F25700CFAA56 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE192B712914F25700CFAA56 /* CustomCollectionView.swift */; };
@@ -168,6 +169,7 @@
 		CE00324728F8F235006C6A0D /* SwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftView.swift; sourceTree = "<group>"; };
 		CE00324A28F8F739006C6A0D /* PATController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATController.swift; sourceTree = "<group>"; };
 		CE009DC328408EF200065556 /* BasicAnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimateController.swift; sourceTree = "<group>"; };
+		CE0D4E122934439D009EB11A /* TaskGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupController.swift; sourceTree = "<group>"; };
 		CE192B6C2914EF6900CFAA56 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		CE192B6F2914F10F00CFAA56 /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		CE192B712914F25700CFAA56 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				CED696E128112F74008793EB /* InterruptibleAnimate */,
 				CED696C9280D6FB2008793EB /* ScrollEdit */,
 				CE00324628F8F1E8006C6A0D /* GCD */,
+				CE0D4E1129344387009EB11A /* TaskGroup */,
 				5230F8A0280C0DD500CFAF1F /* Manager */,
 				5230F89A280BE03000CFAF1F /* Shadow */,
 				52CDD33627F1F6D3009A25FB /* Inject */,
@@ -533,6 +536,14 @@
 				CE00324A28F8F739006C6A0D /* PATController.swift */,
 			);
 			path = PAT;
+			sourceTree = "<group>";
+		};
+		CE0D4E1129344387009EB11A /* TaskGroup */ = {
+			isa = PBXGroup;
+			children = (
+				CE0D4E122934439D009EB11A /* TaskGroupController.swift */,
+			);
+			path = TaskGroup;
 			sourceTree = "<group>";
 		};
 		CE192B6E2914F0E400CFAA56 /* DatePickerView */ = {
@@ -856,6 +867,7 @@
 				52C989E027F067860048F4CD /* AppDelegate.swift in Sources */,
 				CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */,
 				CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */,
+				CE0D4E132934439D009EB11A /* TaskGroupController.swift in Sources */,
 				52C989F527F068F20048F4CD /* FunctionCodeView.swift in Sources */,
 				52CDD33A27F1F710009A25FB /* Resolver.swift in Sources */,
 				52B4F4972849DAD60042033E /* CWProxy.swift in Sources */,
