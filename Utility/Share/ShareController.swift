@@ -127,10 +127,10 @@ extension ShareController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension ShareController {
     func setupUI() {
-        view.backgroundColor = UIColor.hex(0x333333)
+        view.backgroundColor = UIColor(0x333333)
         
         UIView().VS({
-            $0.backgroundColor = UIColor.hex(0x222222)
+            $0.backgroundColor = UIColor(0x222222)
         }, view) { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
@@ -197,10 +197,10 @@ extension ShareController {
             textField = UITextField().VS({
                 $0.tintColor = .clear
                 $0.text = "English"
-                $0.textColor = UIColor.hex(0x999999)
+                $0.textColor = UIColor(0x999999)
                 $0.font = UIFont.getDefaultFont(.regular, size: 18)
                 $0.textAlignment = .center
-                $0.layer.borderColor = UIColor.hex(0x999999).cgColor
+                $0.layer.borderColor = UIColor(0x999999).cgColor
                 $0.layer.borderWidth = 0.5
                 $0.layer.cornerRadius = 12
             }, view) { make in

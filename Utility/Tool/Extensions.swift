@@ -95,11 +95,11 @@ extension UIImageView {
 }
 
 extension UIColor {
-    static func hex(_ hex: Int, opacity: Double = 1.0) -> UIColor {
-        let red = Double((hex & 0xff0000) >> 16) / 255.0
-        let green = Double((hex & 0xff00) >> 8) / 255.0
-        let blue = Double((hex & 0xff) >> 0) / 255.0
-        return UIColor(red: red, green: green, blue: blue, alpha: opacity)
+    convenience init(_ hex: Int, alpha: Double = 1.0) {
+        self.init(red: Double((hex & 0xff0000) >> 16) / 255.0,
+                  green: Double((hex & 0xff00) >> 8) / 255.0,
+                  blue: Double((hex & 0xff) >> 0) / 255.0,
+                  alpha: alpha)
     }
 }
 

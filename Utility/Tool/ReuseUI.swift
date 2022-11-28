@@ -6,7 +6,7 @@ class ReuseUI {
     static func getNavBarView(title: String, titleColor: UIColor = .white, backBtnString: String = "back", backBtn: inout UIButton?, settingBtnString: String = "menu", settingBtn: inout UIButton?) -> UIView {
         let navBarView = UIView()
         navBarView.forSelf {
-            $0.backgroundColor = UIColor.hex(0x23476A)
+            $0.backgroundColor = UIColor(0x23476A)
         }
         
         let titleLabel = UILabel()
@@ -63,7 +63,7 @@ class ReuseUI {
     static func getLineView() -> UIView {
         return UIView().S { view in
             UIView().VS({
-                $0.backgroundColor = UIColor.hex(0x666666)
+                $0.backgroundColor = UIColor(0x666666)
             }, view) { make in
                 make.top.bottom.equalToSuperview()
                 make.height.equalTo(1)

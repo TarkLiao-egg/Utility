@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 class AlertController: UIViewController {
-    let backgroundColor: UIColor = UIColor.hex(0x042F59)
+    let backgroundColor: UIColor = UIColor(0x042F59)
     var isLock: Bool = false
     var alertShadowView: UIView!
     var stackView: UIStackView!
