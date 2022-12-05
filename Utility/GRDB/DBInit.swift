@@ -80,6 +80,10 @@ class DBInit: DBProtocol {
     static var ignorePrefix: String = "i_"
     private static let dbQueue: DatabaseQueue = DBManager.dbQueue
     
+    init() {
+        createTable()
+    }
+    
     func createTable() -> Void {
         var tableName = String(describing: self)
         let range = NSRange(location: 0, length: tableName.utf16.count)
