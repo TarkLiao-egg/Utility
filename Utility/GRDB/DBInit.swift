@@ -11,6 +11,10 @@ class DBManager: NSObject {
         return filePath
     }()
     
+    override init() {
+        Player().createTable()
+    }
+    
     private static var configuration: Configuration = {
         var configuration = Configuration()
         configuration.busyMode = Database.BusyMode.timeout(5.0)
@@ -23,9 +27,6 @@ class DBManager: NSObject {
         db.releaseMemory()
         return db
     }()
-    static func createTable() {
-        Player().createTable()
-    }
     
     func read<T: FetchableRecord>(_ type: T.Type, completion: (([T]) -> Void))  {
         var array: [T]?
@@ -79,10 +80,6 @@ class DBInit: DBProtocol {
     var id: Int? = nil
     static var ignorePrefix: String = "i_"
     private static let dbQueue: DatabaseQueue = DBManager.dbQueue
-    
-    init() {
-        createTable()
-    }
     
     func createTable() -> Void {
         var tableName = String(describing: self)
