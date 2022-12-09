@@ -56,6 +56,10 @@ extension CircleProgressView {
         current = percent
     }
     
+    func stopCurrentAnimate() {
+        circleLayer.removeAllAnimations()
+    }
+    
     func setShadow(shadowColor: UIColor = .black, shadowOpacity: Double = 0.5, shadowRadius: Double = 3) {
         circleLayer.shadowColor = shadowColor.cgColor
         circleLayer.shadowOpacity = Float(shadowOpacity)
