@@ -40,7 +40,7 @@ class AnimateLabelController: UIViewController {
         if elapsedTime > animationDuration {
             amountLabel.text = "\(Int(endValue))"
             displayLink?.invalidate()
-            displayLink = nil
+            // displayLink = nil crash
         } else {
             let percentage = elapsedTime / animationDuration
             let value = startValue + percentage * (endValue - startValue)
