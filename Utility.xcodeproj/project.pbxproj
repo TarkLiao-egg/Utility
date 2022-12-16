@@ -55,6 +55,7 @@
 		52D3F9102814553D001AE32E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F90F2814553D001AE32E /* TableViewCell.swift */; };
 		52D3F91328145709001AE32E /* SetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91228145709001AE32E /* SetCollectionViewController.swift */; };
 		52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91428145718001AE32E /* CollectionViewCell.swift */; };
+		52EAEA37294CF5B50050F2EC /* AssociatedtypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAEA36294CF5B50050F2EC /* AssociatedtypesController.swift */; };
 		52EB6E7828BFD1E400D85784 /* ResponderChainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */; };
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
 		CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324728F8F235006C6A0D /* SwiftView.swift */; };
@@ -164,6 +165,7 @@
 		52D3F90F2814553D001AE32E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		52D3F91228145709001AE32E /* SetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCollectionViewController.swift; sourceTree = "<group>"; };
 		52D3F91428145718001AE32E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		52EAEA36294CF5B50050F2EC /* AssociatedtypesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedtypesController.swift; sourceTree = "<group>"; };
 		52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderChainController.swift; sourceTree = "<group>"; };
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
 		CE00324728F8F235006C6A0D /* SwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftView.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				5290BE8A2920CD0A000AD325 /* CATextLayer */,
 				5290BE8529200475000AD325 /* CircleProgressView */,
 				52D0461A290C378300255D67 /* ConvertPoint */,
+				52EAEA35294CF5960050F2EC /* associatedtypes */,
 				CE00324C28F8F73D006C6A0D /* PAT */,
 				525F89FC28F832A300C2E8DB /* RegularExpression */,
 				CE362DC928F7F5EE00B4DDF4 /* Direction */,
@@ -495,6 +498,14 @@
 				CE192B712914F25700CFAA56 /* CustomCollectionView.swift */,
 			);
 			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		52EAEA35294CF5960050F2EC /* associatedtypes */ = {
+			isa = PBXGroup;
+			children = (
+				52EAEA36294CF5B50050F2EC /* AssociatedtypesController.swift */,
+			);
+			path = associatedtypes;
 			sourceTree = "<group>";
 		};
 		52EB6E7628BFD1B500D85784 /* ResponderChain */ = {
@@ -853,6 +864,7 @@
 				CEF25757285B1FAE00FB26C9 /* ShareController.swift in Sources */,
 				52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */,
 				52D0461C290C379A00255D67 /* ConvertPointController.swift in Sources */,
+				52EAEA37294CF5B50050F2EC /* AssociatedtypesController.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
 				523BD87628A8BE6300A62840 /* DBInit.swift in Sources */,
