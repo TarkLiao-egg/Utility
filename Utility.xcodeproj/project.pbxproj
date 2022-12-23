@@ -74,6 +74,7 @@
 		CE362DC828F7F5D800B4DDF4 /* DirectionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE362DC728F7F5D800B4DDF4 /* DirectionUtil.swift */; };
 		CE362DCB28F7F5FA00B4DDF4 /* DirectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */; };
 		CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B201028922B8D004D9A91 /* JsonGifController.swift */; };
+		CE985D14294B00060006B2B8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE985D13294B00060006B2B8 /* CircleView.swift */; };
 		CEBB58662851DD87006A922C /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB58652851DD87006A922C /* TestController.swift */; };
 		CEBB58692851E110006A922C /* PropertyNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB58682851E110006A922C /* PropertyNameController.swift */; };
 		CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */; };
@@ -184,6 +185,7 @@
 		CE362DC728F7F5D800B4DDF4 /* DirectionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionUtil.swift; sourceTree = "<group>"; };
 		CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionController.swift; sourceTree = "<group>"; };
 		CE4B201028922B8D004D9A91 /* JsonGifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonGifController.swift; sourceTree = "<group>"; };
+		CE985D13294B00060006B2B8 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		CEBB58652851DD87006A922C /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		CEBB58682851E110006A922C /* PropertyNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyNameController.swift; sourceTree = "<group>"; };
 		CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorCombine.swift; sourceTree = "<group>"; };
@@ -246,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				5230F8A1280C0DDF00CFAF1F /* NetWorkManager.swift */,
-				5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -289,6 +290,7 @@
 			children = (
 				5290BE862920049C000AD325 /* CircleProgressView.swift */,
 				5290BE8829200780000AD325 /* CircleProgressViewController.swift */,
+				CE985D13294B00060006B2B8 /* CircleView.swift */,
 			);
 			path = CircleProgressView;
 			sourceTree = "<group>";
@@ -358,6 +360,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				CE2F66DB2953E9EE004088A9 /* Memory */,
 				5290BE9A292FB8B7000AD325 /* CAEmitterLayer */,
 				5290BE8A2920CD0A000AD325 /* CATextLayer */,
 				5290BE8529200475000AD325 /* CircleProgressView */,
@@ -581,6 +584,14 @@
 				CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		CE2F66DB2953E9EE004088A9 /* Memory */ = {
+			isa = PBXGroup;
+			children = (
+				5230F8A5280C0E0100CFAF1F /* MemoryManager.swift */,
+			);
+			path = Memory;
 			sourceTree = "<group>";
 		};
 		CE356649289BB58800910ADF /* VisionKit */ = {
@@ -860,6 +871,7 @@
 				CEBB58692851E110006A922C /* PropertyNameController.swift in Sources */,
 				CEDC1C4C28169A4B0038BE7F /* Rotate3DController.swift in Sources */,
 				5290BE96292FA54F000AD325 /* CardCollectCell.swift in Sources */,
+				CE985D14294B00060006B2B8 /* CircleView.swift in Sources */,
 				CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */,
 				CEF25757285B1FAE00FB26C9 /* ShareController.swift in Sources */,
 				52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */,

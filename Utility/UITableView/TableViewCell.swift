@@ -2,6 +2,7 @@ import UIKit
 import SnapKit
 
 class TableViewCell: UITableViewCell {
+    var view: UIView!
     var label: UILabel!
     
     var initValue: Int = 0
@@ -46,22 +47,18 @@ extension TableViewCell {
     func setupUI() {
         backgroundColor = .white
         contentView.backgroundColor = .clear
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         
-        getView().VS({
-            $0.backgroundColor = .clear
-        }, contentView) { make in
-            
+        view = getView()
+        contentView.addSubview(view)
+        view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
     
     func getView() -> UIView {
-        return UIView().S { view in
-            label = UILabel().VS({
-                $0.textColor = .black
-                $0.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
-            }, view, { make in
-                make.edges.equalToSuperview()
-            })
-        }
+        let view = UIView()
+        
+        return view
     }
 }
