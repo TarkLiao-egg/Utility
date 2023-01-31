@@ -38,7 +38,7 @@ class DBManager: NSObject {
         }
     }
     
-    func store<T: PersistableRecord>(_ type: T.Type, _ items: [T]) where T: DBInit {
+    func store<T: PersistableRecord>(_ items: [T]) where T: DBInit {
         try? DBManager.dbQueue.write({ db in
             for item in items {
                 if let _ = item.id {
@@ -50,7 +50,7 @@ class DBManager: NSObject {
         })
     }
 
-    func create<T: PersistableRecord>(_ type: T.Type, _ items: [T]) {
+    func create<T: PersistableRecord>(_ items: [T]) {
         try? DBManager.dbQueue.write({ db in
             for item in items {
                 try item.insert(db)
@@ -58,7 +58,7 @@ class DBManager: NSObject {
         })
     }
 
-    func update<T: PersistableRecord>(_ type: T.Type, _ items: [T]) {
+    func update<T: PersistableRecord>(_ items: [T]) {
         try? DBManager.dbQueue.write({ db in
             for item in items {
                 try item.update(db)
@@ -66,7 +66,7 @@ class DBManager: NSObject {
         })
     }
 
-    func delete<T: PersistableRecord>(_ type: T.Type, _ items: [T]) {
+    func delete<T: PersistableRecord>(_ items: [T]) {
         try? DBManager.dbQueue.write({ db in
             for item in items {
                 try item.delete(db)

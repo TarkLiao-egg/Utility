@@ -47,7 +47,6 @@ extension TableViewCell {
     func setupUI() {
         backgroundColor = .white
         contentView.backgroundColor = .clear
-        contentView.translatesAutoresizingMaskIntoConstraints = false
         
         view = getView()
         contentView.addSubview(view)

@@ -38,9 +38,3 @@ class CustomTableView<T: UITableViewCell>: UITableView, UITableViewDataSource, U
     }
     
 }
-
-extension UITableViewCell {
-    @objc func configure(_ model: Any) {
-        
-    }
-}

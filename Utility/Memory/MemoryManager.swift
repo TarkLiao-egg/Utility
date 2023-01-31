@@ -61,7 +61,7 @@ class MemoryManager {
             print("\nstruct")
             print(pointer)
             print(pointer.pointee)
-            pointer.pointee = 5
+//            pointer.pointee = 5
         }
         print(sdwe)
         withUnsafePointer(to: &callsd) { pointer in
