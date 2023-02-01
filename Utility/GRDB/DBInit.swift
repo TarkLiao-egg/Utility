@@ -76,7 +76,7 @@ class DBManager: NSObject {
     
 }
 
-class DBInit: DBProtocol {
+class DBInit {
     var id: Int? = nil
     static var ignorePrefix: String = "i_"
     private static let dbQueue: DatabaseQueue = DBManager.dbQueue
@@ -170,79 +170,5 @@ class DBInit: DBProtocol {
         if mi.children.count == 0 { return any }
         let (_, some) = mi.children.first!
         return some
-    }
-}
-
-protocol DBProtocol {}
-
-extension DBProtocol {
-    static var dbQueue: DatabaseQueue {
-        return DBManager.dbQueue
-    }
-}
-
-
-extension DBProtocol where Self: FetchableRecord {
-    
-    static func get(completion: (([Self]) -> Void)) {
-        var datas = [Self]()
-        
-        try? dbQueue.read { db in
-            datas = try Self.fetchAll(db, sql: "SELECT * FROM \(Self.self)")
-            completion(datas)
-        }
-    }
-}
-
-extension DBProtocol where Self: PersistableRecord {
-    static func create(_ items: [Self]) {
-        try? dbQueue.write({ db in
-            for item in items {
-                try item.insert(db)
-            }
-        })
-    }
-    
-    static func update(_ items: [Self]) {
-        try? dbQueue.write({ db in
-            for item in items {
-                try item.update(db)
-            }
-        })
-    }
-    
-    func delete(_ items: [Self]) {
-        try? Self.dbQueue.write({ db in
-            for item in items {
-                try item.delete(db)
-            }
-        })
-    }
-}
-
-extension Array where Element: PersistableRecord {
-    static var dbQueue: DatabaseQueue {
-        return DBManager.dbQueue
-    }
-    func create() {
-        try? Self.dbQueue.write({ db in
-            for item in self {
-                try item.insert(db)
-            }
-        })
-    }
-    func update() {
-        try? Self.dbQueue.write({ db in
-            for item in self {
-                try item.update(db)
-            }
-        })
-    }
-    func delete() {
-        try? Self.dbQueue.write({ db in
-            for item in self {
-                try item.delete(db)
-            }
-        })
     }
 }
