@@ -105,6 +105,7 @@
 		CEFA4D29283F213700F34727 /* AnimateLabelAnimateLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */; };
 		CEFA4D2B283F4C7600F34727 /* WaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D2A283F4C7600F34727 /* WaterController.swift */; };
 		CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA4D2C283F4D5B00F34727 /* WaveView.swift */; };
+		CEFB938F298B9D00003E1CE8 /* CMPedomemterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFB938E298B9D00003E1CE8 /* CMPedomemterController.swift */; };
 		CEFF5630283E355A0055623A /* AnimateLabelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF562F283E355A0055623A /* AnimateLabelController.swift */; };
 /* End PBXBuildFile section */
 
@@ -221,6 +222,7 @@
 		CEFA4D28283F213700F34727 /* AnimateLabelAnimateLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateLabelAnimateLabelView.swift; sourceTree = "<group>"; };
 		CEFA4D2A283F4C7600F34727 /* WaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterController.swift; sourceTree = "<group>"; };
 		CEFA4D2C283F4D5B00F34727 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		CEFB938E298B9D00003E1CE8 /* CMPedomemterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedomemterController.swift; sourceTree = "<group>"; };
 		CEFF562F283E355A0055623A /* AnimateLabelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateLabelController.swift; sourceTree = "<group>"; };
 		EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -368,6 +370,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				CEFB938D298B9CDA003E1CE8 /* CMPedomemter */,
 				CE93B46629879429004C4FF0 /* initView */,
 				CE2F66DB2953E9EE004088A9 /* Memory */,
 				5290BE9A292FB8B7000AD325 /* CAEmitterLayer */,
@@ -738,6 +741,14 @@
 			path = AnimateDigitialLabel;
 			sourceTree = "<group>";
 		};
+		CEFB938D298B9CDA003E1CE8 /* CMPedomemter */ = {
+			isa = PBXGroup;
+			children = (
+				CEFB938E298B9D00003E1CE8 /* CMPedomemterController.swift */,
+			);
+			path = CMPedomemter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -901,6 +912,7 @@
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
 				523BD87628A8BE6300A62840 /* DBInit.swift in Sources */,
 				CEBB58662851DD87006A922C /* TestController.swift in Sources */,
+				CEFB938F298B9D00003E1CE8 /* CMPedomemterController.swift in Sources */,
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
 				523BD87328A86DAD00A62840 /* GRDBController.swift in Sources */,
@@ -1148,6 +1160,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "camera usage";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We are using motion usage in order to track your step count";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1178,6 +1191,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Utility/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "camera usage";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We are using motion usage in order to track your step count";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
