@@ -1,10 +1,3 @@
-//
-//  CollectionViewCell.swift
-//  Utility
-//
-//  Created by 廖力頡 on 2022/4/23.
-//
-
 import UIKit
 import SnapKit
 

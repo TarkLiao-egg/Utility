@@ -75,6 +75,7 @@
 		CE35664B289BB5A800910ADF /* VisionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35664A289BB5A800910ADF /* VisionController.swift */; };
 		CE362DC828F7F5D800B4DDF4 /* DirectionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE362DC728F7F5D800B4DDF4 /* DirectionUtil.swift */; };
 		CE362DCB28F7F5FA00B4DDF4 /* DirectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */; };
+		CE4985E129A4BD4B00BD1BFF /* UIKitDynamicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */; };
 		CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B201028922B8D004D9A91 /* JsonGifController.swift */; };
 		CE93B4682987943B004C4FF0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93B4672987943B004C4FF0 /* BaseView.swift */; };
 		CE93B46A2987946C004C4FF0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93B4692987946C004C4FF0 /* BaseViewController.swift */; };
@@ -191,6 +192,7 @@
 		CE35664A289BB5A800910ADF /* VisionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionController.swift; sourceTree = "<group>"; };
 		CE362DC728F7F5D800B4DDF4 /* DirectionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionUtil.swift; sourceTree = "<group>"; };
 		CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionController.swift; sourceTree = "<group>"; };
+		CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitDynamicController.swift; sourceTree = "<group>"; };
 		CE4B201028922B8D004D9A91 /* JsonGifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonGifController.swift; sourceTree = "<group>"; };
 		CE93B4672987943B004C4FF0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		CE93B4692987946C004C4FF0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */,
 				CEFB938D298B9CDA003E1CE8 /* CMPedomemter */,
 				CE93B46629879429004C4FF0 /* initView */,
 				CE2F66DB2953E9EE004088A9 /* Memory */,
@@ -623,6 +626,14 @@
 				CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */,
 			);
 			path = Direction;
+			sourceTree = "<group>";
+		};
+		CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */ = {
+			isa = PBXGroup;
+			children = (
+				CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */,
+			);
+			path = UIKitDynamic;
 			sourceTree = "<group>";
 		};
 		CE4B200F28922B76004D9A91 /* JsonGif */ = {
@@ -934,6 +945,7 @@
 				CE118E052988A3A8002AF095 /* CustomDiffCollectionView.swift in Sources */,
 				CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */,
 				52B4F4912849D9F10042033E /* CWBanner.swift in Sources */,
+				CE4985E129A4BD4B00BD1BFF /* UIKitDynamicController.swift in Sources */,
 				CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */,
 				5290BE90292FA282000AD325 /* CardViewLayout.swift in Sources */,
 				521EDA262866C00F00AD6098 /* DataDB.swift in Sources */,
