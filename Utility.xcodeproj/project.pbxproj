@@ -62,6 +62,8 @@
 		CE00324B28F8F739006C6A0D /* PATController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324A28F8F739006C6A0D /* PATController.swift */; };
 		CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE009DC328408EF200065556 /* BasicAnimateController.swift */; };
 		CE0D4E132934439D009EB11A /* TaskGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0D4E122934439D009EB11A /* TaskGroupController.swift */; };
+		CE0E36F629A74FCE00EE0D96 /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E36F529A74FCE00EE0D96 /* DonutView.swift */; };
+		CE0E36F829A74FF300EE0D96 /* DonutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E36F729A74FF300EE0D96 /* DonutController.swift */; };
 		CE118E052988A3A8002AF095 /* CustomDiffCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE118E042988A3A8002AF095 /* CustomDiffCollectionView.swift */; };
 		CE118E192988E6F8002AF095 /* CustomDiffTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE118E182988E6F8002AF095 /* CustomDiffTableView.swift */; };
 		CE192B6D2914EF6900CFAA56 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE192B6C2914EF6900CFAA56 /* CustomTableView.swift */; };
@@ -179,6 +181,8 @@
 		CE00324A28F8F739006C6A0D /* PATController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATController.swift; sourceTree = "<group>"; };
 		CE009DC328408EF200065556 /* BasicAnimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAnimateController.swift; sourceTree = "<group>"; };
 		CE0D4E122934439D009EB11A /* TaskGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroupController.swift; sourceTree = "<group>"; };
+		CE0E36F529A74FCE00EE0D96 /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
+		CE0E36F729A74FF300EE0D96 /* DonutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutController.swift; sourceTree = "<group>"; };
 		CE118E042988A3A8002AF095 /* CustomDiffCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDiffCollectionView.swift; sourceTree = "<group>"; };
 		CE118E182988E6F8002AF095 /* CustomDiffTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDiffTableView.swift; sourceTree = "<group>"; };
 		CE192B6C2914EF6900CFAA56 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 				5290BE862920049C000AD325 /* CircleProgressView.swift */,
 				5290BE8829200780000AD325 /* CircleProgressViewController.swift */,
 				CE985D13294B00060006B2B8 /* CircleView.swift */,
+				CE0E36F729A74FF300EE0D96 /* DonutController.swift */,
+				CE0E36F529A74FCE00EE0D96 /* DonutView.swift */,
 			);
 			path = CircleProgressView;
 			sourceTree = "<group>";
@@ -923,6 +929,7 @@
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
 				523BD87628A8BE6300A62840 /* DBInit.swift in Sources */,
 				CEBB58662851DD87006A922C /* TestController.swift in Sources */,
+				CE0E36F629A74FCE00EE0D96 /* DonutView.swift in Sources */,
 				CEFB938F298B9D00003E1CE8 /* CMPedomemterController.swift in Sources */,
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
@@ -952,6 +959,7 @@
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */,
 				5290BE872920049C000AD325 /* CircleProgressView.swift in Sources */,
+				CE0E36F829A74FF300EE0D96 /* DonutController.swift in Sources */,
 				CEBE4BB7282E0F0B00E15D70 /* SystemAlertController.swift in Sources */,
 				CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */,
 				52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */,
