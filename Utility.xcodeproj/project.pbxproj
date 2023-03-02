@@ -74,9 +74,12 @@
 		CE21AD862817CDB10083169F /* DiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AD852817CDB10083169F /* DiceController.swift */; };
 		CE21AE092818F8150083169F /* ReuseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE082818F8150083169F /* ReuseUI.swift */; };
 		CE21AE7A28212E680083169F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE21AE7928212E670083169F /* Coordinator.swift */; };
+		CE27434329A8B0D600A5F3FF /* SomeOrGenericController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27434229A8B0D600A5F3FF /* SomeOrGenericController.swift */; };
 		CE35664B289BB5A800910ADF /* VisionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35664A289BB5A800910ADF /* VisionController.swift */; };
 		CE362DC828F7F5D800B4DDF4 /* DirectionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE362DC728F7F5D800B4DDF4 /* DirectionUtil.swift */; };
 		CE362DCB28F7F5FA00B4DDF4 /* DirectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */; };
+		CE3FEC3929B04C5900B80A9C /* PlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FEC3829B04C5900B80A9C /* PlantModel.swift */; };
+		CE3FEC3B29B04C7B00B80A9C /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */; };
 		CE4985E129A4BD4B00BD1BFF /* UIKitDynamicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */; };
 		CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B201028922B8D004D9A91 /* JsonGifController.swift */; };
 		CE93B4682987943B004C4FF0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93B4672987943B004C4FF0 /* BaseView.swift */; };
@@ -193,9 +196,12 @@
 		CE21AD852817CDB10083169F /* DiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceController.swift; sourceTree = "<group>"; };
 		CE21AE082818F8150083169F /* ReuseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseUI.swift; sourceTree = "<group>"; };
 		CE21AE7928212E670083169F /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CE27434229A8B0D600A5F3FF /* SomeOrGenericController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeOrGenericController.swift; sourceTree = "<group>"; };
 		CE35664A289BB5A800910ADF /* VisionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionController.swift; sourceTree = "<group>"; };
 		CE362DC728F7F5D800B4DDF4 /* DirectionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionUtil.swift; sourceTree = "<group>"; };
 		CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionController.swift; sourceTree = "<group>"; };
+		CE3FEC3829B04C5900B80A9C /* PlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantModel.swift; sourceTree = "<group>"; };
+		CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitDynamicController.swift; sourceTree = "<group>"; };
 		CE4B201028922B8D004D9A91 /* JsonGifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonGifController.swift; sourceTree = "<group>"; };
 		CE93B4672987943B004C4FF0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -289,6 +295,8 @@
 			children = (
 				523BD87228A86DAD00A62840 /* GRDBController.swift */,
 				523BD87528A8BE6300A62840 /* DBInit.swift */,
+				CE3FEC3829B04C5900B80A9C /* PlantModel.swift */,
+				CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */,
 			);
 			path = GRDB;
 			sourceTree = "<group>";
@@ -378,6 +386,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				CE27434129A8B0C100A5F3FF /* SomeOrGeneric */,
 				CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */,
 				CEFB938D298B9CDA003E1CE8 /* CMPedomemter */,
 				CE93B46629879429004C4FF0 /* initView */,
@@ -607,6 +616,14 @@
 				CEBE4BAC282BB44A00E15D70 /* CoordinatorCombine.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		CE27434129A8B0C100A5F3FF /* SomeOrGeneric */ = {
+			isa = PBXGroup;
+			children = (
+				CE27434229A8B0D600A5F3FF /* SomeOrGenericController.swift */,
+			);
+			path = SomeOrGeneric;
 			sourceTree = "<group>";
 		};
 		CE2F66DB2953E9EE004088A9 /* Memory */ = {
@@ -956,6 +973,7 @@
 				CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */,
 				5290BE90292FA282000AD325 /* CardViewLayout.swift in Sources */,
 				521EDA262866C00F00AD6098 /* DataDB.swift in Sources */,
+				CE3FEC3929B04C5900B80A9C /* PlantModel.swift in Sources */,
 				52CDD32F27F1ECEB009A25FB /* TransactionDB.swift in Sources */,
 				CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */,
 				5290BE872920049C000AD325 /* CircleProgressView.swift in Sources */,
@@ -983,6 +1001,8 @@
 				CED696CB280D6FC5008793EB /* ScrollEditController.swift in Sources */,
 				CECF95B728000C3700FA81C8 /* AlertController.swift in Sources */,
 				CEBE4C30282E698400E15D70 /* PermissionUtil.swift in Sources */,
+				CE27434329A8B0D600A5F3FF /* SomeOrGenericController.swift in Sources */,
+				CE3FEC3B29B04C7B00B80A9C /* NoteModel.swift in Sources */,
 				52CDD32D27F1E54E009A25FB /* FMDBManager.swift in Sources */,
 				52CDD33327F1F0F5009A25FB /* RequestResponseModel.swift in Sources */,
 				CEFF5630283E355A0055623A /* AnimateLabelController.swift in Sources */,
