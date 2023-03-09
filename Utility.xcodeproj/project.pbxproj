@@ -82,6 +82,8 @@
 		CE3FEC3B29B04C7B00B80A9C /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */; };
 		CE4985E129A4BD4B00BD1BFF /* UIKitDynamicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */; };
 		CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B201028922B8D004D9A91 /* JsonGifController.swift */; };
+		CE6FD5F829B9AB7200EE4111 /* ActorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FD5F729B9AB7200EE4111 /* ActorController.swift */; };
+		CE6FD5FA29B9C2BC00EE4111 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FD5F929B9C2BC00EE4111 /* ChartViewController.swift */; };
 		CE93B4682987943B004C4FF0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93B4672987943B004C4FF0 /* BaseView.swift */; };
 		CE93B46A2987946C004C4FF0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93B4692987946C004C4FF0 /* BaseViewController.swift */; };
 		CE985D14294B00060006B2B8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE985D13294B00060006B2B8 /* CircleView.swift */; };
@@ -204,6 +206,8 @@
 		CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitDynamicController.swift; sourceTree = "<group>"; };
 		CE4B201028922B8D004D9A91 /* JsonGifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonGifController.swift; sourceTree = "<group>"; };
+		CE6FD5F729B9AB7200EE4111 /* ActorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorController.swift; sourceTree = "<group>"; };
+		CE6FD5F929B9C2BC00EE4111 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		CE93B4672987943B004C4FF0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		CE93B4692987946C004C4FF0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE985D13294B00060006B2B8 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				CE985D13294B00060006B2B8 /* CircleView.swift */,
 				CE0E36F729A74FF300EE0D96 /* DonutController.swift */,
 				CE0E36F529A74FCE00EE0D96 /* DonutView.swift */,
+				CE6FD5F929B9C2BC00EE4111 /* ChartViewController.swift */,
 			);
 			path = CircleProgressView;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				CE6FD5F629B9AB5A00EE4111 /* Actor */,
 				CE27434129A8B0C100A5F3FF /* SomeOrGeneric */,
 				CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */,
 				CEFB938D298B9CDA003E1CE8 /* CMPedomemter */,
@@ -667,6 +673,14 @@
 			path = JsonGif;
 			sourceTree = "<group>";
 		};
+		CE6FD5F629B9AB5A00EE4111 /* Actor */ = {
+			isa = PBXGroup;
+			children = (
+				CE6FD5F729B9AB7200EE4111 /* ActorController.swift */,
+			);
+			path = Actor;
+			sourceTree = "<group>";
+		};
 		CE93B46629879429004C4FF0 /* initView */ = {
 			isa = PBXGroup;
 			children = (
@@ -944,6 +958,7 @@
 				52EAEA37294CF5B50050F2EC /* AssociatedtypesController.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
+				CE6FD5FA29B9C2BC00EE4111 /* ChartViewController.swift in Sources */,
 				523BD87628A8BE6300A62840 /* DBInit.swift in Sources */,
 				CEBB58662851DD87006A922C /* TestController.swift in Sources */,
 				CE0E36F629A74FCE00EE0D96 /* DonutView.swift in Sources */,
@@ -1025,6 +1040,7 @@
 				CEDC1C46281635780038BE7F /* AnimateController.swift in Sources */,
 				52CDD33527F1F4C0009A25FB /* FMDBController.swift in Sources */,
 				52CDD34027F1F7F9009A25FB /* CoreDataManager.swift in Sources */,
+				CE6FD5F829B9AB7200EE4111 /* ActorController.swift in Sources */,
 				52CDD32B27F1E529009A25FB /* SQLModel.swift in Sources */,
 				CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */,
 				52CDD34327F1F833009A25FB /* CoreDataModel.xcdatamodeld in Sources */,
