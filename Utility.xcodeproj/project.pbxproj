@@ -80,6 +80,7 @@
 		CE362DCB28F7F5FA00B4DDF4 /* DirectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */; };
 		CE3FEC3929B04C5900B80A9C /* PlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FEC3829B04C5900B80A9C /* PlantModel.swift */; };
 		CE3FEC3B29B04C7B00B80A9C /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */; };
+		CE41928F29BAC267008FFC55 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41928E29BAC267008FFC55 /* TaskController.swift */; };
 		CE4985E129A4BD4B00BD1BFF /* UIKitDynamicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */; };
 		CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B201028922B8D004D9A91 /* JsonGifController.swift */; };
 		CE6FD5F829B9AB7200EE4111 /* ActorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FD5F729B9AB7200EE4111 /* ActorController.swift */; };
@@ -204,6 +205,7 @@
 		CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionController.swift; sourceTree = "<group>"; };
 		CE3FEC3829B04C5900B80A9C /* PlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantModel.swift; sourceTree = "<group>"; };
 		CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		CE41928E29BAC267008FFC55 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitDynamicController.swift; sourceTree = "<group>"; };
 		CE4B201028922B8D004D9A91 /* JsonGifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonGifController.swift; sourceTree = "<group>"; };
 		CE6FD5F729B9AB7200EE4111 /* ActorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorController.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				CE41928D29BAC254008FFC55 /* Task */,
 				CE6FD5F629B9AB5A00EE4111 /* Actor */,
 				CE27434129A8B0C100A5F3FF /* SomeOrGeneric */,
 				CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */,
@@ -655,6 +658,14 @@
 				CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */,
 			);
 			path = Direction;
+			sourceTree = "<group>";
+		};
+		CE41928D29BAC254008FFC55 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				CE41928E29BAC267008FFC55 /* TaskController.swift */,
+			);
+			path = Task;
 			sourceTree = "<group>";
 		};
 		CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */ = {
@@ -958,6 +969,7 @@
 				52EAEA37294CF5B50050F2EC /* AssociatedtypesController.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
+				CE41928F29BAC267008FFC55 /* TaskController.swift in Sources */,
 				CE6FD5FA29B9C2BC00EE4111 /* ChartViewController.swift in Sources */,
 				523BD87628A8BE6300A62840 /* DBInit.swift in Sources */,
 				CEBB58662851DD87006A922C /* TestController.swift in Sources */,
