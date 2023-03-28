@@ -715,7 +715,7 @@ extension UIBarButtonItem {
         }
         let sleeve = ClosureSleeve(closure)
         let btn = UIBarButtonItem(title: "test", style: .plain, target: sleeve, action: #selector(ClosureSleeve.invoke))
-        objc_setAssociatedObject(self, "\(UUID())", sleeve, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        objc_setAssociatedObject(self, String(UUID().uuidString.prefix(15)), sleeve, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         return btn
     }
 }
