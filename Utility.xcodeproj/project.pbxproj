@@ -17,6 +17,8 @@
 		523BD87328A86DAD00A62840 /* GRDBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD87228A86DAD00A62840 /* GRDBController.swift */; };
 		523BD87628A8BE6300A62840 /* DBInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523BD87528A8BE6300A62840 /* DBInit.swift */; };
 		525F89FE28F832CF00C2E8DB /* RegularExpressionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */; };
+		526E95DF29D4690F00D3B06C /* CircleDragController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E95DE29D4690F00D3B06C /* CircleDragController.swift */; };
+		526E95E129D4691A00D3B06C /* CircleDragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E95E029D4691A00D3B06C /* CircleDragView.swift */; };
 		5290BE872920049C000AD325 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE862920049C000AD325 /* CircleProgressView.swift */; };
 		5290BE8929200780000AD325 /* CircleProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8829200780000AD325 /* CircleProgressViewController.swift */; };
 		5290BE8C2920CD2A000AD325 /* CATextLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */; };
@@ -80,11 +82,8 @@
 		CE362DCB28F7F5FA00B4DDF4 /* DirectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */; };
 		CE3FEC3929B04C5900B80A9C /* PlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FEC3829B04C5900B80A9C /* PlantModel.swift */; };
 		CE3FEC3B29B04C7B00B80A9C /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */; };
-		CE41928F29BAC267008FFC55 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41928E29BAC267008FFC55 /* TaskController.swift */; };
 		CE4985E129A4BD4B00BD1BFF /* UIKitDynamicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */; };
 		CE4B201128922B8D004D9A91 /* JsonGifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B201028922B8D004D9A91 /* JsonGifController.swift */; };
-		CE6FD5F829B9AB7200EE4111 /* ActorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FD5F729B9AB7200EE4111 /* ActorController.swift */; };
-		CE6FD5FA29B9C2BC00EE4111 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FD5F929B9C2BC00EE4111 /* ChartViewController.swift */; };
 		CE93B4682987943B004C4FF0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93B4672987943B004C4FF0 /* BaseView.swift */; };
 		CE93B46A2987946C004C4FF0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93B4692987946C004C4FF0 /* BaseViewController.swift */; };
 		CE985D14294B00060006B2B8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE985D13294B00060006B2B8 /* CircleView.swift */; };
@@ -140,6 +139,8 @@
 		523BD87228A86DAD00A62840 /* GRDBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBController.swift; sourceTree = "<group>"; };
 		523BD87528A8BE6300A62840 /* DBInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBInit.swift; sourceTree = "<group>"; };
 		525F89FD28F832CF00C2E8DB /* RegularExpressionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionController.swift; sourceTree = "<group>"; };
+		526E95DE29D4690F00D3B06C /* CircleDragController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDragController.swift; sourceTree = "<group>"; };
+		526E95E029D4691A00D3B06C /* CircleDragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDragView.swift; sourceTree = "<group>"; };
 		5290BE862920049C000AD325 /* CircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		5290BE8829200780000AD325 /* CircleProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressViewController.swift; sourceTree = "<group>"; };
 		5290BE8B2920CD2A000AD325 /* CATextLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATextLayerController.swift; sourceTree = "<group>"; };
@@ -205,11 +206,8 @@
 		CE362DCA28F7F5FA00B4DDF4 /* DirectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionController.swift; sourceTree = "<group>"; };
 		CE3FEC3829B04C5900B80A9C /* PlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantModel.swift; sourceTree = "<group>"; };
 		CE3FEC3A29B04C7B00B80A9C /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
-		CE41928E29BAC267008FFC55 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		CE4985E029A4BD4B00BD1BFF /* UIKitDynamicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitDynamicController.swift; sourceTree = "<group>"; };
 		CE4B201028922B8D004D9A91 /* JsonGifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonGifController.swift; sourceTree = "<group>"; };
-		CE6FD5F729B9AB7200EE4111 /* ActorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorController.swift; sourceTree = "<group>"; };
-		CE6FD5F929B9C2BC00EE4111 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		CE93B4672987943B004C4FF0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		CE93B4692987946C004C4FF0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE985D13294B00060006B2B8 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -323,7 +321,8 @@
 				CE985D13294B00060006B2B8 /* CircleView.swift */,
 				CE0E36F729A74FF300EE0D96 /* DonutController.swift */,
 				CE0E36F529A74FCE00EE0D96 /* DonutView.swift */,
-				CE6FD5F929B9C2BC00EE4111 /* ChartViewController.swift */,
+				526E95DE29D4690F00D3B06C /* CircleDragController.swift */,
+				526E95E029D4691A00D3B06C /* CircleDragView.swift */,
 			);
 			path = CircleProgressView;
 			sourceTree = "<group>";
@@ -393,8 +392,6 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
-				CE41928D29BAC254008FFC55 /* Task */,
-				CE6FD5F629B9AB5A00EE4111 /* Actor */,
 				CE27434129A8B0C100A5F3FF /* SomeOrGeneric */,
 				CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */,
 				CEFB938D298B9CDA003E1CE8 /* CMPedomemter */,
@@ -660,14 +657,6 @@
 			path = Direction;
 			sourceTree = "<group>";
 		};
-		CE41928D29BAC254008FFC55 /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				CE41928E29BAC267008FFC55 /* TaskController.swift */,
-			);
-			path = Task;
-			sourceTree = "<group>";
-		};
 		CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,14 +671,6 @@
 				CE4B201028922B8D004D9A91 /* JsonGifController.swift */,
 			);
 			path = JsonGif;
-			sourceTree = "<group>";
-		};
-		CE6FD5F629B9AB5A00EE4111 /* Actor */ = {
-			isa = PBXGroup;
-			children = (
-				CE6FD5F729B9AB7200EE4111 /* ActorController.swift */,
-			);
-			path = Actor;
 			sourceTree = "<group>";
 		};
 		CE93B46629879429004C4FF0 /* initView */ = {
@@ -969,8 +950,6 @@
 				52EAEA37294CF5B50050F2EC /* AssociatedtypesController.swift in Sources */,
 				5230F8A2280C0DDF00CFAF1F /* NetWorkManager.swift in Sources */,
 				5230F89C280BE17900CFAF1F /* InsideShadowController.swift in Sources */,
-				CE41928F29BAC267008FFC55 /* TaskController.swift in Sources */,
-				CE6FD5FA29B9C2BC00EE4111 /* ChartViewController.swift in Sources */,
 				523BD87628A8BE6300A62840 /* DBInit.swift in Sources */,
 				CEBB58662851DD87006A922C /* TestController.swift in Sources */,
 				CE0E36F629A74FCE00EE0D96 /* DonutView.swift in Sources */,
@@ -1022,6 +1001,7 @@
 				5290BE8C2920CD2A000AD325 /* CATextLayerController.swift in Sources */,
 				CE362DCB28F7F5FA00B4DDF4 /* DirectionController.swift in Sources */,
 				CE362DC828F7F5D800B4DDF4 /* DirectionUtil.swift in Sources */,
+				526E95E129D4691A00D3B06C /* CircleDragView.swift in Sources */,
 				CE21AD842817BCF80083169F /* ReplicatorLayerController.swift in Sources */,
 				5290BE94292FA2BE000AD325 /* CardCollectionViewController.swift in Sources */,
 				523BD86D28981D6400A62840 /* GCDBarrierController.swift in Sources */,
@@ -1044,6 +1024,7 @@
 				CEDC1C4928166FFE0038BE7F /* PageViewController.swift in Sources */,
 				CEC74558287801AA0019B95D /* UIImage+Gif.swift in Sources */,
 				CE009DC428408EF200065556 /* BasicAnimateController.swift in Sources */,
+				526E95DF29D4690F00D3B06C /* CircleDragController.swift in Sources */,
 				52CDD34627F1FBC3009A25FB /* Extensions.swift in Sources */,
 				525F89FE28F832CF00C2E8DB /* RegularExpressionController.swift in Sources */,
 				CE21AE7A28212E680083169F /* Coordinator.swift in Sources */,
@@ -1052,7 +1033,6 @@
 				CEDC1C46281635780038BE7F /* AnimateController.swift in Sources */,
 				52CDD33527F1F4C0009A25FB /* FMDBController.swift in Sources */,
 				52CDD34027F1F7F9009A25FB /* CoreDataManager.swift in Sources */,
-				CE6FD5F829B9AB7200EE4111 /* ActorController.swift in Sources */,
 				52CDD32B27F1E529009A25FB /* SQLModel.swift in Sources */,
 				CECF95B928000C4100FA81C8 /* AlertUtil.swift in Sources */,
 				52CDD34327F1F833009A25FB /* CoreDataModel.xcdatamodeld in Sources */,
