@@ -1,5 +1,5 @@
 import UIKit
-
+@available(iOS 13.0.0, *)
 class CircleDragController: UIViewController {
     let circleDragView = CircleDragView()
     override func viewDidLoad() {
