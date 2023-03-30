@@ -6,55 +6,87 @@ class CircleDragView: UIView {
     var lineWidth: CGFloat = 30
     var colors = [UIColor.black]
     let dot = UIView()
-    var lineLayer: CAShapeLayer!
     let moveView = UIView()
+    var degreeLayers = [CAShapeLayer]()
+    var startRadians: CGFloat = 0
+    var endRadians: CGFloat = 0
+    var centerX: CGFloat = 0
+    var centerY: CGFloat = 0
+    var radius: CGFloat = 0
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         self.rect = rect
-        layout(rect)
         
+        centerX = rect.width / 2
+        centerY = rect.height / 2
+        radius = rect.width / 2 - lineWidth / 2
+        
+        layout(rect)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchToMoveAction(touches)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchToMoveAction(touches)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchToMoveAction(touches)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchToMoveAction(touches)
+    }
+}
+ 
+extension CircleDragView {
+    // 度數轉弧度
+    func degreesToRadians(_ degrees: CGFloat) -> CGFloat {
+        return degrees * .pi / 180.0
+    }
+
+    // 弧度轉度數
+    func radiansToDegrees(_ radians: CGFloat) -> CGFloat {
+        return radians * 180.0 / .pi
     }
     
     func layout(_ rect: CGRect) {
         outside(rect)
-        lineLayer = insideLine(rect)
+        
+        moveView.transform = CGAffineTransform(rotationAngle: -90 * CGFloat.pi/180)
+        addSubview(moveView)
+        moveView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         dot.layer.cornerRadius = 15
         dot.backgroundColor = .yellow
         dot.center = CGPoint(x: 0.5, y: 0.5)
-        addSubview(dot)
+        moveView.addSubview(dot)
         dot.snp.makeConstraints { make in
             make.size.equalTo(30)
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
         }
         
-//        moveView.transform = CGAffineTransform(rotationAngle: -90 * CGFloat.pi/180)
-        addSubview(moveView)
-        moveView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        for i in 0..<360 {
+            let path = UIBezierPath()
+            let center = CGPoint(x: centerX, y: centerY)
+            path.move(to: center)
+            path.addArc(withCenter: center, radius: radius + 50, startAngle: degreesToRadians(CGFloat(i)), endAngle: degreesToRadians(CGFloat(i) + 1), clockwise: true)
+            path.addLine(to: center)
+            path.close()
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.path = path.cgPath
+            shapeLayer.strokeColor = UIColor.clear.cgColor
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            shapeLayer.lineWidth = 2.0
+            moveView.layer.addSublayer(shapeLayer)
+            degreeLayers.append(shapeLayer)
         }
-//        print(lineLayer.path)
-    }
-    
-    func insideLine(_ rect: CGRect) -> CAShapeLayer {
-        let circleView = UIView()
-        let lineLayer = CAShapeLayer()
-        lineLayer.frame = rect
-        lineLayer.position = CGPoint(x: rect.width / 2, y: rect.height / 2)
-        lineLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: rect.width, height: rect.height)).cgPath
-        lineLayer.lineWidth = 1
-        lineLayer.lineCap = .butt
-        lineLayer.fillColor = UIColor.clear.cgColor
-        lineLayer.strokeColor = UIColor.black.cgColor
-        lineLayer.transform = CATransform3DRotate(CATransform3DIdentity, -CGFloat(Double.pi / 2), 0, 0, 1)
-        circleView.layer.addSublayer(lineLayer)
-        addSubview(circleView)
-        circleView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        return lineLayer
     }
     
     func outside(_ rect: CGRect) {
@@ -75,150 +107,40 @@ class CircleDragView: UIView {
         }
     }
     
-    func getCirclePoint(x: CGFloat? = nil, y: CGFloat? = nil) -> CGPoint {
-        let centerX: CGFloat = rect.width / 2
-        let centerY: CGFloat = rect.width / 2
-        let radius: CGFloat = rect.width / 2
-        if let x = x {
-            var angleInRadians: CGFloat = 0
-            if x >= centerX {
-                angleInRadians = acos((x - centerX) / radius)
-            } else {
-                angleInRadians = 2 * CGFloat.pi + acos((x - centerX) / radius)
-            }
-            let y = centerY + radius * sin(angleInRadians)
-            return CGPoint(x: x, y: y)
-        } else if let y = y {
-            var angleInRadians: CGFloat = 0
-            if y >= centerY {
-                angleInRadians = asin((y - centerY) / radius)
-            } else {
-                angleInRadians = 2 * CGFloat.pi - asin((y - centerY) / radius)
-            }
-            let x = centerX + radius * cos(angleInRadians)
-            return CGPoint(x: x, y: y)
-        }
-        return .zero
-    }
-    
-    func checkPoint(_ point: CGPoint) -> CGPoint {
-        var point = point
-        if point.x > rect.width {
-            point.x = rect.width
-        } else if point.x < 0 {
-            point.x = 0
-        }
-        
-        if point.y > rect.height {
-            point.y = rect.height
-        } else if point.y < 0 {
-            point.y = 0
-        }
-        return point
+    func touchToMoveAction(_ touches: Set<UITouch>) {
+        let touchPoint = touchToPoint(touches)
+        let radians = getRadians(touchPoint)
+        let circlePoint = getCirclePoint(radians)
+        dragPointAction(circlePoint)
     }
     
     func touchToPoint(_ touches: Set<UITouch>) -> CGPoint {
         guard let touch = touches.first else { return .zero }
-        let point = touch.location(in: self)
-        let newPoint = checkPoint(point)
-        
-        
-        return newPoint
+        return touch.location(in: moveView)
     }
     
-    func choosePoint(_ point: CGPoint) -> CGPoint {
-        let centerX: CGFloat = rect.width / 2
-        let centerY: CGFloat = rect.width / 2
-        let pointOnArcFromX = getCirclePoint(x: point.x)
-        var pointOnArcX = pointOnArcFromX
-        if point.y < centerY {
-            let temp = pointOnArcX.y - centerY
-            pointOnArcX.y = centerY - temp
+    func getRadians(_ point: CGPoint) -> CGFloat {
+        var index: CGFloat = 0
+        for (i, degreeLayer) in degreeLayers.enumerated() {
+            if degreeLayer.path!.contains(point) {
+                index = CGFloat(i)
+                break
+            }
         }
-        
-        
-        let pointOnArcFromY = getCirclePoint(y: point.y)
-        var pointOnArcY = pointOnArcFromY
-        if point.x < centerX {
-            let temp = pointOnArcY.x - centerX
-            pointOnArcY.x = centerX - temp
-        }
-        
-        let distanceX = sqrt(pow(abs(point.x - pointOnArcX.x), 2) + pow(abs(point.y - pointOnArcX.y), 2))
-        let distanceY = sqrt(pow(abs(point.x - pointOnArcY.x), 2) + pow(abs(point.y - pointOnArcY.y), 2))
-        return distanceX < distanceY ? pointOnArcX : pointOnArcY
-//        if distanceX > distanceY {
-//            let pointOnArcFromX = getCirclePoint(x: point.x)
-//            var pointOnArc = pointOnArcFromX
-//            if point.y < centerY {
-//                let temp = pointOnArc.y - centerY
-//                pointOnArc.y = centerY - temp
-//            }
-//            return pointOnArc
-//        } else {
-//            let pointOnArcFromY = getCirclePoint(y: point.y)
-//            var pointOnArc = pointOnArcFromY
-//            if point.x < centerX {
-//                let temp = pointOnArc.x - centerX
-//                pointOnArc.x = centerX - temp
-//            }
-//            return pointOnArc
-//        }
+        return degreesToRadians(index)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let point = touchToPoint(touches)
-        
-        let pointOnArc = choosePoint(point)
+    func getCirclePoint(_ radians: CGFloat) -> CGPoint {
+        let x = centerX + radius * cos(radians)
+        let y = centerY + radius * sin(radians)
+        return CGPoint(x: x, y: y)
+    }
+    
+    func dragPointAction(_ point: CGPoint) {
         dot.snp.remakeConstraints { make in
-            make.size.equalTo(30)
-            make.top.equalToSuperview().inset(pointOnArc.y - 15)
-            make.leading.equalToSuperview().inset(pointOnArc.x - 15)
+            make.size.equalTo(lineWidth)
+            make.top.equalToSuperview().inset(point.y - lineWidth / 2)
+            make.leading.equalToSuperview().inset(point.x - lineWidth / 2)
         }
-        
-//        let centerX: CGFloat = rect.width / 2
-//        let centerY: CGFloat = rect.width / 2
-//        let radius: CGFloat = rect.width / 2
-//        let angleInDegrees: CGFloat = 90
-//
-//        // 将角度转换为弧度
-//        let angleInRadians = angleInDegrees * CGFloat.pi / 180.0
-//        print(angleInRadians)
-//        // 计算圆弧上点的坐标
-//        let x = centerX + radius * cos(angleInRadians)
-//        let y = centerY + radius * sin(angleInRadians)
-//        print(x)
-//        let ddd = acos((x - centerX) / radius)
-//        print(ddd)
-//        let ddd2 = 2 * CGFloat.pi - acos((x - centerX) / radius)
-//        print(ddd2)
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let point = touchToPoint(touches)
-        
-        let pointOnArc = choosePoint(point)
-        dot.snp.remakeConstraints { make in
-            make.size.equalTo(30)
-            make.top.equalToSuperview().inset(pointOnArc.y - 15)
-            make.leading.equalToSuperview().inset(pointOnArc.x - 15)
-        }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("cancel")
-        
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let point = touchToPoint(touches)
-        
-        let pointOnArc = choosePoint(point)
-        dot.snp.remakeConstraints { make in
-            make.size.equalTo(30)
-            make.top.equalToSuperview().inset(pointOnArc.y - 15)
-            make.leading.equalToSuperview().inset(pointOnArc.x - 15)
-        }
-        
     }
 }
