@@ -14,6 +14,7 @@ class GRDBController: UIViewController {
     var datas = [Player]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let _ = DBManager.shared
         readData { data in
             self.datas = data
             print(data.count)

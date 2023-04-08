@@ -59,6 +59,7 @@
 		52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91428145718001AE32E /* CollectionViewCell.swift */; };
 		52EAEA37294CF5B50050F2EC /* AssociatedtypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAEA36294CF5B50050F2EC /* AssociatedtypesController.swift */; };
 		52EB6E7828BFD1E400D85784 /* ResponderChainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */; };
+		52FCCD4329E1CA66000405EE /* DecodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FCCD4229E1CA66000405EE /* DecodeController.swift */; };
 		862A908A6CEBF906E68AEF34 /* Pods_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBF6AA440EFC3F2B1837B60 /* Pods_Utility.framework */; };
 		CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324728F8F235006C6A0D /* SwiftView.swift */; };
 		CE00324B28F8F739006C6A0D /* PATController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00324A28F8F739006C6A0D /* PATController.swift */; };
@@ -183,6 +184,7 @@
 		52D3F91428145718001AE32E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		52EAEA36294CF5B50050F2EC /* AssociatedtypesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedtypesController.swift; sourceTree = "<group>"; };
 		52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderChainController.swift; sourceTree = "<group>"; };
+		52FCCD4229E1CA66000405EE /* DecodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeController.swift; sourceTree = "<group>"; };
 		7FDFB702E0A02C9638AE895C /* Pods-Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utility.release.xcconfig"; path = "Target Support Files/Pods-Utility/Pods-Utility.release.xcconfig"; sourceTree = "<group>"; };
 		CE00324728F8F235006C6A0D /* SwiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftView.swift; sourceTree = "<group>"; };
 		CE00324A28F8F739006C6A0D /* PATController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PATController.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				52C989DF27F067860048F4CD /* AppDelegate.swift */,
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
+				52FCCD4129E1CA56000405EE /* Decode */,
 				CE27434129A8B0C100A5F3FF /* SomeOrGeneric */,
 				CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */,
 				CEFB938D298B9CDA003E1CE8 /* CMPedomemter */,
@@ -555,6 +558,14 @@
 				52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */,
 			);
 			path = ResponderChain;
+			sourceTree = "<group>";
+		};
+		52FCCD4129E1CA56000405EE /* Decode */ = {
+			isa = PBXGroup;
+			children = (
+				52FCCD4229E1CA66000405EE /* DecodeController.swift */,
+			);
+			path = Decode;
 			sourceTree = "<group>";
 		};
 		61DB433CEDD903C35A583310 /* Pods */ = {
@@ -961,6 +972,7 @@
 				CE35664B289BB5A800910ADF /* VisionController.swift in Sources */,
 				CEFA4D29283F213700F34727 /* AnimateLabelAnimateLabelView.swift in Sources */,
 				CEDF979A28471C74007F1B8D /* MulitipleAlertController.swift in Sources */,
+				52FCCD4329E1CA66000405EE /* DecodeController.swift in Sources */,
 				52C989E027F067860048F4CD /* AppDelegate.swift in Sources */,
 				CE2124E028360F7D00F230C7 /* PaddingTextField.swift in Sources */,
 				CEBE4BAD282BB44A00E15D70 /* CoordinatorCombine.swift in Sources */,
