@@ -17,6 +17,7 @@ class CombineController: UIViewController {
     let classCVS = CurrentValueSubject<TestClass, Error>(TestClass())
     let label = UILabel()
     
+    var cancel: Subscription?
     @Published var intValue: Int = 2
     @Published var addValue: Int = 0
     
@@ -24,6 +25,19 @@ class CombineController: UIViewController {
         super.viewDidLoad()
         setupUI()
         bind()
+        
+        
+        let sss = MySubscriber()
+        sss.getSubscription { [weak self] subscription in
+            self?.cancel = subscription
+        }
+        $addValue.subscribe(sss)
+//            .subscribe(MySubscriber())
+        print(cancel)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            print(self?.cancel)
+            self?.cancel?.cancel()
+        }
     }
     
     func bind() {
@@ -107,6 +121,37 @@ extension CombineController {
         btn2.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview()
+        }
+    }
+    
+    class MySubscriber: Subscriber {
+        typealias Input = Int // 設置訂閱的流的輸入類型為 String
+        typealias Failure = Never // 設置錯誤類型為 Error
+        
+        var action: ((Subscription?) -> Void)?
+        
+        func receive(subscription: Subscription) {
+            print("first")
+            subscription.request(.unlimited) // 設置訂閱流的需求為不限量
+            action?(subscription)
+        }
+        
+        func receive(_ input: Int) -> Subscribers.Demand {
+            print("Received input: \(input)")
+            return .unlimited // 設置返回的需求為不限量
+        }
+        
+        func receive(completion: Subscribers.Completion<Never>) {
+            switch completion {
+            case .finished:
+                print("Subscription completed successfully")
+            case .failure(let error):
+                print("Subscription completed with an error: \(error.localizedDescription)")
+            }
+        }
+        
+        func getSubscription(closure: @escaping (Subscription?) -> Void) {
+            action = closure
         }
     }
 }
