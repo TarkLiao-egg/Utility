@@ -109,6 +109,8 @@
 		CEDF979B28471C74007F1B8D /* SingleAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF979928471C74007F1B8D /* SingleAlertController.swift */; };
 		CEE138E32898FFD20088419B /* PhotoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE138E22898FFD20088419B /* PhotoUtil.swift */; };
 		CEE138EE2899160E0088419B /* ShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE138ED2899160E0088419B /* ShareModel.swift */; };
+		CEE4932D29D58A0000F07227 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE4932C29D58A0000F07227 /* KeychainManager.swift */; };
+		CEE4932F29D58A2100F07227 /* KeychainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE4932E29D58A2100F07227 /* KeychainController.swift */; };
 		CEEE7FEF2852F9B50046CB2F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE7FEE2852F9B50046CB2F /* APIService.swift */; };
 		CEF25757285B1FAE00FB26C9 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF25756285B1FAE00FB26C9 /* ShareController.swift */; };
 		CEF51E1F284D8EB700DFFB35 /* TransitionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */; };
@@ -237,6 +239,8 @@
 		CEDF979928471C74007F1B8D /* SingleAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAlertController.swift; sourceTree = "<group>"; };
 		CEE138E22898FFD20088419B /* PhotoUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUtil.swift; sourceTree = "<group>"; };
 		CEE138ED2899160E0088419B /* ShareModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareModel.swift; sourceTree = "<group>"; };
+		CEE4932C29D58A0000F07227 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		CEE4932E29D58A2100F07227 /* KeychainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainController.swift; sourceTree = "<group>"; };
 		CEEE7FEE2852F9B50046CB2F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		CEF25756285B1FAE00FB26C9 /* ShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		CEF51E1E284D8EB700DFFB35 /* TransitionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionUtil.swift; sourceTree = "<group>"; };
@@ -399,6 +403,7 @@
 				52C989E127F067860048F4CD /* SceneDelegate.swift */,
 				CEBB58652851DD87006A922C /* TestController.swift */,
 				52FCCD4129E1CA56000405EE /* Decode */,
+				CEE4932B29D589EB00F07227 /* keychain */,
 				CE27434129A8B0C100A5F3FF /* SomeOrGeneric */,
 				CE4985DF29A4BD2E00BD1BFF /* UIKitDynamic */,
 				52FCCD4429E1D24B000405EE /* Sprite */,
@@ -789,6 +794,15 @@
 			path = UtilityTests;
 			sourceTree = "<group>";
 		};
+		CEE4932B29D589EB00F07227 /* keychain */ = {
+			isa = PBXGroup;
+			children = (
+				CEE4932C29D58A0000F07227 /* KeychainManager.swift */,
+				CEE4932E29D58A2100F07227 /* KeychainController.swift */,
+			);
+			path = keychain;
+			sourceTree = "<group>";
+		};
 		CEF25755285B1F9C00FB26C9 /* Share */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,6 +994,7 @@
 				CEBB58662851DD87006A922C /* TestController.swift in Sources */,
 				CE0E36F629A74FCE00EE0D96 /* DonutView.swift in Sources */,
 				CEFB938F298B9D00003E1CE8 /* CMPedomemterController.swift in Sources */,
+				CEE4932F29D58A2100F07227 /* KeychainController.swift in Sources */,
 				CE21AE092818F8150083169F /* ReuseUI.swift in Sources */,
 				52C989F727F06A430048F4CD /* FunctionViewController.swift in Sources */,
 				523BD87328A86DAD00A62840 /* GRDBController.swift in Sources */,
@@ -1002,6 +1017,7 @@
 				CE118E052988A3A8002AF095 /* CustomDiffCollectionView.swift in Sources */,
 				CEFA4D2D283F4D5B00F34727 /* WaveView.swift in Sources */,
 				52B4F4912849D9F10042033E /* CWBanner.swift in Sources */,
+				CEE4932D29D58A0000F07227 /* KeychainManager.swift in Sources */,
 				CE4985E129A4BD4B00BD1BFF /* UIKitDynamicController.swift in Sources */,
 				CE00324828F8F235006C6A0D /* SwiftView.swift in Sources */,
 				5290BE90292FA282000AD325 /* CardViewLayout.swift in Sources */,

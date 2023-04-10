@@ -78,7 +78,7 @@ extension ShareController: UIActivityItemSource {
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, thumbnailImageForActivityType activityType: UIActivity.ActivityType?, suggestedSize size: CGSize) -> UIImage? {
-        return UIImage(named: "myCollect")!
+        return UIImage(named: "bead_1")!
     }
     
     // The metadata we want the system to represent as a rich link
@@ -89,7 +89,7 @@ extension ShareController: UIActivityItemSource {
         metadata.title = "myCollect" // Preview Title
 
     // Set image
-        let img: NSItemProvider = NSItemProvider(object: UIImage(named: "myCollect")!)
+        let img: NSItemProvider = NSItemProvider(object: UIImage(named: "bead_1")!)
         metadata.imageProvider = img
         metadata.iconProvider = img
         metadata.url = url
