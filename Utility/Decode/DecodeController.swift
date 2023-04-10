@@ -86,6 +86,33 @@ class DecodeController: UIViewController {
             print(error)
         }
 
+        
+        var jsonData = """
+        {
+            "id":1
+        }
+        """.data(using: .utf8)!
+        var result = try! JSONDecoder().decode(Song.self, from: jsonData)
+        print(result)
+
+        jsonData = """
+        {
+            "id":1,
+            "file":null
+        }
+        """.data(using: .utf8)!
+        result = try! JSONDecoder().decode(Song.self, from: jsonData)
+        print(result)
+
+        jsonData = """
+        {
+            "id":1,
+            "file":\"https://test.com/m.mp3\"
+        }
+        """.data(using: .utf8)!
+        result = try! JSONDecoder().decode(Song.self, from: jsonData)
+        print(result)
+
     }
 }
 
@@ -304,5 +331,38 @@ class Customer : Codable {
         
         try container.encodeIfPresent(self.CustomerType, forKey: Customer.CodingKeys.CustomerType)
         try container.encodeIfPresent(self.Balance, forKey: Customer.CodingKeys.Balance)
+    }
+}
+
+struct Song: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case id
+        case file
+    }
+    enum OptionalValue<T: Decodable>: Decodable {
+        case null
+        case value(T)
+        init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            if let value = try? container.decode(T.self) {
+                self = .value(value)
+            } else {
+                self = .null
+            }
+        }
+    }
+    var id: Int
+    var file: OptionalValue<String>?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decode(Int.self, forKey: .id)
+        
+        if container.contains(.file) {
+            self.file = try container.decode(OptionalValue<String>.self, forKey: .file)
+        } else {
+            self.file = nil
+        }
     }
 }
