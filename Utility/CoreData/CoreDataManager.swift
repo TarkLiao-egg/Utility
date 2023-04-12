@@ -1,5 +1,5 @@
 import Foundation
-import RxSwift
+//import RxSwift
 import CoreData
 
 class CoreDataManager: NSObject, CRUD, NSFetchedResultsControllerDelegate {
@@ -20,7 +20,7 @@ class CoreDataManager: NSObject, CRUD, NSFetchedResultsControllerDelegate {
     var transactionsCount = 0
     var transactionsDetailCount = 0
     
-    func getTransactions() -> Single<[Transaction]> {
+    func getTransactions() -> Result<[Transaction], Never> {
         let fetchRequestUpdate = NSFetchRequest<TransactionCDB>(entityName: "TransactionDetailCDB")
         do {
             let deletes = try context.fetch(fetchRequestUpdate)
@@ -61,10 +61,10 @@ class CoreDataManager: NSObject, CRUD, NSFetchedResultsControllerDelegate {
         } catch {
             print(error)
         }
-        return Single.just(transactions)
+        return Result.success(transactions)
     }
     
-    func postTransactions(param: TransactionPost) -> Single<[Transaction]> {
+    func postTransactions(param: TransactionPost) -> Result<[Transaction], Never> {
         let post = NSEntityDescription.insertNewObject(forEntityName: "TransactionCDB", into: context) as! TransactionCDB
         post.id = Int64(transactionsCount)
         transactionsCount += 1
@@ -87,7 +87,7 @@ class CoreDataManager: NSObject, CRUD, NSFetchedResultsControllerDelegate {
         return getTransactions()
     }
     
-    func putTransactions(id: Int, param: TransactionPost) -> Single<[Transaction]> {
+    func putTransactions(id: Int, param: TransactionPost) -> Result<[Transaction], Never> {
         let fetchRequestUpdate = NSFetchRequest<TransactionCDB>(entityName: "TransactionCDB")
         fetchRequestUpdate.fetchLimit = 1
         fetchRequestUpdate.predicate = NSPredicate(format: "id == \(id)")
@@ -117,7 +117,7 @@ class CoreDataManager: NSObject, CRUD, NSFetchedResultsControllerDelegate {
         return getTransactions()
     }
     
-    func deleteTransactions(id: Int) -> Single<[Transaction]> {
+    func deleteTransactions(id: Int) -> Result<[Transaction], Never> {
         let fetchRequestDelete = NSFetchRequest<TransactionCDB>(entityName: "TransactionCDB")
         fetchRequestDelete.fetchLimit = 1
         fetchRequestDelete.predicate = NSPredicate(format: "id == \(id)")

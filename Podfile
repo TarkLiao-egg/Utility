@@ -10,10 +10,7 @@ target 'Utility' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'lottie-ios'
   pod 'CryptoSwift'
-  pod 'RxSwift', '~> 4'
-  pod 'Moya/RxSwift', '~> 13.0'
-  pod 'RxCocoa', '~> 4', :inhibit_warnings => true
-  pod 'Alamofire', '~> 4.9.1'
+  pod 'Alamofire'
   pod 'GRDB.swift', '~> 5.26.0' 
 
 #  pod 'Moya', '~> 15.0.0'
@@ -24,14 +21,8 @@ end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    if target.name == 'RxCocoa'
-      puts "Patching RxCocoa references to UIWebView"
-      
-      root = File.join(File.dirname(installer.pods_project.path), 'RxCocoa')
-      `chflags -R nouchg #{root}`
-      `grep --include=UIWebView+Rx.swift -rl '#{root}' -e "os\(iOS\)" | xargs sed -i '' 's/os(iOS)/false/'`
-      `grep --include=RxWebViewDelegateProxy.swift -rl '#{root}' -e "os\(iOS\)" | xargs sed -i '' 's/os(iOS)/false/'`
-      `grep --include=Deprecated.swift -rl '#{root}' -e "extension UIWebView" | xargs sed -i '' '/extension UIWebView/{N;N;N;N;N;d;}'`
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
     end
   end
 end

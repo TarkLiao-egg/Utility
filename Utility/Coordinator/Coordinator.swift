@@ -1,15 +1,16 @@
 import Foundation
 import UIKit
 import SafariServices
-import RxCocoa
+import Combine
 
 enum StoryName: String {
     case main = "Main"
 }
 
+@available(iOS 13.0, *)
 class Coordinator {
     static let shared = Coordinator()
-    let mainTabPR = PublishRelay<Int>()
+    let mainTabPS = PassthroughSubject<Int, Never>()
     
     static func presentTo<T: UIViewController>(_ current: UIViewController?, _ navType: T.Type, _ storyName: StoryName, isNavigation: Bool = true, beforeAction: ((T) -> (T))? = nil, completion: (() -> Void)? = nil) {
         guard let current = current else { return }

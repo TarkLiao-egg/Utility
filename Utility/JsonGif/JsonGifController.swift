@@ -3,7 +3,7 @@ import Lottie
 
 class JsonGifController: UIViewController {
     
-    let gif = AnimationView(name: "animate")
+    let gif = LottieAnimationView(asset: "animate")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class JsonGifController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func playAnimate(_ animateView: AnimationView) {
+    func playAnimate(_ animateView: LottieAnimationView) {
         if animateView.isAnimationPlaying {
             animateView.stop()
             return
