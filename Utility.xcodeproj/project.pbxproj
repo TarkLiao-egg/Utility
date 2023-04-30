@@ -59,6 +59,7 @@
 		52D3F91528145718001AE32E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D3F91428145718001AE32E /* CollectionViewCell.swift */; };
 		52EAEA37294CF5B50050F2EC /* AssociatedtypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EAEA36294CF5B50050F2EC /* AssociatedtypesController.swift */; };
 		52EB6E7828BFD1E400D85784 /* ResponderChainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */; };
+		52ED647029FDFA20002E0C35 /* CompositionalLayoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED646F29FDFA20002E0C35 /* CompositionalLayoutController.swift */; };
 		52FCCD4329E1CA66000405EE /* DecodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FCCD4229E1CA66000405EE /* DecodeController.swift */; };
 		52FCCD4729E1D262000405EE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 52FCCD4529E1D262000405EE /* GameScene.sks */; };
 		52FCCD4829E1D262000405EE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FCCD4629E1D262000405EE /* GameScene.swift */; };
@@ -188,6 +189,7 @@
 		52D3F91428145718001AE32E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		52EAEA36294CF5B50050F2EC /* AssociatedtypesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedtypesController.swift; sourceTree = "<group>"; };
 		52EB6E7728BFD1E400D85784 /* ResponderChainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderChainController.swift; sourceTree = "<group>"; };
+		52ED646F29FDFA20002E0C35 /* CompositionalLayoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutController.swift; sourceTree = "<group>"; };
 		52FCCD4229E1CA66000405EE /* DecodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeController.swift; sourceTree = "<group>"; };
 		52FCCD4529E1D262000405EE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = Utility/Sprite/GameScene.sks; sourceTree = SOURCE_ROOT; };
 		52FCCD4629E1D262000405EE /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Utility/Sprite/GameScene.swift; sourceTree = SOURCE_ROOT; };
@@ -550,6 +552,7 @@
 				52D3F91428145718001AE32E /* CollectionViewCell.swift */,
 				CE192B712914F25700CFAA56 /* CustomCollectionView.swift */,
 				CE118E042988A3A8002AF095 /* CustomDiffCollectionView.swift */,
+				52ED646F29FDFA20002E0C35 /* CompositionalLayoutController.swift */,
 			);
 			path = UICollectionView;
 			sourceTree = "<group>";
@@ -985,6 +988,7 @@
 				CE985D14294B00060006B2B8 /* CircleView.swift in Sources */,
 				CEBE4BB0282CF34700E15D70 /* CombineController.swift in Sources */,
 				CEF25757285B1FAE00FB26C9 /* ShareController.swift in Sources */,
+				52ED647029FDFA20002E0C35 /* CompositionalLayoutController.swift in Sources */,
 				52B4F4932849DA080042033E /* CWSwiftFlowLayout.swift in Sources */,
 				52D0461C290C379A00255D67 /* ConvertPointController.swift in Sources */,
 				52EAEA37294CF5B50050F2EC /* AssociatedtypesController.swift in Sources */,
